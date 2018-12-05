@@ -32,7 +32,7 @@ ___
   
   
   
-  
+ 
 ## Preface
 
 This book is a work in progress on the thoughts of an R programmer (the author) moving to (or learning) Python. It is intended as a comparison of R and Python for those already using R. The hop is to ease the way for those in particular newer to programming as opposed to the quick task oriented scripting which R lends itself so well to. 
