@@ -1,0 +1,1310 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={R to Python},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{R to Python}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{,}\StringTok{"reticulate"}\NormalTok{)}
+\CommentTok{# or the development version}
+\CommentTok{# devtools::install_github("rstudio/bookdown")}
+\end{Highlighting}
+\end{Shaded}
+
+\chapter{Front Material}\label{front-material}
+
+\section{Colophon}\label{colophon}
+
+R to Python
+
+Thoughts of an R programmer Learning Python
+
+\begin{figure}
+\centering
+\includegraphics{Janus-iStock-494706611alpha.png}
+\caption{Janus}
+\end{figure}
+
+by David A York
+
+Copyright 2018 David A York
+
+\url{http://crunches-data.appspot.com/contact.html}
+
+This manuscript may be freely copied and distributed, under the MIT
+Licence
+
+self-published, on Toth-York Imprint, Calhoun GA USA, November 27, 2018
+
+\url{https://github.com/medmatix/RtoPythonThoughts}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{quote}
+``In ancient Roman religion and myth, Janus (/ˈdʒeɪnəs/; Latin: IANVS
+(Iānus), pronounced {[}ˈjaː.nus{]}) is the god of beginnings, gates,
+transitions, time, duality, doorways,{[}1{]} passages, and endings. He
+is usually depicted as having two faces, since he looks to the future
+and to the past.''
+\end{quote}
+
+\begin{quote}
+from Wikipedia, \url{https://en.wikipedia.org/wiki/Janus}, accessed 27
+November, 2018 at 4:17PM
+\end{quote}
+
+\section{Preface}\label{preface}
+
+This book is a work in progress on the thoughts of an R programmer (the
+author) moving to (or learning) Python. It is intended as a comparison
+of R and Python for those already using R. The hop is to ease the way
+for those in particular newer to programming as opposed to the quick
+task oriented scripting which R lends itself so well to.
+
+As with any language the most visible presence on line are the hardened
+champions of the languages with the pressure to standardization (not a
+bad thing per-se) and dogmatic adherence to the ``blah blah'' way of
+doing things (which is desirable I think).
+
+Having started as an R user, then as an R programmer, I have relatively
+recently embarked on learning python as well. Why I would do this is
+rather complicated to explain, particularly as I had knowledge of other
+general programming languages, which would conceivably serve such a
+role, particularly BASIC and Java. Suffice to say that as a budding Data
+Scientist I see lots of reasons to know both R and Python. BASIC, though
+still extant it is very limited in support and relevant libraries by
+comparison. Java . . . well, as a strong open source advocate I feel
+Java is bound to Oracle in many ways for all time. It is likely they
+have no intention of truly releasing it into the public domain, ever.
+There is far more rationel to learn C++ these days than Java for the
+sake of what is arguably only minor difference in learning curve.
+
+I absolutely love R! When I returned to school to study Applied Math and
+Statistics it was an ever present partner for me. It could do most
+things I needed, though matrix math was less smooth than Matlab the
+price was right (not withstanding Octave or Scilab). However, I
+increasingly found the need for a general purpose programming language
+and Python was there growing in the guise of `the' data science
+alternative.
+
+But while R was great with vectorized functions python, at it's core,
+was weak in this regard. The libraries for python have been growing
+steadily in number and variety, and the functionality gap between it and
+R narrows in cluding for vectorized application. I still cannot see a
+Data Scientist being as productive not knowing R at this point. However,
+I see no reason not to also know Python - ergo, I think any serious Data
+Science needs to know both; AND, there is the added incentive of the
+interoperability of R and Python (and C++)! From R we have
+\href{https://cran.cnr.berkeley.edu/web/packages/XRPython/index.html}{XRPython}
+and
+\href{https://cran.cnr.berkeley.edu/web/packages/reticulate/index.html}{reticulate}
+and from Python we have \href{https://rpy2.bitbucket.io/}{Rpy2}.
+
+The Organization of the book is in 2 parts. A close Comparison and
+discussion of R and Python unburdened with a mandate to teach beginning
+programming in either. The is overview of part 1, I only touch quite
+generally on the nature of the usual programming sturctures. Variables,
+datatypes and data structures, binary decisions, repeating code blocks
+and so are part of all declarative or functional programming language -
+the rest is just details. The Same can be side for laguages introducing
+object-oriented programming models.
+
+In the second part of the book, an opportunity is taken to compare how
+data science is done in R and Python in the various domains we work.
+
+One could consider this as a second source for R users learning python,
+after the beginner courses to get the python syntax vocabulary.
+
+\chapter{Introduction}\label{introduction}
+
+Learning a new programming or scripting language begs comparison. Often
+this is not overly helpful to the learner who, coming from a zone of
+comfort is often frustrated by old subtleties not consciously
+recognized, being yet unknown in the new. I recall a family member,
+completely new to computers, saying why doesn't it know what I mean
+expecting the implied parts of language to transfer from English (or
+German, or Chinese etc.) to computer language.
+
+R writers early on recognize the absence of vectorization of functions
+in core python. It's available though in numpy and pandas, but base
+python doesn't have it and they miss it. You'll get there, really.
+Object Orientation is also not natural to either R or Python. It came
+later to both, but it seems more smoothly accomplished by python than R.
+
+I soon realized, though that you had to know the programming
+commonalities of python first; R comparisons really should start with
+the libraries of python. R in someways has cut right to the data science
+chase often at the expense of strong programming constructs. This is the
+nod to interactive coding and scripting rather than the need to
+undertake formal programming. Python began early on with a scripting
+functionality but it wasn't until the development of iPython the
+interactive python could be realized in the way that R users were used
+to.
+
+All this is not to say that R was lacking in basic programming
+constructs from the start, it wasn't; but he proportion of users who
+used R in a quick-and-dirty small problem focused way was very high.
+This suited it's use in a statistical learning environment. I should
+think that those who try to start python at the same time as their first
+statistics course will find the learning curve too steep to help with
+the statistics part of the need.
+
+\part{R and Python, Side by
+Side}\label{part-r-and-python-side-by-side}
+
+\chapter{A Comparative Look}\label{a-comparative-look}
+
+As already mentioned, it is not the intent of this treatise to teach
+either beginning R or python scripting. There are many good sources for
+this and yet another beginners book or tutorial is, I believe, not
+needed. For ease of reference I include
+\href{https://github.com/medmatix/RtoPythonThoughts/blob/master/Appendix_1.md}{Appendix1}
+as an overview of relevant R and python syntax for the general
+programming constructs any functional language. In Part 1, at the risk
+of being pedantic, I am simply giviing a fairly generic overview of the
+components of the typical script or program as a framework to be used in
+organizing our R and Python comparisons.
+
+\section{Functional Programming
+Commonalities.}\label{functional-programming-commonalities.}
+
+In functional programming operational code is incorporated by task and
+purpose into blocks of code which are called by name in the body of a
+script. This usually includes some connecting statemts and assignments
+which cause the functions to operate together to accomplish some larger
+task.
+
+Historically, Fortran and Basic code in common accademic and educational
+use, became unwieldy as users became, more and more, writers of rampant
+spagetti code.The introduction of the concept of `structured
+programming' and the uniform reliance on subroutine and function call
+tamed the spagetti-monster. Extension to functional programming with
+pascal and modern C was a natural extension of this trend.
+
+So the reliance of R and Python on script collections of functions
+calling each other is what we are at now. Functions are subprograms that
+have all the statement tasks common to most programs. I will deal in a
+general way with these statement types and include comparsions between
+how R and Python each express the tasks. It is not the intent of this
+book to actually teach beginning programming as previously mentioned.
+Consult the bibliography for some suggested sources for peginning
+programmers.
+
+The later innovation of object oriented programming concepts evolving
+from this will be touched on in a comparative fashion in another
+chapter.
+
+\subsection{Statements and
+Expressions}\label{statements-and-expressions}
+
+A program or script is of course considered as a series of statement
+stored together. These statements constitute expressions of mathemetical
+equations (see specifically \href{}{Chapter 5}), choices, and other
+orders to be carried out by the machine.
+
+With any program or script statements tasks and values stored are
+executed or accessed from memory locations. This was the innovation
+conceived of by John Von Neumann which moved programming from the moving
+wire jumpers to the input to the machine from various codes punched into
+tapes or cards to be held in memory while being used.
+
+\subsection{Assignment of Values to Memory and the
+Variable}\label{assignment-of-values-to-memory-and-the-variable}
+
+Variables are memory locations assigned values as the computing process
+goes on. The classification of specific locations determines a type of
+data held there.
+
+The codes stored in the machine include a specific operator code to
+direct the move of a value received for input or a statement's result to
+a memory location. This is called and assignment.
+
+Traditionally R has used the combined dash-less-than symbols
+`-\textgreater{}' for this purpose but the simple equals sign `=' now
+also works in this fashion. Python uses the same equals sign for
+assignments.
+
+Variables are named in both R and Python and neither may begin with a
+digit. There are other restrictions and conventions which are not gone
+into here.
+
+\subsection{Decisions and Choices}\label{decisions-and-choices}
+
+As currently implemented all choices by a computer resolve to yes or no
+results. Some semblance or the greys we think in are a result of a
+collection or range of yes-no questions. These choices are explicit of
+implicit `if' queries.
+
+\subsection{Doing it Over Again (and again
+\ldots{})}\label{doing-it-over-again-and-again}
+
+Loops are created within a program logic, usually involving a choice
+test to be executed which cause tasks to be repeated zero or more times.
+It is considered bad parctice to create a loop without some form of exit
+(short of having to power down the machine).
+
+\subsection{Functions}\label{functions}
+
+Functions in fortran were short program clips that did a task and
+immediately returned a value . Subroutines are more like what functions
+in R and Python are, though returning to the calling place with some
+value is a frequent option with these functions as well. Functions may
+provide a new programming element like a square root (python,
+math.sqrt(x)) extending the language, or functions may carry out a whole
+task like carring out a liner regression, storing objects of the answer
+in memory for retrieval, or return as an object explicitly. Ofter a
+function is called that builds a whole grphic plot for display or other
+output when called.
+
+In R,
+
+\begin{verbatim}
+function.name <- function(arguments) 
+{
+  computations on the arguments
+  maybe other code too
+}
+\end{verbatim}
+
+and in Python indents take the place of brackets to define code blocks.
+Self in the function spec is the calling code block, and if omitted, is
+created by python implicitly. So, your first argument one way of another
+is the calling namespace. Self in the indented code block is the
+function itself.
+
+\begin{verbatim}
+def aroutine(self, args)
+  computations on args
+  maybe other code too
+\end{verbatim}
+
+The notation of R is C (and Java) - like and Python is Pascal-like in
+format. Unlike pascal there is no `begin:' keyword required at anytime
+in the script.
+
+Functional programming with R and Python, will be expanded on in it's
+own chapter later on.
+
+\subsection{Objects and Classes}\label{objects-and-classes}
+
+In general terms we will come to consider all program elements as
+objects. A Class will be considered as a pattern definition for an
+object. All objects are used as instances of some previously defined
+class.
+
+\chapter{Set-up for R and Python
+Exercises}\label{set-up-for-r-and-python-exercises}
+
+Clearly you have to get R and python onto your system. I have a bias
+about depending on any en block installed, like Anaconda etc. Anaconda
+is convenient but is too easy to loose locations of programs and tools
+and get conflicts with installs outside of the grouped installers like
+different Python destibutions and difficult to manage path complexity.
+
+Just the same, Anaconda is a good choice if you are doing a clean
+install and intend to do everthing inside that framework.Then installing
+\href{https://www.anaconda.com/}{Anaconda,Python Data Science Platform}
+can make things much easier in the long run for integrating R and Python
+and Reproducible Research work.
+
+For my own purposes, I install each separately. Start with R, and then
+install Python through the Next Notebook.Finally install .
+
+All of these sites will help you approach installs and configurations in
+a variety of ways. As an R programmer first I installed R, then
+\href{https://www.rstudio.com/}{RStudio}. Once installed, RStudio is a
+convenient way to install the R packages as well and then Python 3
+at\href{https://www.python.org/}{Python Software Foundation}. From that
+point on use PIP package manager for python and RGUI for package
+installs for python and R respectively and install jupyter see
+\href{http://jupyter.org/install}{Project Jupyter}. This gave the
+maximum flexibility for R and Python in their own environments.
+
+I did do a parallel Anaconda install with R and RStudio and iPython for
+Jupyter Notebooks but as mentioned there was some path confusion with
+this approach. It does set you up nicely for any approach to data
+science and development you could choose down the road.
+
+You really are going to need an IDE for Python.
+\href{https://www.spyder-ide.org/}{Spyder}, available separately or
+installed through Anaconda is a solid python focused choice. I use
+\href{https://www.eclipse.org/}{Eclipse} as you can use it for multiple
+languages including R (not as strong yet) and python.
+
+\section{Package Libraries}\label{package-libraries}
+
+The strength of both R and Python is from their libraries.
+\href{https://cran.cnr.berkeley.edu/index.html}{CRAN Package Repository}
+and \href{http://www.bioconductor.org/about/}{Bioconnector} are both
+well stocked with general and special purposed functions for R. RStudio
+develops \href{https://www.rstudio.com/products/rpackages/}{R Packages}
+integrating well with the RStudio environment. The are lost of R
+packages in development awaiting addition to CRAN or hosted outside of
+CRAN such as on \href{https://github.com/search?q=R+language}{Github}.
+
+If the reader has spent any time with R at all you have likely made
+inroads into these package sources. So how does Python compare? Python
+comes with a large standard library providing ``out of the gate''
+functionality to compare with R-core. The best handing of the
+intricacies of the python standard library I've found is Doug Helmann's
+\href{https://amazon.com/Python-Standard-Library-Example-Developers/dp/0134291050/}{The
+Python 3 Standard Library by example}. Python Software foundation hosts
+the \href{https://pypi.org/}{Python Package Index , PyPi} analygous to
+the CRAN repositories and Bioconnector. Also, the most important
+resource to get you up to speed is \href{https://www.scipy.org/}{SciPy
+tools} consisting of SciPy, Numpy, Pandas and Matplotlib. These are the
+essential minimum to do any R-like work in python. These and more can be
+accessed as well through the
+\href{https://numfocus.org/sponsored-projects}{Numfocus Projects}.
+Finally, you have to check out the
+\href{https://www.statsmodels.org/stable/index.html}{StatsModels}
+package site.
+
+\section{Pulling it Together}\label{pulling-it-together}
+
+Having apprised ourselves of the breadth and availability of these
+resources we will go forward and organize some of the ideas. R packages
+can be installed with the R GUI but the RStudio environment is much
+easier for this. Once a package is installed it is available in all
+environments I've alluded to. Compiling and installing is always best
+and I thing RStudio makes this fairly painless. Remember to start the
+GUI, Anaconda or RStudion environment as administrator to keep things
+together.
+
+\subsection{The Prompts}\label{the-prompts}
+
+When accessing the R and Python interpreters from the command shell (or
+bash) prompt,
+
+\begin{verbatim}
+$
+\end{verbatim}
+
+after the version and copyright banners, if present, you are at an
+interpreter prompt. For R this is:
+
+\begin{verbatim}
+>
+\end{verbatim}
+
+for python,
+
+\begin{verbatim}
+>>>
+\end{verbatim}
+
+for iPython
+
+\begin{verbatim}
+In [1]:
+\end{verbatim}
+
+from this point you enter what ever commands or statements you wish to
+execute. These are executed immediately, or continued with continuation
+prompts until executable. Once executed any declarations and output are
+retained if the were assigned to some object to be held in memory.
+Immediate answers are generally lost.
+
+Otherwise, one groups statements into a file to be read all at once and
+executed as a group. Objects created are again retained in memory by
+default. This is a script of program. Script file extensions are
+standardized for the operating system to recognize, eg.(.R for R, and
+.py or pyc for python). Python scripts intended to be called by other
+scripts for library code to be incorporated are called modules and end
+in the same .py extension. A package can be considered, in both R and
+python) as a collection of declarations, functions, classes, or modules
+for library purposes.
+
+\subsection{Installing Packages}\label{installing-packages}
+
+From the R GUI prompt we have,
+
+\begin{verbatim}
+  package-install()
+\end{verbatim}
+
+Python packages from any source mentioned above can be installed with
+the PIP utility. This can be done from the shell prompt (remember to
+start as administrator or root):
+
+\begin{verbatim}
+
+  $ pip install matplotlib  
+    # OR
+  $ python -m pip install matplotlib
+\end{verbatim}
+
+This can be done as root with the anaconda prompt as well.
+
+\subsection{Using Packages}\label{using-packages}
+
+In R we must make sure the package (once installed) is loaded for our
+session. This is done with the library() function,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{library}\NormalTok{(}\StringTok{"reticulate"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+while in python we import the package previously installed as,
+
+\begin{verbatim}
+  import numpy
+\end{verbatim}
+
+Once imported or loaded into either, we can access the functions of MASS
+directly by name. If we have a previous function of the same name it
+gets overwritten unless in python we keep the name spaces separate. This
+can be done by the form of the import statement. We can also import only
+slected functions from a package module.
+
+\begin{verbatim}
+
+  import numpy as np             # usual format to use namespace segregation of functions
+  from numpy import sum, matrix  # economical import, still can conflick without use of as
+  
+\end{verbatim}
+
+\subsection{Using R and Python
+Together}\label{using-r-and-python-together}
+
+There are several ways that one could find helpful to use R and Python
+together, to take best advantage of their respective strengths
+
+\subsubsection{Working in R and Calling
+Python}\label{working-in-r-and-calling-python}
+
+In this instance one would find working in R the necessary starting
+place and find the need to employ python functions or packages helpful
+to your needs. A call would be made to the python function from R to
+have a task completed by python and control returned to the R program.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(}\StringTok{"PI in R is"}\NormalTok{, pi)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## PI in R is 3.141593
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ math}
+\BuiltInTok{print}\NormalTok{(math.pi)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3.141592653589793
+\end{verbatim}
+
+\subsubsection{Working in Python and Calling
+R}\label{working-in-python-and-calling-r}
+
+Working in python and calling an R object would look like,
+
+\begin{verbatim}
+# Accessing an R object from from python 
+# (example from: http://rpy.sourceforge.net/rpy2/doc-dev/html/introduction.html)
+import rpy2.robjects as robjects
+rpi = robjects.r['pi']
+print("PI from R = ", rpi)
+\end{verbatim}
+
+\subsubsection{Working in Jupyter and Writing in R, Python or Both in
+the Same
+Notebook}\label{working-in-jupyter-and-writing-in-r-python-or-both-in-the-same-notebook}
+
+There are multiple kernel plugins available for jupyter notebooks. As A
+rule, the notebooks only use one language kernel at a time. An
+excepti9on is the SOS kernel.
+
+\subsubsection{Working in rmarkdown and Using R and Python Code
+Chunks}\label{working-in-rmarkdown-and-using-r-and-python-code-chunks}
+
+Note: I have found behavior is unpredictible to call R objects back with
+Python chunks run in rmarkdown (ie. inside another instance of R). The
+identity of R\_User for rpy2 gets lost. There are limites to how deeply
+you should nest languages within languages.
+
+That said, the rmarkdown chuncks look like this.
+
+\begin{verbatim}
+'''{r}
+cat("PI in R is", pi)
+'''
+\end{verbatim}
+
+\begin{verbatim}
+'''{python}
+import math
+print(math.pi)
+'''
+\end{verbatim}
+
+\chapter{Basic Mathematics in R and
+Python}\label{basic-mathematics-in-r-and-python}
+
+This is pretty straight forward and intuitive stuff. Just the same, for
+completeness here it is. The Standard libraries of python have the
+function beyond the four arithmetic operations.
+
+\section{Add, Subtract, Multiply and
+Divide}\label{add-subtract-multiply-and-divide}
+
+The usual quick calculation would be done in immediate or interactive
+mode without relying on print statements. There is outwardly no
+difference if the print is used as would be the case in a script.
+However Printing a set of values reqires the set be organized into an
+object in itself, a vector.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Loading reticulate package to bring python interpreter on line.}
+\KeywordTok{library}\NormalTok{(}\StringTok{"reticulate"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{R Scripting}\label{r-scripting}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Some immediate calculations, ie. using R like a calculator}
+\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{3}           \CommentTok{# (simple interactive) addition}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{5} \OperatorTok{-}\StringTok{ }\DecValTok{2}           \CommentTok{# subtraction}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{6} \OperatorTok{*}\StringTok{ }\DecValTok{2}           \CommentTok{# multiplication}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4} \OperatorTok{/}\StringTok{ }\DecValTok{3}           \CommentTok{# division}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.333333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\DecValTok{4} \OperatorTok{/}\StringTok{ }\DecValTok{3}\NormalTok{)    }\CommentTok{# calculation in a script requires print to display an answer}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.333333
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Variable assignment and printing grouped variables as a vector}
+\NormalTok{a <-}\StringTok{ }\NormalTok{(}\DecValTok{2} \OperatorTok{+}\StringTok{ }\DecValTok{3}\NormalTok{)           }\CommentTok{# addition}
+\NormalTok{b <-}\StringTok{ }\NormalTok{(}\DecValTok{5} \OperatorTok{-}\StringTok{ }\DecValTok{2}\NormalTok{)           }\CommentTok{# subtraction}
+\NormalTok{c <-}\StringTok{ }\NormalTok{(}\DecValTok{6} \OperatorTok{*}\StringTok{ }\DecValTok{2}\NormalTok{)           }\CommentTok{# multiplication}
+\NormalTok{d <-}\StringTok{ }\NormalTok{(}\DecValTok{4} \OperatorTok{/}\StringTok{ }\DecValTok{3}\NormalTok{)           }\CommentTok{# division}
+\KeywordTok{print}\NormalTok{ (}\KeywordTok{c}\NormalTok{(a, b, c, d))  }\CommentTok{# printing all results together one statement}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  5.000000  3.000000 12.000000  1.333333
+\end{verbatim}
+
+Python, on the otherhand considers literal expressions and variables
+individually (though we'll see they can be groups as well.) This thr
+puthon print statement is by default printing one or more individual
+objects as scalars whereas R print function prints object and there is
+no scalar. The simplest object in R is the vector.
+
+\subsection{Python Scripting}\label{python-scripting}
+
+The simplest object in python is the scalar, having one of five
+\textbf{basic datatypes},
+
+\begin{itemize}
+\tightlist
+\item
+  Integers
+\item
+  Floating-Point Numbers
+\item
+  Complex Numbers
+\item
+  Strings
+\item
+  Boolean Type
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# The same immediate calculations, ie. using iPython like a calculator}
+\BuiltInTok{print}\NormalTok{(}\DecValTok{2} \OperatorTok{+} \DecValTok{5}\NormalTok{, }\DecValTok{3} \OperatorTok{*} \DecValTok{8}\NormalTok{, }\DecValTok{5} \OperatorTok{-} \DecValTok{1}\NormalTok{, }\DecValTok{67} \OperatorTok{/} \DecValTok{3}\NormalTok{) }\CommentTok{# printing all immediate results together, one statement}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 7 24 4 22.333333333333332
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# OR assignment and print}
+\NormalTok{a }\OperatorTok{=} \DecValTok{2} \OperatorTok{+} \DecValTok{5}           \CommentTok{# assigned addition}
+\NormalTok{b }\OperatorTok{=} \DecValTok{5} \OperatorTok{-} \DecValTok{1}           \CommentTok{# assigned subtraction}
+\NormalTok{c }\OperatorTok{=} \DecValTok{3} \OperatorTok{*} \DecValTok{8}           \CommentTok{# assigned multiplication}
+\NormalTok{d }\OperatorTok{=} \DecValTok{67} \OperatorTok{/} \DecValTok{3}          \CommentTok{# assigned division}
+\BuiltInTok{print}\NormalTok{(a,b,c,d)      }\CommentTok{# printing all results together one statement}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 7 4 24 22.333333333333332
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{'a ='}\NormalTok{, a, }\StringTok{'b ='}\NormalTok{,b, }\StringTok{'c ='}\NormalTok{,c, }\StringTok{'d ='}\NormalTok{,d) }\CommentTok{# annotating print is just using 4 literals and 4 variables}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## a = 7 b = 4 c = 24 d = 22.333333333333332
+\end{verbatim}
+
+This differs from R where a single object is printed but that object may
+be a group of objects combined.
+
+\section{Other basic algebraic operators in R and
+Python}\label{other-basic-algebraic-operators-in-r-and-python}
+
+Next lets compare modulus, powers and interger division in R and python,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{35} \OperatorTok{%%}\StringTok{ }\DecValTok{2}     \CommentTok{# modulo operator}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{35} \OperatorTok{%/%}\StringTok{ }\DecValTok{2}    \CommentTok{# integer division}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{35}\OperatorTok{^}\DecValTok{2}        \CommentTok{# powers in R\textbackslash{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1225
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\DecValTok{35}\OperatorTok{%}\DecValTok{2}\NormalTok{)       }\CommentTok{# modulo operator}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\DecValTok{35} \OperatorTok{//} \DecValTok{2}\NormalTok{)    }\CommentTok{# integer division       * note difference from R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 17
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\DecValTok{35}\OperatorTok{**}\DecValTok{2}\NormalTok{)      }\CommentTok{# powers in python     * note difference from R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1225
+\end{verbatim}
+
+Note here with python the print statements are required otherwise only
+the last immediate calculation would get output to text.
+
+When we extend our algebraic calculations in R the usual functions of
+square root, absolute value and exponentiation we still haven't had to
+load any library packages. All these are part of the core R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{abs}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{)          }\CommentTok{# absolute value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sqrt}\NormalTok{(}\DecValTok{16}\NormalTok{)         }\CommentTok{# square root function}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{exp}\NormalTok{(}\DecValTok{0}\NormalTok{)           }\CommentTok{# exponent (e^0 etc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+Not necessarily so for python. We still have the basic functions for
+algebraic tasks but from sqrt on ward, we now need to go to the standard
+math library for these. As an aside we could have got more powerful
+versions of these functions (and more) importing numpy or numba or scipy
+library packages. This will come up in more detail later.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{abs}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{divmod}\NormalTok{(}\DecValTok{10}\NormalTok{,}\DecValTok{3}\NormalTok{))             }\CommentTok{# Returns quotient and remainder of integer division}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## (3, 1)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{max}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{28}\NormalTok{,}\DecValTok{7}\NormalTok{))    }\CommentTok{# Returns the largest of given arguments or items in an iterable}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 28
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{min}\NormalTok{(}\DecValTok{9}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{28}\NormalTok{,}\DecValTok{7}\NormalTok{))  }\CommentTok{# Returns the smallest of the given arguments or items in an) iterable}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{pow}\NormalTok{(}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{))                   }\CommentTok{# Raises a number to a power}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 81
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{round}\NormalTok{(}\FloatTok{3.1415962}\NormalTok{,}\DecValTok{3}\NormalTok{))         }\CommentTok{# Rounds a floating-point value}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3.142
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\BuiltInTok{sum}\NormalTok{([}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{]))       }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ math                     }\CommentTok{# Import math package/module from Standard Library}
+\BuiltInTok{print}\NormalTok{(math.sqrt(}\DecValTok{16}\NormalTok{))            }\CommentTok{# square root function}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 4.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(math.exp(}\DecValTok{0}\NormalTok{))              }\CommentTok{# exponentiation function (powers of e)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(math.log10(}\DecValTok{5}\NormalTok{))            }\CommentTok{# base 10 logarithm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 0.6989700043360189
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(math.log(}\DecValTok{5}\NormalTok{))              }\CommentTok{# natural logarithm}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 1.6094379124341003
+\end{verbatim}
+
+A full list of the built-in (as opposed to Standard Library Funtions) is
+displayed, from the python documentation, below.
+
+\subsubsection{\texorpdfstring{\href{https://docs.python.org/3.6/library/functions.html}{Python
+Built-in
+Functions}}{Python Built-in Functions}}\label{python-built-in-functions}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+abs() & dict() & help() & min() & setattr()\tabularnewline
+all() & dir() & hex() & next() & slice()\tabularnewline
+any() & divmod() & id() & object() & sorted()\tabularnewline
+ascii() & enumerate() & input() & oct() & staticmethod()\tabularnewline
+bin() & eval() & int() & open() & str()\tabularnewline
+bool() & exec() & isinstance() & ord() & sum()\tabularnewline
+bytearray() & filter() & issubclass() & pow() & super()\tabularnewline
+bytes() & float() & iter() & print() & tuple()\tabularnewline
+callable() & format() & len() & property() & type()\tabularnewline
+chr() & frozenset() & list() & range() & vars()\tabularnewline
+classmethod() & getattr() & locals() & repr() & zip()\tabularnewline
+compile() & globals() & map() & reversed() &
+\textbf{import}()\tabularnewline
+complex() & hasattr() & max() & round() &\tabularnewline
+delattr() & hash() & memoryview() & set() &\tabularnewline
+\bottomrule
+\end{longtable}
+
+R has a very large set of built-in functions available before the need
+to load any libraries arises. The
+\href{https://cran.r-project.org/doc/manuals/r-release/R-lang.html}{R
+Language Reference} provides a comprehensive background on built in
+fucntions as well as the rest of the language.
+
+So R is centered around the mandate of being a complete mathematical
+system, much like Matlab,(Octave or SciLab) which Python's manadate is
+that of a full featured scripting and programming environment.
+
+However, calling standard library modules in python puts it quite easily
+and effectively on a even par with R. Going into more complex activites
+requires thar both load or import fucther libraries. Like
+\href{https://docs.python.org/3/library/index.html}{\textbf{Python's
+Standard Library}}, \textbf{the R Core Library} shipping with the R
+install is described in the
+\href{https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf}{Full
+R Reference Manaual} and covers a wide range of mathematical,
+statistical and programming solutions.
+
+We will go deeper into these and the other external Libraries and
+modules in the next chapter, covering functional programming in more
+detail. As well focused discussions on specific Data Science domains
+form a block of Chapters in Part II of the book.
+
+\chapter{Functional Programming with R and
+Python}\label{functional-programming-with-r-and-python}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Defining Functions}\label{defining-functions}
+
+\subsection{R Scripting}\label{r-scripting-1}
+
+\subsection{Python Scripting}\label{python-scripting-1}
+
+\section{Calling and Using Functions}\label{calling-and-using-functions}
+
+\subsection{R Scripting}\label{r-scripting-2}
+
+\subsection{Python Scripting}\label{python-scripting-2}
+
+\section{The Core or Standard
+Libraries}\label{the-core-or-standard-libraries}
+
+\subsection{R Scripting}\label{r-scripting-3}
+
+\subsection{Python Scripting}\label{python-scripting-3}
+
+\part{Data Science Topics in Python Compared to
+R}\label{part-data-science-topics-in-python-compared-to-r}
+
+\chapter{Using Probability Distributions with R and
+Python}\label{using-probability-distributions-with-r-and-python}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Basic Probability Issues}\label{basic-probability-issues}
+
+\subsection{R Scripting}\label{r-scripting-4}
+
+\subsection{Python Scripting}\label{python-scripting-4}
+
+\section{Using the Distrbutions}\label{using-the-distrbutions}
+
+\subsection{R Scripting}\label{r-scripting-5}
+
+\subsection{Python Scripting}\label{python-scripting-5}
+
+\section{Other Libraries with Probability and Statistical
+Packages}\label{other-libraries-with-probability-and-statistical-packages}
+
+\subsection{R Scripting}\label{r-scripting-6}
+
+\subsection{Python Scripting}\label{python-scripting-6}
+
+\chapter{Descriptive Statistics and Data
+Exploration}\label{descriptive-statistics-and-data-exploration}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Defining Functions}\label{defining-functions-1}
+
+\subsection{R Scripting}\label{r-scripting-7}
+
+\subsection{Python Scripting}\label{python-scripting-7}
+
+\section{Calling and Using
+Functions}\label{calling-and-using-functions-1}
+
+\subsection{R Scripting}\label{r-scripting-8}
+
+\subsection{Python Scripting}\label{python-scripting-8}
+
+\section{The Core or Standard
+Libraries}\label{the-core-or-standard-libraries-1}
+
+\subsection{R Scripting}\label{r-scripting-9}
+
+\subsection{Python Scripting}\label{python-scripting-9}
+
+\chapter{Statistical Analysis and
+Modeling}\label{statistical-analysis-and-modeling}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Defining the Available
+Functions}\label{defining-the-available-functions}
+
+\subsection{R Scripting}\label{r-scripting-10}
+
+\subsection{Python Scripting}\label{python-scripting-10}
+
+\section{Calling and Using
+Functions}\label{calling-and-using-functions-2}
+
+\subsection{R Scripting}\label{r-scripting-11}
+
+\subsection{Python Scripting}\label{python-scripting-11}
+
+\chapter{Non-Stochastic Models}\label{non-stochastic-models}
+
+Many mathematical models are deterministic. This includes mathematical
+programming.
+
+\chapter{Object-Oriented Programming with R and
+Python}\label{object-oriented-programming-with-r-and-python}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Defining Classes}\label{defining-classes}
+
+\subsection{R Scripting}\label{r-scripting-12}
+
+\subsection{Python Scripting}\label{python-scripting-12}
+
+\section{Using Objects and Classes}\label{using-objects-and-classes}
+
+\subsection{R Scripting}\label{r-scripting-13}
+
+\subsection{Python Scripting}\label{python-scripting-13}
+
+\chapter{Appendix 1}\label{appendix-1}
+
+\section{Comparative Syntax for Programming Constructs of R and
+Python}\label{comparative-syntax-for-programming-constructs-of-r-and-python}
+
+As introduced in the text, the syntax of both R and python for the basic
+programming constructs are reviewed there for reader convenience.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+& R & Python\tabularnewline
+\midrule
+\endhead
+Basic data types and structures & scalar == vector{[}0{]} &
+scalars\tabularnewline
+& vectors, (numerical, character, logical, factor) & (string, integer,
+float)\tabularnewline
+& arrays, == vectors (m x n) & arrays (m x n) of scalars\tabularnewline
+& matrices, &\tabularnewline
+& data frames, & dictionary,\tabularnewline
+& and lists & and lists\tabularnewline
+Operators & &\tabularnewline
+conditionals & &\tabularnewline
+Loops & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{Extended Structures}\label{extended-structures}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\chapter{References}\label{references}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Core R Team (Ed).,
+  \href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
+  Reference Index}, R Foundation for Statistical Computing, Vienna,
+  2018.
+\item
+  Hellmann, Doug,
+  \href{https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7}{The
+  Python 3 Standard Library by example}, Addison-Wesley, Boston MA,
+  2017.
+\item
+  Python Software Foundation.,
+  \href{https://docs.python.org/3.7/}{Python 3.7.1 documentation},
+  Python Software Foundation, Wilmington, Delaware, 2018
+\item
+  RStudio Consortium,
+  \href{https://support.rstudio.com/hc/en-us/categories/200035113-Documentation}{RStudio
+  Documentation}, Boston, MA, 2018
+\end{enumerate}
+
+
+\end{document}

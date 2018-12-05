@@ -1,0 +1,10 @@
+# Introduction
+
+Learning a new programming or scripting language begs comparison. Often this is not overly helpful to the learner who, coming from a zone of comfort is often frustrated by old subtleties not consciously recognized, being yet unknown in the new. I recall a family member, completely new to computers, saying why doesn't it know what I mean expecting the implied parts of language to transfer from English (or German, or Chinese etc.) to computer language.
+
+R writers early on recognize the absence of vectorization of functions in core python. It's available though in numpy and pandas, but base python doesn't have it and they miss it. You'll get there, really. Object Orientation is also not natural to either R or Python. It came later to both, but it seems more smoothly accomplished by python than R.
+
+I soon realized, though that you had to know the programming commonalities of python first; R comparisons really should start with the libraries of python. R in someways has cut right to the data science chase often at the expense of strong programming constructs. This is the nod to interactive coding and scripting rather than the need to undertake formal programming. Python began early on with a scripting functionality but it wasn't until the development of iPython the interactive python could be realized in the way that R users were used to.
+
+All this is not to say that R was lacking in basic programming constructs from the start, it wasn't; but he proportion of users who used R in a quick-and-dirty small problem focused way was very high. This suited it's use in a statistical learning environment.  I should think that those who try to start python at the same time as their first statistics course will find the learning curve too steep to help with the statistics part of the need.
+

@@ -1,0 +1,29 @@
+
+
+# Using Probability Distributions with R and Python
+
+At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
+
+## Basic Probability Issues
+
+### R Scripting
+
+
+### Python Scripting
+
+
+## Using the Distrbutions
+
+### R Scripting
+
+
+### Python Scripting
+
+
+
+## Other Libraries with Probability and Statistical Packages
+
+### R Scripting
+
+
+### Python Scripting

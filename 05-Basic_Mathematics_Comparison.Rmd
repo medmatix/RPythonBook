@@ -1,0 +1,134 @@
+# Basic Mathematics in R and Python
+
+This is pretty straight forward and intuitive stuff. Just the same, for completeness here it is. The Standard libraries of python have the function beyond the four arithmetic operations.
+
+## Add, Subtract, Multiply and Divide
+
+The usual quick calculation would be done in immediate or interactive mode without relying on print statements. There is outwardly no difference if the print is used as would be the case in a script. However Printing a set of values reqires the set be organized into an object in itself, a vector.
+
+```{r}
+# Loading reticulate package to bring python interpreter on line.
+library("reticulate")
+```
+### R Scripting
+
+```{r}
+# Some immediate calculations, ie. using R like a calculator
+2 + 3           # (simple interactive) addition
+5 - 2           # subtraction
+6 * 2           # multiplication
+4 / 3           # division
+print(4 / 3)    # calculation in a script requires print to display an answer
+```
+```{r}
+# Variable assignment and printing grouped variables as a vector
+a <- (2 + 3)           # addition
+b <- (5 - 2)           # subtraction
+c <- (6 * 2)           # multiplication
+d <- (4 / 3)           # division
+print (c(a, b, c, d))  # printing all results together one statement
+```
+
+Python, on the otherhand considers literal expressions and variables individually (though we'll see they can be groups as well.) This thr puthon print statement is by default printing one or more individual objects  as scalars whereas R print function prints object and there is no scalar. The simplest object in R is the vector.
+
+### Python Scripting
+
+The simplest object in python is the scalar, having one of five **basic datatypes**,
+
+- Integers
+- Floating-Point Numbers
+- Complex Numbers
+- Strings
+- Boolean Type
+
+```{python}
+# The same immediate calculations, ie. using iPython like a calculator
+print(2 + 5, 3 * 8, 5 - 1, 67 / 3) # printing all immediate results together, one statement
+```
+
+```{python}
+# OR assignment and print
+a = 2 + 5           # assigned addition
+b = 5 - 1           # assigned subtraction
+c = 3 * 8           # assigned multiplication
+d = 67 / 3          # assigned division
+print(a,b,c,d)      # printing all results together one statement
+print('a =', a, 'b =',b, 'c =',c, 'd =',d) # annotating print is just using 4 literals and 4 variables
+```
+
+This differs from R where a single object is printed but that object may be a group of objects combined.
+
+
+## Other basic algebraic operators in R and Python
+
+Next lets compare modulus, powers and interger division in R and python,
+```{r}
+35 %% 2     # modulo operator
+35 %/% 2    # integer division
+35^2        # powers in R\
+```
+
+
+```{python}
+print(35%2)       # modulo operator
+print(35 // 2)    # integer division       * note difference from R
+print(35**2)      # powers in python     * note difference from R
+```
+
+Note here with python the print statements are required otherwise only the last immediate calculation would get output to text.
+
+When we extend our algebraic calculations in R the usual functions of square root, absolute value and exponentiation we still haven't had to load any library packages. All these are part of the core R.
+
+```{r}
+abs(-5)          # absolute value
+
+sqrt(16)         # square root function
+exp(0)           # exponent (e^0 etc)
+```
+Not necessarily so for python. We still have the basic functions for algebraic tasks but from sqrt on ward, we now need to go to the standard math library for these. As an aside we could have got more powerful versions of these functions (and more) importing numpy or numba or scipy library packages. This will come up in more detail later.
+
+```{python}
+print(abs(-5))
+print(divmod(10,3))             # Returns quotient and remainder of integer division
+print(max(2,10,3,14,4,28,7))    # Returns the largest of given arguments or items in an iterable
+print(min(9,2,10,3,14,4,28,7))  # Returns the smallest of the given arguments or items in an) iterable
+print(pow(3,4)) 	              # Raises a number to a power
+print(round(3.1415962,3))	      # Rounds a floating-point value
+print(sum([2,3,4,5,6]))       
+
+import math                     # Import math package/module from Standard Library
+print(math.sqrt(16))            # square root function
+print(math.exp(0))              # exponentiation function (powers of e)
+print(math.log10(5))            # base 10 logarithm
+print(math.log(5))              # natural logarithm
+```
+
+A full list of the built-in (as opposed to Standard Library Funtions) is displayed, from the python documentation, below.
+
+#### [Python Built-in Functions ](https://docs.python.org/3.6/library/functions.html)
+
+||||||
+|--|--|--|--|--|
+|abs() 	|dict() 	|help() 	|min() 	|setattr()|
+|all() 	|dir() 	|hex() 	|next() 	|slice()|
+|any() 	|divmod() 	|id() 	|object() 	|sorted()|
+|ascii() 	|enumerate() 	|input() 	|oct() 	|staticmethod()|
+|bin() 	|eval() 	|int() 	|open() 	|str()|
+|bool() 	|exec() 	|isinstance() 	|ord() 	|sum()|
+|bytearray() 	|filter() 	|issubclass() 	|pow() 	|super()|
+|bytes() 	|float() 	|iter() 	|print() 	|tuple()|
+|callable() 	|format() 	|len() 	|property() 	|type()|
+|chr() 	|frozenset() 	|list() 	|range() 	|vars()|
+|classmethod() 	|getattr() 	|locals() 	|repr() 	|zip()|
+|compile() 	|globals() 	|map() 	|reversed() 	|__import__()|
+|complex() 	|hasattr() 	|max() 	|round()|| 	 
+|delattr() 	|hash() 	|memoryview() 	|set()|| 	 
+
+R has a very large set of built-in functions available before the need to load any libraries arises. The [R Language Reference](https://cran.r-project.org/doc/manuals/r-release/R-lang.html) provides a comprehensive background on built in fucntions as well as the rest of the language.
+
+So R is centered around the mandate of being a complete mathematical system, much like Matlab,(Octave or SciLab) which Python's manadate is that of a full featured scripting and programming environment.
+
+However, calling standard library modules in python puts it quite easily and effectively on a even par with R. Going into more complex activites requires thar both load or import fucther libraries. Like [**Python's Standard Library**](https://docs.python.org/3/library/index.html),  **the R Core Library** shipping with the R install is described in the [Full R Reference Manaual](https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf) and covers a wide range of mathematical, statistical and programming solutions.
+
+We will go deeper into these and the other external Libraries and modules in the next chapter, covering functional programming in more detail. As well focused discussions on specific Data Science domains form a block of Chapters in Part II of the book.
+
