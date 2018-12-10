@@ -52,4 +52,4 @@ In the second part of the book, an opportunity is taken to compare how data scie
 One could consider this as a second source for R users learning python, after the beginner courses to get the python syntax vocabulary.
 
 
-# [Introduction](https://medmatix.github.io/RPythonBook/_book/introduction.html)
+# [Introduction](_book/introduction.html)
