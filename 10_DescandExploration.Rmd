@@ -1,0 +1,27 @@
+# Descriptive Statistics and Data Exploration
+
+At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
+
+## Defining Functions
+
+### R Scripting
+
+
+### Python Scripting
+
+
+## Calling and Using Functions
+
+### R Scripting
+
+
+### Python Scripting
+
+
+
+## The Core or Standard Libraries
+
+### R Scripting
+
+
+### Python Scripting

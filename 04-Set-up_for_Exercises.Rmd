@@ -1,27 +1,27 @@
 # Set-up for R and Python Exercises
   
-Clearly you have to get R and python onto your system. I have a bias about depending on any en block installed, like Anaconda etc. Anaconda is convenient but is too easy to loose locations of programs and tools and get conflicts with installs outside of the grouped installers like different Python destibutions and difficult to manage path complexity. 
+Clearly you have to get R and python onto your system. I have a bias about dependance on any en block installed software stacks, like Anaconda etc. Anaconda is a convenient way to install programs together. However it is easy to loose locations of programs and tools and have conflicts with installs from outside of the group installers, such as different Python destributions, and difficult to manage path complexity. 
 
 Just the same, Anaconda is a good choice if you are doing a clean install and intend to do everthing inside that framework.Then installing [Anaconda,Python Data Science Platform](https://www.anaconda.com/) can make things much easier in the long run for integrating R and Python and Reproducible Research work. 
 
-For my own purposes, I install each separately. Start with R,  and then install Python through the Next  Notebook.Finally install .
+All of these sites will help you approach installs and configurations in a variety of ways. As an R programmer, first I installed [R](https://www.r-project.org/), then [RStudio^4^](https://www.rstudio.com/). Once installed, RStudio is a convenient way to install the R packages as well. 
 
-All of these sites will help you approach installs and configurations in a variety of ways. As an R programmer first I installed R, then [RStudio](https://www.rstudio.com/). Once installed, RStudio is a convenient way to install the R packages as well and then Python 3 at[Python Software Foundation](https://www.python.org/). From that point on use PIP package manager for python and RGUI for package installs for python and R respectively and install jupyter see [Project Jupyter](http://jupyter.org/install). This gave the maximum flexibility for R and Python in their own environments. 
+Then I installed Python 3 from [Python Software Foundation](https://www.python.org/). From that point on I used PIP package manager for python and RGUI for package installs for python and R respectively and install jupyter see [Project Jupyter](http://jupyter.org/install). This gave the maximum flexibility for R and Python in their own environments. I also installed the SciPy (which includes numpy), Pandas, and Matplotlib all using PIP.
 
-I did do a parallel Anaconda install with R and RStudio and iPython for Jupyter Notebooks but as mentioned there was some path confusion with this approach. It does set you up nicely for any approach to data science and development you could choose down the road.
+I did do a parallel Anaconda install afterwards with R and RStudio and iPython for Jupyter Notebooks but as mentioned there was some path confusion with this approach. It does set you up nicely for any approach to data science and development you could choose down the road.
 
-You really are going to need an IDE for Python. [Spyder](https://www.spyder-ide.org/), available separately or installed through Anaconda is a solid python focused choice. I use [Eclipse](https://www.eclipse.org/) as you can use it for multiple languages including R (not as strong yet) and python. 
+You really are going to need an IDE for Python. [Spyder](https://www.spyder-ide.org/), available separately installed with PIP, or installed through Anaconda. It is a solid python focused choice. I personally use [Eclipse](https://www.eclipse.org/) as it is open sourced and you can use it for multiple languages including R (not as strong yet) and python, HTML/CSS/javascript, C/C++, Java and others. 
 
 
 ## Package Libraries
 
 The strength of both R and Python is from their libraries. [CRAN Package  Repository](https://cran.cnr.berkeley.edu/index.html) and [Bioconnector](http://www.bioconductor.org/about/) are both well stocked with general and special purposed functions for R. RStudio develops [R Packages](https://www.rstudio.com/products/rpackages/) integrating well with the RStudio environment. The are lost of R packages in development awaiting addition to CRAN or hosted outside of CRAN such as on [Github](https://github.com/search?q=R+language).
 
-If the reader has spent any time with R at all you have likely made inroads into these package sources. So how does Python compare? Python comes with a large standard library providing "out of the gate" functionality to compare with R-core. The best handing of the intricacies of the python standard library I've found is Doug Helmann's [The Python 3 Standard Library by example](https://amazon.com/Python-Standard-Library-Example-Developers/dp/0134291050/). Python Software foundation hosts the [Python Package Index , PyPi](https://pypi.org/) analygous to the CRAN repositories and Bioconnector. Also, the most important resource to get you up to speed is [SciPy tools](https://www.scipy.org/) consisting of SciPy, Numpy, Pandas and Matplotlib. These are the essential minimum to do any R-like work in python. These and more can be accessed as well through the [Numfocus Projects](https://numfocus.org/sponsored-projects). Finally, you have to check out the [StatsModels](https://www.statsmodels.org/stable/index.html) package site.
+If the reader has spent any time with R at all you have likely made inroads into these package sources. So how does Python compare? Python comes with a large standard library providing "out of the gate" functionality to compare with R-core. The best handing of the intricacies of the python standard library I've found is Doug Helmann's [The Python 3 Standard Library by example](https://amazon.com/Python-Standard-Library-Example-Developers/dp/0134291050/). Python Software foundation hosts the [Python Package Index , PyPi](https://pypi.org/) analygous to the CRAN repositories and Bioconnector. Also, the most important resource to get you up to speed is [SciPy tools](https://www.scipy.org/) consisting of SciPy, Numpy, Pandas and Matplotlib. These are the essential minimum to do any R-like work in python. These and more can be accessed as well through the [Numfocus Projects](https://numfocus.org/sponsored-projects). Finally, you should check out the [StatsModels^11^](https://www.statsmodels.org/stable/index.html) package site.
 
 ## Pulling it Together
 
-Having apprised ourselves of the breadth and availability of these resources we will go forward and organize some of the ideas. R packages can be installed with the R GUI but the RStudio environment is much easier for this. Once a package is installed it is available in all environments I've alluded to. Compiling and installing is always best and I thing RStudio makes this fairly painless. Remember to start the GUI, Anaconda or RStudion environment as administrator to keep things together.
+Having apprised ourselves of the breadth and availability of these resources we will go forward and organize some of the ideas. R packages can be installed with the R GUI but the RStudio environment is much easier for this. Once a package is installed it is available in all environments I've alluded to. Compiling and installing is always best and I thing RStudio makes this fairly painless. Remember to start the GUI, Anaconda or RStudio environment as administrator to keep things together.
   
   
 ### The Prompts
@@ -86,21 +86,22 @@ while in python we import the package previously installed as,
   import numpy
 ```
 
-Once imported or loaded into either, we can access the functions of MASS directly by name. If we have a previous function of the same name it gets overwritten unless in python we keep the name spaces separate. This can be done by the form of the import statement. We can also import only slected functions from a package module.
+Once imported or loaded into either, we can access the functions of reticulate directly by name. If we have a previous function of the same name it gets overwritten unless in python we keep the name spaces separate. This can be done by the form of the import statement. We can also import only slected functions from a package module.
 
 
 ```
 
   import numpy as np             # usual format to use namespace segregation of functions
-  from numpy import sum, matrix  # economical import, still can conflick without use of as
-  
+  from numpy import sum, matrix  # economical import,still can conflict without renaming 
+                                 #   using 'as', such as where base python has a sum()  
+                                 #   function and math has a different one called sum()
 ```
 
-### Using R and Python Together
+## Using R and Python Together
 
 There are several ways that one could find helpful to use R and Python together, to take best advantage of their respective strengths 
 
-#### Working in R and Calling Python
+### Working in R and Calling Python
 
   In this instance one would find working in R the necessary starting place and find the need to employ python functions or packages helpful to your needs. A call would be made to the python function from R to have a task completed by python and control returned to the R program.
 
@@ -115,7 +116,7 @@ print(math.pi)
 
   
 
-#### Working in Python and Calling R
+### Working in Python and Calling R
 
 Working in python and calling an R object would look like,
 
@@ -128,16 +129,29 @@ print("PI from R = ", rpi)
 
 ```
 
-#### Working in Jupyter and Writing in R, Python or Both in the Same Notebook
+### Working in Jupyter and Writing in R, Python or Both in the Same Notebook
 
-There are multiple kernel plugins available for jupyter notebooks. As A rule, the notebooks only use one language kernel at a time. An excepti9on is the SOS kernel.
+There are multiple kernel plugins available for jupyter notebooks. As A rule, the notebooks only use one language kernel at a time. An exception is the [SOS kernel](https://vatlab.github.io/sos-docs/.
+
+Jupyter is running first level in python. It is afterall a python module. When running the R kernel (irkernel) remmber you are running R in python. See the caution below in the contest of rMarkdown code chunks.
+
+Consider this Jupyter notebook using the R kernel,
+
+![Jupyter R Demo](images/JupyterRSession.png)
+
+
+and this Jupyter notebook using the 'Python kernel',
+
+![Jupyter Python Demo](images/JupyterPythonSession.png)
 
   
-#### Working in rmarkdown and Using R and Python Code Chunks
+### Working in rmarkdown and Using R and Python Code Chunks
 
-Note: I have found behavior is unpredictible to call R objects back with Python chunks run in rmarkdown (ie. inside another instance of R). The identity of R_User for rpy2 gets lost. There are limites to how deeply you should nest languages within languages.
+Now consider an rmarkdown session running primarily in R. The T code chunks are executed in the same R session as the rMarkdown. On the otherhand, a python code chunk is running in a python guest environment in the R level host.
 
-That said, the rmarkdown chuncks look like this.
+Caution: I have found behavior is unpredictible to call R objects back with Python chunks run in rmarkdown (ie. inside another instance of R). The identity of R_User for rpy2 gets lost. There are limits to how deeply you should nest languages within languages.
+
+That said, the rmarkdown chunks look like this.
 
 ```
 '''{r}

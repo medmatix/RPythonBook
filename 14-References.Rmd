@@ -1,0 +1,33 @@
+# References
+
+1. Core R Team (Ed.), [R Reference Index](https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf), R Foundation for Statistical Computing, Vienna, 2018.
+
+2. Hellmann, Doug, [The Python 3 Standard Library by example](https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7), Addison-Wesley, Boston MA, 2017.
+
+3.  Python Software Foundation (Ed.)., [Python 3.7.1 documentation](https://docs.python.org/3.7/),  Python Software Foundation, Wilmington Delaware, 2018
+
+4. RStudio Consortium (Ed.), [RStudio Documentation](https://support.rstudio.com/hc/en-us/categories/200035113-Documentation),  Boston MA, 2018
+
+5. Core R Team (Ed.), [R Language Reference](https://cran.r-project.org/doc/manuals/r-release/R-lang.html), R Foundation for Statistical Computing, Vienna, 2018.
+
+6. Python Software Foundation(Ed.),[Python Package Index](https://pypi.org/), Wilmington Delaware, 2018
+
+7. Dalgaard, Peter; Introductory Statistics with R, Springer-Valng, New York NY, 2002.
+
+8. Lutz, Mark; Learning Python 4^th^ Ed., O’Reilly Media, Sebastopol CA, 2009.
+
+9. Grus, Joel; Data Science from Scratch, First Principles with Python, O’Reilly Media, Sebastopol CA, 2015
+
+10. Boschetti, Alberto; Luca Massaron; Python Data Science Essentials, Packt Publishing, Birmingham UK, 2015
+
+11. Perktold, Josef; Skipper Seabold; Jonathan Taylor; [StatsModels](https://www.statsmodels.org/stable/index.html) Washington DC Chicago IL, 2017
+
+12. Skipper Seabold; Perktold, Josef; "Statsmodels: Econometric and Statistical Modeling with Python", PROC. OF THE 9th PYTHON IN SCIENCE CONF. (SCIPY 2010) 
+
+13. Veneble W.; B. Ripley; Modern Applied Statistics with S, 4^th^ ed, Springer, New York NY, 2002.
+
+14 Härdle, Wolfgang K; Léopold Simar; Applied Multivariable Analysis,3^rd^ Ed., Springer, New York NY, 2012.
+
+15. George, Janeve [Understanding Programming Paradigms](http://www.janeve.me/software-programming/understanding-programming-paradigms),Bangalore, India, 2013. (Accessed:12/07/2018 1:25PM.)
+
+16. Wikipedia contributors, "Programming paradigm," Wikipedia, The Free Encyclopedia, https://en.wikipedia.org/w/index.php?title=Programming_paradigm&oldid=871880549 (Accessed:12/07/2018 1:25PM.)

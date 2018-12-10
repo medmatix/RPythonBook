@@ -1,22 +1,25 @@
 # A Comparative Look
 
 
-
-As already mentioned, it is not the intent of this treatise to teach either beginning R or python scripting. There are many good sources for this and yet another beginners book or tutorial is, I believe, not needed. For ease of reference I include  [Appendix1](https://github.com/medmatix/RtoPythonThoughts/blob/master/Appendix_1.md) as an overview of relevant R and python syntax for the general programming constructs any functional language. In Part 1, at the risk of being pedantic, I am simply giviing a fairly generic overview of the components of the typical script or program as a framework to be used in organizing our R and Python comparisons.
+As already mentioned, it is not the intent of this treatise to teach either beginning R or python scripting. There are many good sources for this and yet another beginners book or tutorial I believe is not needed. For ease of reference, I include in the [Appendix1](Appendix_1.md) an overview of relevant R and python syntax and the general programming constructs common to any functional language. In Part 1, at the risk of being pedantic, I am giving a generic overview of the components of the typical script or program to be used as a framework in organizing our R and Python comparisons.
 
 ## Functional Programming Commonalities.
 
-In functional programming operational code is incorporated by task and purpose into blocks of code which are called by name in the body of a script. This usually includes some connecting statemts and assignments which cause the functions to operate together to accomplish some larger task.
+In functional programming, a kind of declarative paradigm, operational code is incorporated by task and purpose into blocks of code which are called by name in the body of a script. In practice it is most often a hybride rather than any one pure paradigm incolved. As a result some connecting statements and assignments in the program of script set up a milieu in which the functions operate together to accomplish some larger task.
 
-Historically, Fortran and Basic code in common accademic and educational use, became unwieldy as users became, more and more, writers of rampant spagetti code.The introduction of the concept of 'structured programming' and the uniform reliance on subroutine and function call tamed the spagetti-monster. Extension to functional programming with pascal and modern C was a natural extension of this trend.
+Historically, Fortran and Basic code in common academic and educational use, became unwieldy as users became increasingly prone to the writing of rampant spagetti code. The introduction of the concept of 'structured programming' and the uniform reliance on subroutine and function calls mostly tamed the spagetti-monster within a procedural programming paradigm. Growth of functional programming with pascal and to some extent modern C was a natural evolution of this trend and object oriented extensions to most legacy languages exist as we'll see later on.
 
-So the reliance of R and Python on script collections of functions calling each other is what we are at now. Functions are subprograms that have all the statement tasks common to most programs. I will deal in a general way with these statement types and include comparsions between how R and Python each express the tasks. It is not the intent of this book to actually teach beginning programming as previously mentioned. Consult the bibliography for some suggested sources for peginning programmers.
+So the perspective of R and Python as relying on script collections of functions calling each other is what we are stressing now. Purely Functional programs use functions and flow is linear through the collection which makes up the program. In a strict sense this would be done without regard to flow control, but functions are just in a sense subprograms with all the statements of procedural tasks and flow control within, common to the usual conception of programs. 
+
+I will deal, in a general way with the, statement types which make up the functions and include comparsions between how R and Python each express the tasks. As I've already stressed,this book not aimed at teaching beginning programming. Consult the bibliography for some suggested sources for beginning programmers^7, 8^.
 
 The later innovation of object oriented programming concepts evolving from this will be touched on in a comparative fashion in another chapter.
 
+## Building Blocks of Functions as Procedures
+
 ### Statements and Expressions
 
-A program or script is of course considered as a series of statement stored together. These statements constitute expressions of mathemetical equations (see specifically [Chapter 5]()), choices, and other orders to be carried out by the machine. 
+A program or script is of course considered as a series of instructions grouped together and run as a unit. These statements constitute expressions of mathemetical equations (see specifically [Chapter 5]()), choices, and other orders to be carried out by the machine. 
 
 With any program or script statements tasks and values stored are executed or accessed from memory locations. This was the innovation conceived of by John Von Neumann which moved programming from the moving wire jumpers to the input to the machine from various codes punched into tapes or cards to be held in memory while being used.
 
@@ -33,7 +36,7 @@ Variables are named in both R and Python and neither may begin with a digit. The
 
 ### Decisions and Choices
 
-As currently implemented all choices by a computer resolve to yes or no results. Some semblance or the greys we think in are a result of a collection or range of yes-no questions. These choices are explicit of implicit 'if' queries.
+As currently implemented all choices by a computer resolve to yes or no results. Some semblance or the greys we think in are a result of a collection or range of yes-no questions. These choices are explicit or implicit 'if' queries.
 
 ### Doing it Over Again (and again ...)
 
@@ -41,30 +44,41 @@ Loops are created within a program logic, usually involving a choice test to be 
 
 ### Functions 
 
-Functions in fortran were short program clips that did a task and immediately returned a value . Subroutines are more like what functions in R and Python are, though returning to the calling place with some value is a frequent option with these functions as well. Functions may provide a new programming element like a square root (python, math.sqrt(x)) extending the language, or functions may carry out a whole task like carring out a liner regression, storing objects of the answer in memory for retrieval, or return as an object explicitly. Ofter a function is called that builds a whole grphic plot for display or other output when called.
+Functions in fortran were short program clips that did a task and immediately returned a value . Subroutines are more like what functions in R and Python are, though returning to the calling place with some value is a frequent option with these functions as well. Functions may provide a new programming element like a square root (python, math.sqrt(x)) extending the language, or functions may carry out a whole task like carring out a liner regression, storing objects of the answer in memory for retrieval, or return as an object explicitly. Often a function is called that builds a whole graphic plot for display or other output when called.
 
 In R,
 
 ```
 function.name <- function(arguments) 
 {
-  computations on the arguments
-  maybe other code too
+    computations on the arguments
+    maybe other code too
 }
 ```
 
-and in Python indents take the place of brackets to define code blocks. Self in the function spec is the calling code block, and if omitted, is created by python implicitly. So, your first argument one way of another is the calling namespace. Self in the indented code block is the function itself.
+and in Python indents take the place of brackets to define code blocks. Self in the function spec is the calling code block, and if omitted, is created by python implicitly. In the functional paradigm, self is always present but implicitly. It becomes important in object-oriented programming in python where, your first argument implicitly or explicitly is the calling namespace. 'Self' in the indented code block would be the function itself.
 
 ```
-def aroutine(self, args)
-  computations on args
-  maybe other code too
+
+def aroutine(args):
+    computations on args
+    maybe other code too
+  
 ```
 
-The notation of R is C (and Java) - like and Python is Pascal-like in format. Unlike pascal there is no 'begin:' keyword required at anytime in the script. 
+The notation of R is C (and Java) - like with bracketed blocks, and Python is Pascal-like with indented blocks. Unlike pascal there is no 'begin:' keyword required to start the script but when named code blocks are used such as functions the colon is needed at the end of definition. 
 
-Functional programming with R and Python, will be expanded on in it's own chapter later on.
+Functional programming with R and Python, will be expanded on in [Chapter 6](06-Functional_Programming.Rmd) later on.
 
-### Objects and Classes
+### Objects and Classes anticipating Object-Oriented Programming
 
-In general terms we will come to consider all program elements as objects. A Class will be considered as a pattern definition for an object. All objects are used as instances of some previously defined class. 
+In general terms we will come to consider all program elements as objects. A Class will be considered as a pattern definition for an object in the same fashion as a function definition. All objects are used as instances of some previously defined class created by an assignment statement. 
+
+```
+
+AnInstance=ClassName() # call ClassName constructor to create an instance "AnInstance"
+
+
+```
+
+More later in [Chapter 12](12-OO_Programming.Rmd)

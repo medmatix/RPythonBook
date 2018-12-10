@@ -103,6 +103,8 @@ print(math.log10(5))            # base 10 logarithm
 print(math.log(5))              # natural logarithm
 ```
 
+I suggest, choosing your favorite R introduction and work through it's early examples using both R and Python -  a good chance to try out Jupyter SOS kernel. It will also create a record of the basics of R and python side-by-side that you can refer back to.
+
 A full list of the built-in (as opposed to Standard Library Funtions) is displayed, from the python documentation, below.
 
 #### [Python Built-in Functions ](https://docs.python.org/3.6/library/functions.html)

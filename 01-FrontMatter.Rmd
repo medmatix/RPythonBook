@@ -5,7 +5,7 @@
 <h1 style="text-align:center;">R to Python</h1>
 <h2 style="text-align:center;">Thoughts of an R programmer Learning Python</h2>
 
-![Janus](Janus-iStock-494706611alpha.png)
+![Janus](images/Janus-iStock-494706611alpha.png)
 
 <h4 style="text-align:center;">by David A York</h4>
    
@@ -38,7 +38,7 @@ ___
 
 This book is a work in progress on the thoughts of an R programmer (the author) moving to (or learning) Python. It is intended as a comparison of R and Python for those already using R. The hop is to ease the way for those in particular newer to programming as opposed to the quick task oriented scripting which R lends itself so well to. 
 
-As with any language the most visible presence on line are the hardened champions of the languages with the pressure to standardization (not a bad thing per-se) and dogmatic adherence to the "blah blah" way of doing things (which is desirable I think).
+As with any language the most visible presence on line are the hardened champions of the languages with the pressure to standardization (not a bad thing per-se) and dogmatic adherence to the "blah blah" way of doing things (which is less desirable I think). For those of us who are not playing at being computer scientist but just scientists with a need for tools to do our work mose effectively an approachable treatment of scripting and programming is helpful. There are better computer science texts and better programming texts than this book would ever purport to be.  I will often be reminding the reader that this is not a beginning programming book. Neither is it a Computer Science text book. It is a book by a applied programmers  for applied programmers who operate in other research domains.
 
 Having started as an R user, then as an R programmer, I have relatively recently embarked on learning python as well. Why I would do this is rather complicated to explain, particularly as I had knowledge of other general programming languages, which would conceivably serve such a role, particularly BASIC and Java. Suffice to say that as a budding Data Scientist I see lots of reasons to know both R and Python. BASIC, though still extant it is very limited in support and relevant libraries by comparison. Java . . .  well, as a strong open source advocate I feel Java is bound to Oracle in many ways for all time. It is likely they have no intention of truly releasing it into the public domain, ever. There is far more rationel to learn C++ these days than Java for the sake of what is arguably only minor difference in learning curve.
 
@@ -46,8 +46,12 @@ I absolutely love R! When I returned to school to study Applied Math and Statist
 
 But while R was great with vectorized functions python, at it's core, was weak in this regard. The libraries for python have been growing steadily in number and variety, and the functionality gap between it and R narrows in cluding for vectorized application. I still cannot see a Data Scientist being as productive not knowing R at this point. However, I see no reason not to also know Python - ergo, I think any serious Data Science needs to know both; AND, there is the added incentive of the interoperability of R and Python (and C++)! From R we have [XRPython](https://cran.cnr.berkeley.edu/web/packages/XRPython/index.html) and [reticulate](https://cran.cnr.berkeley.edu/web/packages/reticulate/index.html) and from Python we have [Rpy2](https://rpy2.bitbucket.io/).
 
-The Organization of the book is in 2 parts. A close Comparison and discussion of R and Python unburdened with a mandate to teach beginning programming in either. The is overview of part 1, I only touch quite generally on the nature of the usual programming sturctures. Variables, datatypes and data structures, binary decisions, repeating code blocks and so are part of all declarative or functional programming language - the rest is just details. The Same can be side for laguages introducing object-oriented programming models.
+There are far more choices for languages to do Data Science with than I am dealing with here. Arguably, at time point, R and Python seem the most suitable overall to "out of the gate" data analysis. Julia is comming on strong, and C++ is everyones speed oriented fall back. However speed is loosing place in the decision criteria as benchmark comparisons increasingly are show. Most new packages are written in C or C++ anyway and Cython makes this fairly approachable for python package developers. Bottlenecks in Big Data analysis are rarely CPU  limited where out of RAM processing, large files and disk access become the limiting factors.
 
-In the second part of the book, an opportunity is taken to compare how data science is done in R and Python in the various domains we work.
+The Organization of the book is in 3 parts. A close Comparison and discussion of R and Python unburdened by a mandate to comprehensively teach beginning programming in either. The first is the overviews of part 1, I only touch quite generally on the nature of the usual The procedural elements of programming structures,  Variables, datatypes and data structures, binary decisions, repeating code blocks are all internals in declarative or functional programming - they are just details. The Same can be said for languages introducing object-oriented programming models.
 
-One could consider this as a second source for R users learning python, after the beginner courses to get the python syntax vocabulary.
+In the second part of the book, an opportunity is taken to compare how data science can be done in R and Python in some of the various domains we work. The distinction between function and object is quite blurred here.
+
+In part 3, a collection of syntax summaries, library reference materials and resources are compiled in Appendices.
+
+In a sense one could consider this book as a second or third source for applied R users learning python - perhaps after the beginner and intermediate level courses to get the necessary python syntax vocabulary and programming structures.

@@ -7,7 +7,7 @@ link-citations: yes
 site: bookdown::bookdown_site
 biblio-style: apalike
 ---
-```{r eval=FALSE}
+```{r  echo=FALSE, eval=FALSE}
 install.packages("bookdown","reticulate")
 # or the development version
 # devtools::install_github("rstudio/bookdown")
@@ -20,3 +20,5 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+# (PART) Thoughts of an R programmer Learning Python {-}

@@ -1,0 +1,31 @@
+# Appendix 1
+
+## Comparative Syntax for Programming Constructs of R and Python
+
+As introduced in the text, the syntax of both R and python for the basic programming constructs are reviewed there for reader convenience.
+
+
+||R|Python|
+|----------------|----------------------------|----------------------------------|
+|**Basic Data types and structures **|scalar == vector[0]|true scalars|
+||vectors, (numerical, character, logical, factor) |(string, integer, float, complex, boolean)|
+||arrays, == vectors (m x n)|arrays (m x n) of scalars|
+||matrices, ||
+||data frames, |dictionary,|
+||and lists |and lists|
+|**Operators** - arithmetic |+ - * /|+ - * /|
+|- exponent| ^ | ** |
+|- modulus remainder| %% | % |
+|- modular division| %/% | // |
+|- logical / boolean|  &, \|, ! | and, or, not |
+|- logical / comparison|==, <, <=, >, >=, !=| ==, <, <=, >, >=, != |
+|**Flow Control**|||
+|- conditionals, decisions|if-else, ifelse(), switch|if, else, elif|
+|- Loops| while(), for()| while, for |
+  
+  
+## Extended Structures
+ 
+|| R | Python |
+|---|---|---|---|
+||||

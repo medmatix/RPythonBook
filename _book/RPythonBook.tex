@@ -154,13 +154,8 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{,}\StringTok{"reticulate"}\NormalTok{)}
-\CommentTok{# or the development version}
-\CommentTok{# devtools::install_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
+\part{Thoughts of an R programmer Learning
+Python}\label{part-thoughts-of-an-r-programmer-learning-python}
 
 \chapter{Front Material}\label{front-material}
 
@@ -172,7 +167,7 @@ Thoughts of an R programmer Learning Python
 
 \begin{figure}
 \centering
-\includegraphics{Janus-iStock-494706611alpha.png}
+\includegraphics{images/Janus-iStock-494706611alpha.png}
 \caption{Janus}
 \end{figure}
 
@@ -215,7 +210,15 @@ task oriented scripting which R lends itself so well to.
 As with any language the most visible presence on line are the hardened
 champions of the languages with the pressure to standardization (not a
 bad thing per-se) and dogmatic adherence to the ``blah blah'' way of
-doing things (which is desirable I think).
+doing things (which is less desirable I think). For those of us who are
+not playing at being computer scientist but just scientists with a need
+for tools to do our work mose effectively an approachable treatment of
+scripting and programming is helpful. There are better computer science
+texts and better programming texts than this book would ever purport to
+be. I will often be reminding the reader that this is not a beginning
+programming book. Neither is it a Computer Science text book. It is a
+book by a applied programmers for applied programmers who operate in
+other research domains.
 
 Having started as an R user, then as an R programmer, I have relatively
 recently embarked on learning python as well. Why I would do this is
@@ -251,26 +254,49 @@ and
 \href{https://cran.cnr.berkeley.edu/web/packages/reticulate/index.html}{reticulate}
 and from Python we have \href{https://rpy2.bitbucket.io/}{Rpy2}.
 
-The Organization of the book is in 2 parts. A close Comparison and
-discussion of R and Python unburdened with a mandate to teach beginning
-programming in either. The is overview of part 1, I only touch quite
-generally on the nature of the usual programming sturctures. Variables,
-datatypes and data structures, binary decisions, repeating code blocks
-and so are part of all declarative or functional programming language -
-the rest is just details. The Same can be side for laguages introducing
-object-oriented programming models.
+There are far more choices for languages to do Data Science with than I
+am dealing with here. Arguably, at time point, R and Python seem the
+most suitable overall to ``out of the gate'' data analysis. Julia is
+comming on strong, and C++ is everyones speed oriented fall back.
+However speed is loosing place in the decision criteria as benchmark
+comparisons increasingly are show. Most new packages are written in C or
+C++ anyway and Cython makes this fairly approachable for python package
+developers. Bottlenecks in Big Data analysis are rarely CPU limited
+where out of RAM processing, large files and disk access become the
+limiting factors.
+
+The Organization of the book is in 3 parts. A close Comparison and
+discussion of R and Python unburdened by a mandate to comprehensively
+teach beginning programming in either. The first is the overviews of
+part 1, I only touch quite generally on the nature of the usual The
+procedural elements of programming structures, Variables, datatypes and
+data structures, binary decisions, repeating code blocks are all
+internals in declarative or functional programming - they are just
+details. The Same can be said for languages introducing object-oriented
+programming models.
 
 In the second part of the book, an opportunity is taken to compare how
-data science is done in R and Python in the various domains we work.
+data science can be done in R and Python in some of the various domains
+we work. The distinction between function and object is quite blurred
+here.
 
-One could consider this as a second source for R users learning python,
-after the beginner courses to get the python syntax vocabulary.
+In part 3, a collection of syntax summaries, library reference materials
+and resources are compiled in Appendices.
+
+In a sense one could consider this book as a second or third source for
+applied R users learning python - perhaps after the beginner and
+intermediate level courses to get the necessary python syntax vocabulary
+and programming structures.
 
 \chapter{Introduction}\label{introduction}
 
+This is not a book on learning to program with R or python. Consider it
+the companion for non-programmers who are learning python with some
+knowledge of R.
+
 Learning a new programming or scripting language begs comparison. Often
 this is not overly helpful to the learner who, coming from a zone of
-comfort is often frustrated by old subtleties not consciously
+comfort is often frustrated by the old subtleties not consciously
 recognized, being yet unknown in the new. I recall a family member,
 completely new to computers, saying why doesn't it know what I mean
 expecting the implied parts of language to transfer from English (or
@@ -288,17 +314,67 @@ the libraries of python. R in someways has cut right to the data science
 chase often at the expense of strong programming constructs. This is the
 nod to interactive coding and scripting rather than the need to
 undertake formal programming. Python began early on with a scripting
-functionality but it wasn't until the development of iPython the
+functionality but it wasn't until the development of iPython that
 interactive python could be realized in the way that R users were used
 to.
 
 All this is not to say that R was lacking in basic programming
-constructs from the start, it wasn't; but he proportion of users who
-used R in a quick-and-dirty small problem focused way was very high.
-This suited it's use in a statistical learning environment. I should
-think that those who try to start python at the same time as their first
-statistics course will find the learning curve too steep to help with
-the statistics part of the need.
+constructs from the start, it wasn't; but the proportion of users who
+used R in a quick-and-dirty small problem focused way was quite high.
+This suited it's use as a learning environment for introductory
+statistics\textsuperscript{7}. I should think that those who try to
+start python at the same time as their first statistics course will find
+the learning curve too steep to help with their need to learn
+statistics.
+
+Dalgaard\textsuperscript{7} was the first source I used to learn R
+during my second semester of Statistics. I similarly used
+Lutz\textsuperscript{8} to learn Python well after I was comfortable
+with R and Probability and Statistics. One needs to get past the
+programming knowledge of python to affectively get up to speed with
+matrix algebra, probability and statistics and data munging using the
+available libraries outside of the basic and Standard
+Library\textsuperscript{2} functions of python. There are books to help
+you cut some corners in applying python to data
+science\textsuperscript{9,} \textsuperscript{10}, but it's very easy to
+find oneself confused without a good level of comfort with the ideas and
+the pitfalls of importing modules in python. Namespaces and variable
+visibility are less forgiving in python than R.
+
+Once you get comfortable with the math and stats functions available in
+numpy and/or scipy modules, the data structures and munging functions of
+Panda and the grphics and plotting functions of Matplotlib you are up to
+the speed you had gotten to much earlier with R.
+
+As a final word, it may seem like I distain style, in favor of
+substance. I recall in a list of interview questions somewhere whether
+software that worked was more important than well documented code or
+vis-a-versa. It is a trick question. Though software that doesn't work
+is useless, it may be worse if it is unfixable too. You can't debug what
+is not understandable and spagetti code that is undocumented and
+disappearing into thin air never to be seen again is impossible to work
+on. Not only will others who want to adapt or debug our old code be
+lost, but given a month away from it, we probably won't know whatwe
+mwere doing either. Comment obscessively from the start.
+
+There is a plethora of free open source code and applications out there.
+Poor documention for users is lazy and sloppy and betrays our
+responsibility to tell our clients how to use the solutions we offer.
+Sometimes those clients are us and we deserve better too. Writing user
+documentation helps us think about our projects in a new perspective -
+making our work more valuable.
+
+Reproducibility is a necessity for any modern endeavor. In the face of
+the reseach fraud resurfacing more and more, we can no longer ask people
+to ``just trust us''. Data Scientists must know this from the outset.
+markdown with integrated code, Rstudio and Jupyter addresses this issue
+superbly well and so their use is central to what I am writing. The fact
+that they allow multi-language processing in the documents is the bonus.
+See the References and Resources at the end of the book for other books
+and articles on Documentation, Style and Reproducibility.
+
+So now we can forge ahead and look at R and python side-by-side and
+perhaps reduce the learning curve for python Data Science libraries.
 
 \part{R and Python, Side by
 Side}\label{part-r-and-python-side-by-side}
@@ -307,51 +383,63 @@ Side}\label{part-r-and-python-side-by-side}
 
 As already mentioned, it is not the intent of this treatise to teach
 either beginning R or python scripting. There are many good sources for
-this and yet another beginners book or tutorial is, I believe, not
-needed. For ease of reference I include
-\href{https://github.com/medmatix/RtoPythonThoughts/blob/master/Appendix_1.md}{Appendix1}
-as an overview of relevant R and python syntax for the general
-programming constructs any functional language. In Part 1, at the risk
-of being pedantic, I am simply giviing a fairly generic overview of the
-components of the typical script or program as a framework to be used in
-organizing our R and Python comparisons.
+this and yet another beginners book or tutorial I believe is not needed.
+For ease of reference, I include in the \href{Appendix_1.md}{Appendix1}
+an overview of relevant R and python syntax and the general programming
+constructs common to any functional language. In Part 1, at the risk of
+being pedantic, I am giving a generic overview of the components of the
+typical script or program to be used as a framework in organizing our R
+and Python comparisons.
 
 \section{Functional Programming
 Commonalities.}\label{functional-programming-commonalities.}
 
-In functional programming operational code is incorporated by task and
-purpose into blocks of code which are called by name in the body of a
-script. This usually includes some connecting statemts and assignments
-which cause the functions to operate together to accomplish some larger
+In functional programming, a kind of declarative paradigm, operational
+code is incorporated by task and purpose into blocks of code which are
+called by name in the body of a script. In practice it is most often a
+hybride rather than any one pure paradigm incolved. As a result some
+connecting statements and assignments in the program of script set up a
+milieu in which the functions operate together to accomplish some larger
 task.
 
-Historically, Fortran and Basic code in common accademic and educational
-use, became unwieldy as users became, more and more, writers of rampant
-spagetti code.The introduction of the concept of `structured
-programming' and the uniform reliance on subroutine and function call
-tamed the spagetti-monster. Extension to functional programming with
-pascal and modern C was a natural extension of this trend.
+Historically, Fortran and Basic code in common academic and educational
+use, became unwieldy as users became increasingly prone to the writing
+of rampant spagetti code. The introduction of the concept of `structured
+programming' and the uniform reliance on subroutine and function calls
+mostly tamed the spagetti-monster within a procedural programming
+paradigm. Growth of functional programming with pascal and to some
+extent modern C was a natural evolution of this trend and object
+oriented extensions to most legacy languages exist as we'll see later
+on.
 
-So the reliance of R and Python on script collections of functions
-calling each other is what we are at now. Functions are subprograms that
-have all the statement tasks common to most programs. I will deal in a
-general way with these statement types and include comparsions between
-how R and Python each express the tasks. It is not the intent of this
-book to actually teach beginning programming as previously mentioned.
-Consult the bibliography for some suggested sources for peginning
-programmers.
+So the perspective of R and Python as relying on script collections of
+functions calling each other is what we are stressing now. Purely
+Functional programs use functions and flow is linear through the
+collection which makes up the program. In a strict sense this would be
+done without regard to flow control, but functions are just in a sense
+subprograms with all the statements of procedural tasks and flow control
+within, common to the usual conception of programs.
+
+I will deal, in a general way with the, statement types which make up
+the functions and include comparsions between how R and Python each
+express the tasks. As I've already stressed,this book not aimed at
+teaching beginning programming. Consult the bibliography for some
+suggested sources for beginning programmers\^{}7, 8\^{}.
 
 The later innovation of object oriented programming concepts evolving
 from this will be touched on in a comparative fashion in another
 chapter.
 
+\section{Building Blocks of Functions as
+Procedures}\label{building-blocks-of-functions-as-procedures}
+
 \subsection{Statements and
 Expressions}\label{statements-and-expressions}
 
-A program or script is of course considered as a series of statement
-stored together. These statements constitute expressions of mathemetical
-equations (see specifically \href{}{Chapter 5}), choices, and other
-orders to be carried out by the machine.
+A program or script is of course considered as a series of instructions
+grouped together and run as a unit. These statements constitute
+expressions of mathemetical equations (see specifically \href{}{Chapter
+5}), choices, and other orders to be carried out by the machine.
 
 With any program or script statements tasks and values stored are
 executed or accessed from memory locations. This was the innovation
@@ -383,7 +471,7 @@ into here.
 
 As currently implemented all choices by a computer resolve to yes or no
 results. Some semblance or the greys we think in are a result of a
-collection or range of yes-no questions. These choices are explicit of
+collection or range of yes-no questions. These choices are explicit or
 implicit `if' queries.
 
 \subsection{Doing it Over Again (and again
@@ -403,8 +491,8 @@ value is a frequent option with these functions as well. Functions may
 provide a new programming element like a square root (python,
 math.sqrt(x)) extending the language, or functions may carry out a whole
 task like carring out a liner regression, storing objects of the answer
-in memory for retrieval, or return as an object explicitly. Ofter a
-function is called that builds a whole grphic plot for display or other
+in memory for retrieval, or return as an object explicitly. Often a
+function is called that builds a whole graphic plot for display or other
 output when called.
 
 In R,
@@ -412,45 +500,61 @@ In R,
 \begin{verbatim}
 function.name <- function(arguments) 
 {
-  computations on the arguments
-  maybe other code too
+    computations on the arguments
+    maybe other code too
 }
 \end{verbatim}
 
 and in Python indents take the place of brackets to define code blocks.
 Self in the function spec is the calling code block, and if omitted, is
-created by python implicitly. So, your first argument one way of another
-is the calling namespace. Self in the indented code block is the
-function itself.
+created by python implicitly. In the functional paradigm, self is always
+present but implicitly. It becomes important in object-oriented
+programming in python where, your first argument implicitly or
+explicitly is the calling namespace. `Self' in the indented code block
+would be the function itself.
 
 \begin{verbatim}
-def aroutine(self, args)
-  computations on args
-  maybe other code too
+
+def aroutine(args):
+    computations on args
+    maybe other code too
+  
 \end{verbatim}
 
-The notation of R is C (and Java) - like and Python is Pascal-like in
-format. Unlike pascal there is no `begin:' keyword required at anytime
-in the script.
+The notation of R is C (and Java) - like with bracketed blocks, and
+Python is Pascal-like with indented blocks. Unlike pascal there is no
+`begin:' keyword required to start the script but when named code blocks
+are used such as functions the colon is needed at the end of definition.
 
-Functional programming with R and Python, will be expanded on in it's
-own chapter later on.
+Functional programming with R and Python, will be expanded on in
+\href{06-Functional_Programming.Rmd}{Chapter 6} later on.
 
-\subsection{Objects and Classes}\label{objects-and-classes}
+\subsection{Objects and Classes anticipating Object-Oriented
+Programming}\label{objects-and-classes-anticipating-object-oriented-programming}
 
 In general terms we will come to consider all program elements as
 objects. A Class will be considered as a pattern definition for an
-object. All objects are used as instances of some previously defined
-class.
+object in the same fashion as a function definition. All objects are
+used as instances of some previously defined class created by an
+assignment statement.
+
+\begin{verbatim}
+
+AnInstance=ClassName() # call ClassName constructor to create an instance "AnInstance"
+
+\end{verbatim}
+
+More later in \href{12-OO_Programming.Rmd}{Chapter 12}
 
 \chapter{Set-up for R and Python
 Exercises}\label{set-up-for-r-and-python-exercises}
 
 Clearly you have to get R and python onto your system. I have a bias
-about depending on any en block installed, like Anaconda etc. Anaconda
-is convenient but is too easy to loose locations of programs and tools
-and get conflicts with installs outside of the grouped installers like
-different Python destibutions and difficult to manage path complexity.
+about dependance on any en block installed software stacks, like
+Anaconda etc. Anaconda is a convenient way to install programs together.
+However it is easy to loose locations of programs and tools and have
+conflicts with installs from outside of the group installers, such as
+different Python destributions, and difficult to manage path complexity.
 
 Just the same, Anaconda is a good choice if you are doing a clean
 install and intend to do everthing inside that framework.Then installing
@@ -458,29 +562,33 @@ install and intend to do everthing inside that framework.Then installing
 can make things much easier in the long run for integrating R and Python
 and Reproducible Research work.
 
-For my own purposes, I install each separately. Start with R, and then
-install Python through the Next Notebook.Finally install .
-
 All of these sites will help you approach installs and configurations in
-a variety of ways. As an R programmer first I installed R, then
-\href{https://www.rstudio.com/}{RStudio}. Once installed, RStudio is a
-convenient way to install the R packages as well and then Python 3
-at\href{https://www.python.org/}{Python Software Foundation}. From that
-point on use PIP package manager for python and RGUI for package
-installs for python and R respectively and install jupyter see
-\href{http://jupyter.org/install}{Project Jupyter}. This gave the
-maximum flexibility for R and Python in their own environments.
+a variety of ways. As an R programmer, first I installed
+\href{https://www.r-project.org/}{R}, then
+\href{https://www.rstudio.com/}{RStudio\textsuperscript{4}}. Once
+installed, RStudio is a convenient way to install the R packages as
+well.
 
-I did do a parallel Anaconda install with R and RStudio and iPython for
-Jupyter Notebooks but as mentioned there was some path confusion with
-this approach. It does set you up nicely for any approach to data
-science and development you could choose down the road.
+Then I installed Python 3 from \href{https://www.python.org/}{Python
+Software Foundation}. From that point on I used PIP package manager for
+python and RGUI for package installs for python and R respectively and
+install jupyter see \href{http://jupyter.org/install}{Project Jupyter}.
+This gave the maximum flexibility for R and Python in their own
+environments. I also installed the SciPy (which includes numpy), Pandas,
+and Matplotlib all using PIP.
+
+I did do a parallel Anaconda install afterwards with R and RStudio and
+iPython for Jupyter Notebooks but as mentioned there was some path
+confusion with this approach. It does set you up nicely for any approach
+to data science and development you could choose down the road.
 
 You really are going to need an IDE for Python.
-\href{https://www.spyder-ide.org/}{Spyder}, available separately or
-installed through Anaconda is a solid python focused choice. I use
-\href{https://www.eclipse.org/}{Eclipse} as you can use it for multiple
-languages including R (not as strong yet) and python.
+\href{https://www.spyder-ide.org/}{Spyder}, available separately
+installed with PIP, or installed through Anaconda. It is a solid python
+focused choice. I personally use
+\href{https://www.eclipse.org/}{Eclipse} as it is open sourced and you
+can use it for multiple languages including R (not as strong yet) and
+python, HTML/CSS/javascript, C/C++, Java and others.
 
 \section{Package Libraries}\label{package-libraries}
 
@@ -507,8 +615,8 @@ tools} consisting of SciPy, Numpy, Pandas and Matplotlib. These are the
 essential minimum to do any R-like work in python. These and more can be
 accessed as well through the
 \href{https://numfocus.org/sponsored-projects}{Numfocus Projects}.
-Finally, you have to check out the
-\href{https://www.statsmodels.org/stable/index.html}{StatsModels}
+Finally, you should check out the
+\href{https://www.statsmodels.org/stable/index.html}{StatsModels\textsuperscript{11}}
 package site.
 
 \section{Pulling it Together}\label{pulling-it-together}
@@ -519,7 +627,7 @@ can be installed with the R GUI but the RStudio environment is much
 easier for this. Once a package is installed it is available in all
 environments I've alluded to. Compiling and installing is always best
 and I thing RStudio makes this fairly painless. Remember to start the
-GUI, Anaconda or RStudion environment as administrator to keep things
+GUI, Anaconda or RStudio environment as administrator to keep things
 together.
 
 \subsection{The Prompts}\label{the-prompts}
@@ -604,26 +712,26 @@ while in python we import the package previously installed as,
   import numpy
 \end{verbatim}
 
-Once imported or loaded into either, we can access the functions of MASS
-directly by name. If we have a previous function of the same name it
-gets overwritten unless in python we keep the name spaces separate. This
-can be done by the form of the import statement. We can also import only
-slected functions from a package module.
+Once imported or loaded into either, we can access the functions of
+reticulate directly by name. If we have a previous function of the same
+name it gets overwritten unless in python we keep the name spaces
+separate. This can be done by the form of the import statement. We can
+also import only slected functions from a package module.
 
 \begin{verbatim}
 
   import numpy as np             # usual format to use namespace segregation of functions
-  from numpy import sum, matrix  # economical import, still can conflick without use of as
-  
+  from numpy import sum, matrix  # economical import,still can conflict without renaming 
+                                 #   using 'as', such as where base python has a sum()  
+                                 #   function and math has a different one called sum()
 \end{verbatim}
 
-\subsection{Using R and Python
-Together}\label{using-r-and-python-together}
+\section{Using R and Python Together}\label{using-r-and-python-together}
 
 There are several ways that one could find helpful to use R and Python
 together, to take best advantage of their respective strengths
 
-\subsubsection{Working in R and Calling
+\subsection{Working in R and Calling
 Python}\label{working-in-r-and-calling-python}
 
 In this instance one would find working in R the necessary starting
@@ -652,7 +760,7 @@ have a task completed by python and control returned to the R program.
 ## 3.141592653589793
 \end{verbatim}
 
-\subsubsection{Working in Python and Calling
+\subsection{Working in Python and Calling
 R}\label{working-in-python-and-calling-r}
 
 Working in python and calling an R object would look like,
@@ -665,23 +773,49 @@ rpi = robjects.r['pi']
 print("PI from R = ", rpi)
 \end{verbatim}
 
-\subsubsection{Working in Jupyter and Writing in R, Python or Both in
-the Same
+\subsection{Working in Jupyter and Writing in R, Python or Both in the
+Same
 Notebook}\label{working-in-jupyter-and-writing-in-r-python-or-both-in-the-same-notebook}
 
 There are multiple kernel plugins available for jupyter notebooks. As A
-rule, the notebooks only use one language kernel at a time. An
-excepti9on is the SOS kernel.
+rule, the notebooks only use one language kernel at a time. An exception
+is the {[}SOS kernel{]}(\url{https://vatlab.github.io/sos-docs/}.
 
-\subsubsection{Working in rmarkdown and Using R and Python Code
+Jupyter is running first level in python. It is afterall a python
+module. When running the R kernel (irkernel) remmber you are running R
+in python. See the caution below in the contest of rMarkdown code
+chunks.
+
+Consider this Jupyter notebook using the R kernel,
+
+\begin{figure}
+\centering
+\includegraphics{images/JupyterRSession.png}
+\caption{Jupyter R Demo}
+\end{figure}
+
+and this Jupyter notebook using the `Python kernel',
+
+\begin{figure}
+\centering
+\includegraphics{images/JupyterPythonSession.png}
+\caption{Jupyter Python Demo}
+\end{figure}
+
+\subsection{Working in rmarkdown and Using R and Python Code
 Chunks}\label{working-in-rmarkdown-and-using-r-and-python-code-chunks}
 
-Note: I have found behavior is unpredictible to call R objects back with
-Python chunks run in rmarkdown (ie. inside another instance of R). The
-identity of R\_User for rpy2 gets lost. There are limites to how deeply
-you should nest languages within languages.
+Now consider an rmarkdown session running primarily in R. The T code
+chunks are executed in the same R session as the rMarkdown. On the
+otherhand, a python code chunk is running in a python guest environment
+in the R level host.
 
-That said, the rmarkdown chuncks look like this.
+Caution: I have found behavior is unpredictible to call R objects back
+with Python chunks run in rmarkdown (ie. inside another instance of R).
+The identity of R\_User for rpy2 gets lost. There are limits to how
+deeply you should nest languages within languages.
+
+That said, the rmarkdown chunks look like this.
 
 \begin{verbatim}
 '''{r}
@@ -1070,6 +1204,11 @@ library packages. This will come up in more detail later.
 ## 1.6094379124341003
 \end{verbatim}
 
+I suggest, choosing your favorite R introduction and work through it's
+early examples using both R and Python - a good chance to try out
+Jupyter SOS kernel. It will also create a record of the basics of R and
+python side-by-side that you can refer back to.
+
 A full list of the built-in (as opposed to Standard Library Funtions) is
 displayed, from the python documentation, below.
 
@@ -1129,27 +1268,299 @@ At this point we are ready to discuss the functional programming
 paradigm in R and Python. The other important paradigm, Object-Oriented,
 will be discussed in the following Chapter.
 
+In using python in a functional paradigm, a script is built as a series
+of functions. Data is passed through one of more functions (ie. as
+series of functions) to carry out steps of a larger task set. When data
+is passed to a function to carry out some task or analysis on a dataset
+results may then printed out directly, stored in memory or on disk, or
+displayed in graphical form by passing the analysis to another set of
+functions such as those of matplotlib for plotting etc.
+
+A function is a set of stored programmatic statements stored in an
+accessible form for reuse. The function is called in R or Python by
+simply inserting it by name in a statement to be executed by one of the
+interpreters.
+
 \section{Defining Functions}\label{defining-functions}
+
+A function is defined in a specific format for each language.
 
 \subsection{R Scripting}\label{r-scripting-1}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{doArea <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(radius)\{}
+\NormalTok{  area <-}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{radius}\OperatorTok{^}\DecValTok{2}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
 \subsection{Python Scripting}\label{python-scripting-1}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ math}
+\KeywordTok{def}\NormalTok{ calcArea(radius):}
+\NormalTok{  area }\OperatorTok{=}\NormalTok{ math.pi }\OperatorTok{*}\NormalTok{ radius}\OperatorTok{**}\DecValTok{2}
+  \ControlFlowTok{return}\NormalTok{ area}
+\end{Highlighting}
+\end{Shaded}
 
 \section{Calling and Using Functions}\label{calling-and-using-functions}
 
 \subsection{R Scripting}\label{r-scripting-2}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{radius =}\StringTok{ }\DecValTok{4}
+\KeywordTok{print}\NormalTok{(}\KeywordTok{doArea}\NormalTok{(radius))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 50.26548
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x =}\StringTok{ }\KeywordTok{doArea}\NormalTok{(}\DecValTok{4}\NormalTok{) }\OperatorTok{+}\StringTok{ }\DecValTok{100}
+\KeywordTok{print}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 150.2655
+\end{verbatim}
+
 \subsection{Python Scripting}\label{python-scripting-2}
 
-\section{The Core or Standard
-Libraries}\label{the-core-or-standard-libraries}
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ math}
+\KeywordTok{def}\NormalTok{ calcArea(radius):}
+\NormalTok{  area }\OperatorTok{=}\NormalTok{ math.pi }\OperatorTok{*}\NormalTok{ radius}\OperatorTok{**}\DecValTok{2}
+  \ControlFlowTok{return}\NormalTok{ area}
+\BuiltInTok{print}\NormalTok{(calcArea(}\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 50.26548245743669
+\end{verbatim}
+
+Let's discuss the differences in how the functions were called to be
+used. COnsider first that the book is set-up as written in rMarkdown
+which is running in an instance of R. The memory of the code chunk and
+the underling R which rmarkdown is running are the same. In python
+terms, the namespace is the same. This is not the case with the python
+code chunks. We have to explicitly pass to (and retrieve from) the R
+namespace for it to be accessible to the python chunk, running in it's
+on (python) namespace. As a result we had to redefine the function in
+the same namespace in which we were calling it.
+
+With R code chunks the R memory space is open throughout but the python
+chunks name space is closed each time the python chunk closes. This is a
+feature of how I am using the R environment to write this book, not of
+python per se.
+
+Further, recalling we are writing scripts, the print statements are
+required for both to display the result. We could have used the cat()
+function of course to display the R output as well.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{cat}\NormalTok{(x)       }\CommentTok{# x is still in R memory here}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 150.2655
+\end{verbatim}
+
+Note that the result number {[}1{]} is not printed with R using cat() or
+the python print() functions.
+
+There are more subtlies of memory management in calling one language
+from inside the other. These will come up below but for now knowing how
+things behave in the R/rMarkdown environment as above will cover our
+memory space issues.
+
+\section{Writing Function Examples in R and
+Python}\label{writing-function-examples-in-r-and-python}
+
+\subsubsection{Example 1 A Surveyor's
+Function}\label{example-1-a-surveyors-function}
+
+Lets write a function in R and Python to calculate the height of a tower
+knowing the angle of elevation at a given distance from the base. This
+would be something we might need when sighting through a surveyors
+transit.
+
+Given a distance from the base of 1000 meters, how high is a tower whose
+top was measured at an angle of 25 degrees at that distance.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d =}\StringTok{ }\DecValTok{1000}    \CommentTok{# distance in meters to base}
+\NormalTok{ad =}\StringTok{ }\DecValTok{25}     \CommentTok{# angle in degrees}
+
+\CommentTok{# write a function to convert degrees to radians}
+\NormalTok{deg2rad =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(angledeg)\{}
+\NormalTok{  angledeg }\OperatorTok{*}\StringTok{ }\NormalTok{(pi}\OperatorTok{/}\DecValTok{180}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# write function to calcular height from angle in degrees}
+\NormalTok{ht =}\StringTok{ }\ControlFlowTok{function}\NormalTok{(d, ad)\{}
+\NormalTok{  h =}\StringTok{ }\NormalTok{d}\OperatorTok{*}\KeywordTok{tan}\NormalTok{(}\KeywordTok{deg2rad}\NormalTok{(ad))}
+\NormalTok{\}}
+
+\CommentTok{# now call and output function with distance d and angle ad in degrees}
+\KeywordTok{cat}\NormalTok{(}\StringTok{"Tower Height in meters is: "}\NormalTok{, }\KeywordTok{ht}\NormalTok{(d, ad), }\StringTok{"}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)    }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Tower Height in meters is:  466.3077
+\end{verbatim}
+
+So we have written 2 functions, one to convert degrees to radians, that
+is the expected measure of the angle going into ttigonometric functions
+of R. Then we wrote a function to accept degrees input and give the
+height in meters (the input distance units) The function definitions use
+the keyword `function, followed by zero or more arguments and then the
+code block of the function is set out by brace brackets'\{ \}'. The
+function is assigned to a name like a variable.
+
+Lets do it with python now,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# set variables to problem givens}
+\NormalTok{d }\OperatorTok{=} \DecValTok{1000}    \CommentTok{# distance in meters to base}
+\NormalTok{ad }\OperatorTok{=} \DecValTok{25}     \CommentTok{# angle in degrees}
+\CommentTok{# write a function to convert degrees to radians}
+\KeywordTok{def}\NormalTok{ deg2rad(angledeg):}
+    \ImportTok{import}\NormalTok{ math}
+    \ControlFlowTok{return}\NormalTok{(angledeg }\OperatorTok{*}\NormalTok{ (math.pi}\OperatorTok{/}\DecValTok{180}\NormalTok{))}
+    
+\CommentTok{# write function to calcular height from angle in degrees}
+\KeywordTok{def}\NormalTok{ ht(d, ad):}
+  \ImportTok{import}\NormalTok{ math}
+  \ControlFlowTok{return}\NormalTok{ (d}\OperatorTok{*}\NormalTok{math.tan(deg2rad(ad)))}
+\CommentTok{# now call and output function with distance d and angle ad in degrees}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"The height in meters of the tower is :"}\NormalTok{, ht(d, ad))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## The height in meters of the tower is : 466.3076581549986
+\end{verbatim}
+
+In the python declarations the definition starts with the keyword `def'
+a name and zero or more arguments and there is a colon `:' at the end of
+the first line. The code block of the function is also indented rather
+than set out by brace brakets `\{ \}'. The first line is the signature
+of the function.
+
+Both functions return a value, typically the last value in the
+calculation chain for R but as an explicitly called return for python.
+Note for the two python functions one has a space after return and the
+other doesn't. This is because the bracket do not contain return
+parmeters but group the expression to be returned.
+
+Also as previously alluded to pi in R is a core CONSTANT but in python
+it is a CONSTANT in the math module which must be imported to use it. We
+could have just explicitly imported only pi at the start and referred to
+it directly by name as in R.
+
+\begin{verbatim}
+# Python code
+print(pi)
+\end{verbatim}
+
+Gives an error:
+
+\begin{verbatim}
+Traceback (most recent call last):
+  File "C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt", line 1, in <module>
+    print(pi)
+NameError: name 'pi' is not defined
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ math }\ImportTok{import}\NormalTok{ pi}
+\BuiltInTok{print}\NormalTok{(pi)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 3.141592653589793
+\end{verbatim}
+
+Once again you must know where to go to get some constants and functions
+with python which are built-in in R. Check out the math module in the
+standard python library\textsuperscript{3}.
+
+\section{Using the Core R and Python Standard
+Libraries}\label{using-the-core-r-and-python-standard-libraries}
+
+Core R distributions currently install with a base set of function
+packages. The Table in the \href{17-Appendix_3_Packages.Rmd}{Appendix 3}
+lists these.
+
+The python standard libraries contain alot of modules which can be
+imported. They are grouped in modules by functionality. The functions
+contained in the modules can be looked up in the
+\href{https://docs.python.org/3.7/}{Official Documentation} online or
+referring to the Hellmann\textsuperscript{2} book.
+
+As done for the R base system in the Appendix, I also list the groups of
+python modules of the Standard Library in the Appendix 3 by kind as in
+the Python Documentation\textsuperscript{3}, but generally including
+only occasional examples of the many functions each contain. Again a
+more exhaustive handling is available as indicated.
 
 \subsection{R Scripting}\label{r-scripting-3}
 
 \subsection{Python Scripting}\label{python-scripting-3}
 
+\chapter{Object-Oriented Programming with R and
+Python}\label{object-oriented-programming-with-r-and-python}
+
+At this point we are ready to discuss the functional programming
+paradigm in R and Python. The other important paradigm, Object-Oriented,
+will be discussed in the following Chapter.
+
+\section{Defining Classes}\label{defining-classes}
+
+\subsection{R Scripting}\label{r-scripting-4}
+
+\subsection{Python Scripting}\label{python-scripting-4}
+
+\section{Using Objects and Classes}\label{using-objects-and-classes}
+
+\subsection{R Scripting}\label{r-scripting-5}
+
+\subsection{Python Scripting}\label{python-scripting-5}
+
 \part{Data Science Topics in Python Compared to
 R}\label{part-data-science-topics-in-python-compared-to-r}
+
+\chapter{Clean and Tidy Data}\label{clean-and-tidy-data}
+
+In an ideal world all data would come organized and in an immediatelyt
+usable form. Of course, such is unlikely. Datasets are missing values,
+in the wrong datatype for use, have misleading correlations, such as
+with time data, and so on. Both R and prython have library and builting
+functions to clean and tidy or data in a documented reproducible way
+before proceeding with our studies on it.
+
+\section{Reproducibility}\label{reproducibility}
+
+\section{R Data Munging}\label{r-data-munging}
+
+\section{Python Data Munging}\label{python-data-munging}
 
 \chapter{Using Probability Distributions with R and
 Python}\label{using-probability-distributions-with-r-and-python}
@@ -1160,22 +1571,22 @@ will be discussed in the following Chapter.
 
 \section{Basic Probability Issues}\label{basic-probability-issues}
 
-\subsection{R Scripting}\label{r-scripting-4}
+\subsection{R Scripting}\label{r-scripting-6}
 
-\subsection{Python Scripting}\label{python-scripting-4}
+\subsection{Python Scripting}\label{python-scripting-6}
 
 \section{Using the Distrbutions}\label{using-the-distrbutions}
 
-\subsection{R Scripting}\label{r-scripting-5}
+\subsection{R Scripting}\label{r-scripting-7}
 
-\subsection{Python Scripting}\label{python-scripting-5}
+\subsection{Python Scripting}\label{python-scripting-7}
 
 \section{Other Libraries with Probability and Statistical
 Packages}\label{other-libraries-with-probability-and-statistical-packages}
 
-\subsection{R Scripting}\label{r-scripting-6}
+\subsection{R Scripting}\label{r-scripting-8}
 
-\subsection{Python Scripting}\label{python-scripting-6}
+\subsection{Python Scripting}\label{python-scripting-8}
 
 \chapter{Descriptive Statistics and Data
 Exploration}\label{descriptive-statistics-and-data-exploration}
@@ -1186,23 +1597,23 @@ will be discussed in the following Chapter.
 
 \section{Defining Functions}\label{defining-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-7}
+\subsection{R Scripting}\label{r-scripting-9}
 
-\subsection{Python Scripting}\label{python-scripting-7}
+\subsection{Python Scripting}\label{python-scripting-9}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-8}
+\subsection{R Scripting}\label{r-scripting-10}
 
-\subsection{Python Scripting}\label{python-scripting-8}
+\subsection{Python Scripting}\label{python-scripting-10}
 
 \section{The Core or Standard
-Libraries}\label{the-core-or-standard-libraries-1}
+Libraries}\label{the-core-or-standard-libraries}
 
-\subsection{R Scripting}\label{r-scripting-9}
+\subsection{R Scripting}\label{r-scripting-11}
 
-\subsection{Python Scripting}\label{python-scripting-9}
+\subsection{Python Scripting}\label{python-scripting-11}
 
 \chapter{Statistical Analysis and
 Modeling}\label{statistical-analysis-and-modeling}
@@ -1214,40 +1625,111 @@ will be discussed in the following Chapter.
 \section{Defining the Available
 Functions}\label{defining-the-available-functions}
 
-\subsection{R Scripting}\label{r-scripting-10}
+\subsection{R Scripting}\label{r-scripting-12}
 
-\subsection{Python Scripting}\label{python-scripting-10}
+\subsection{Python Scripting}\label{python-scripting-12}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-2}
 
-\subsection{R Scripting}\label{r-scripting-11}
+\subsection{R Scripting}\label{r-scripting-13}
 
-\subsection{Python Scripting}\label{python-scripting-11}
+\subsection{Python Scripting}\label{python-scripting-13}
 
 \chapter{Non-Stochastic Models}\label{non-stochastic-models}
 
 Many mathematical models are deterministic. This includes mathematical
 programming.
 
-\chapter{Object-Oriented Programming with R and
-Python}\label{object-oriented-programming-with-r-and-python}
+\chapter{Reproducible Research}\label{reproducible-research}
 
-At this point we are ready to discuss the functional programming
-paradigm in R and Python. The other important paradigm, Object-Oriented,
-will be discussed in the following Chapter.
+\chapter{References}\label{references}
 
-\section{Defining Classes}\label{defining-classes}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Core R Team (Ed.),
+  \href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
+  Reference Index}, R Foundation for Statistical Computing, Vienna,
+  2018.
+\item
+  Hellmann, Doug,
+  \href{https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7}{The
+  Python 3 Standard Library by example}, Addison-Wesley, Boston MA,
+  2017.
+\item
+  Python Software Foundation (Ed.).,
+  \href{https://docs.python.org/3.7/}{Python 3.7.1 documentation},
+  Python Software Foundation, Wilmington Delaware, 2018
+\item
+  RStudio Consortium (Ed.),
+  \href{https://support.rstudio.com/hc/en-us/categories/200035113-Documentation}{RStudio
+  Documentation}, Boston MA, 2018
+\item
+  Core R Team (Ed.),
+  \href{https://cran.r-project.org/doc/manuals/r-release/R-lang.html}{R
+  Language Reference}, R Foundation for Statistical Computing, Vienna,
+  2018.
+\item
+  Python Software Foundation(Ed.),\href{https://pypi.org/}{Python
+  Package Index}, Wilmington Delaware, 2018
+\item
+  Dalgaard, Peter; Introductory Statistics with R, Springer-Valng, New
+  York NY, 2002.
+\item
+  Lutz, Mark; Learning Python 4\textsuperscript{th} Ed., O'Reilly Media,
+  Sebastopol CA, 2009.
+\item
+  Grus, Joel; Data Science from Scratch, First Principles with Python,
+  O'Reilly Media, Sebastopol CA, 2015
+\item
+  Boschetti, Alberto; Luca Massaron; Python Data Science Essentials,
+  Packt Publishing, Birmingham UK, 2015
+\item
+  Perktold, Josef; Skipper Seabold; Jonathan Taylor;
+  \href{https://www.statsmodels.org/stable/index.html}{StatsModels}
+  Washington DC Chicago IL, 2017
+\item
+  Skipper Seabold; Perktold, Josef; ``Statsmodels: Econometric and
+  Statistical Modeling with Python'', PROC. OF THE 9th PYTHON IN SCIENCE
+  CONF. (SCIPY 2010)
+\item
+  Veneble W.; B. Ripley; Modern Applied Statistics with S,
+  4\textsuperscript{th} ed, Springer, New York NY, 2002.
+\end{enumerate}
 
-\subsection{R Scripting}\label{r-scripting-12}
+14 Härdle, Wolfgang K; Léopold Simar; Applied Multivariable
+Analysis,3\textsuperscript{rd} Ed., Springer, New York NY, 2012.
 
-\subsection{Python Scripting}\label{python-scripting-12}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{14}
+\item
+  George, Janeve
+  \href{http://www.janeve.me/software-programming/understanding-programming-paradigms}{Understanding
+  Programming Paradigms},Bangalore, India, 2013. (Accessed:12/07/2018
+  1:25PM.)
+\item
+  Wikipedia contributors, ``Programming paradigm,'' Wikipedia, The Free
+  Encyclopedia,
+  \url{https://en.wikipedia.org/w/index.php?title=Programming_paradigm\&oldid=871880549}
+  (Accessed:12/07/2018 1:25PM.)
+\end{enumerate}
 
-\section{Using Objects and Classes}\label{using-objects-and-classes}
+\chapter{Bibliography}\label{bibliography}
 
-\subsection{R Scripting}\label{r-scripting-13}
+\begin{verbatim}
+Page name: Programming paradigm
+Author: Wikipedia contributors
+Publisher: Wikipedia, The Free Encyclopedia.
+Date of last revision: 4 December 2018 00:45 UTC
+Date retrieved: 7 December 2018 18:30 UTC
+Permanent link: https://en.wikipedia.org/w/index.php?title=Programming_paradigm&oldid=871880549
+Primary contributors: Revision history statistics
+Page Version ID: 871880549
+\end{verbatim}
 
-\subsection{Python Scripting}\label{python-scripting-13}
+\part{Appendices}\label{part-appendices}
 
 \chapter{Appendix 1}\label{appendix-1}
 
@@ -1259,52 +1741,1450 @@ programming constructs are reviewed there for reader convenience.
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule
-& R & Python\tabularnewline
+\begin{minipage}[b]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[b]{0.33\columnwidth}\raggedright\strut
+R\strut
+\end{minipage} & \begin{minipage}[b]{0.39\columnwidth}\raggedright\strut
+Python\strut
+\end{minipage}\tabularnewline
 \midrule
 \endhead
-Basic data types and structures & scalar == vector{[}0{]} &
-scalars\tabularnewline
-& vectors, (numerical, character, logical, factor) & (string, integer,
-float)\tabularnewline
-& arrays, == vectors (m x n) & arrays (m x n) of scalars\tabularnewline
-& matrices, &\tabularnewline
-& data frames, & dictionary,\tabularnewline
-& and lists & and lists\tabularnewline
-Operators & &\tabularnewline
-conditionals & &\tabularnewline
-Loops & &\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\textbf{Basic Data types and structures }\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+scalar == vector{[}0{]}\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+true scalars\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+vectors, (numerical, character, logical, factor)\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+(string, integer, float, complex, boolean)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+arrays, == vectors (m x n)\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+arrays (m x n) of scalars\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+matrices,\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+data frames,\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+dictionary,\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+and lists\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+and lists\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\textbf{Operators} - arithmetic\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
++ - * /\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
++ - * /\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- exponent\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+\^{}\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+**\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- modulus remainder\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+\%\%\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+\%\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- modular division\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+\%/\%\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+//\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- logical / boolean\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+\&, \textbar{}, !\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+and, or, not\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- logical / comparison\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+==, \textless{}, \textless{}=, \textgreater{}, \textgreater{}=, !=\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+==, \textless{}, \textless{}=, \textgreater{}, \textgreater{}=, !=\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+\textbf{Flow Control}\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- conditionals, decisions\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+if-else, ifelse(), switch\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+if, else, elif\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
+- Loops\strut
+\end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
+while(), for()\strut
+\end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
+while, for\strut
+\end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
 
 \section{Extended Structures}\label{extended-structures}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+& R & Python &\tabularnewline
+\midrule
+\endhead
+& & &\tabularnewline
+\bottomrule
+\end{longtable}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\chapter{Appendix 2}\label{appendix-2}
 
-\chapter{References}\label{references}
+\section{Mixed R and Python Examples with rMarkdown and Jupyter-SOS
+Notebooks}\label{mixed-r-and-python-examples-with-rmarkdown-and-jupyter-sos-notebooks}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
+\subsection{Using rmarkdown as a Mixed Language
+Environment}\label{using-rmarkdown-as-a-mixed-language-environment}
+
+\subsection{Using Jupyter with SOS as a Mixed Language
+Environment}\label{using-jupyter-with-sos-as-a-mixed-language-environment}
+
+\chapter{Appendix 3, R and Python
+Packages}\label{appendix-3-r-and-python-packages}
+
+\section{R Core Package List}\label{r-core-package-list}
+
+The base packages are part of R and are grouped bt functionality and to
+some degree of chonology of incorporation into the base distribution.
+The Packages of base functions are,
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.13\columnwidth}\raggedright\strut
+Package\strut
+\end{minipage} & \begin{minipage}[b]{0.81\columnwidth}\raggedright\strut
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+base\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Base R functions\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+compiler\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Functions to provide an interface to a byte code compiler for R\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+datasets\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Base R datasets\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+grDevices\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+R Graphics Devices and Support for Colours and Fonts. Support for base
+and grid graphics\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+graphics\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+R functions for base graphics\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+grid\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+The Grid Graphics Package. A rewrite of the graphics layout
+capabilities.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+methods\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Formal Methods and Classes. Formally defined methods and classes for R
+objects and other programming tools.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+parallel\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Support for Parallel Computation, including random-number
+generation.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+splines\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Regression Spline Functions and Classes.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+stats\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+R statistical functions\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+stats4\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Statistical Functions using S4 classes.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+tcltk\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Interface and language bindings to Tcl/Tk GUI elements.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+tools\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+Tools for package development, administration and documentation.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.13\columnwidth}\raggedright\strut
+utils\strut
+\end{minipage} & \begin{minipage}[t]{0.81\columnwidth}\raggedright\strut
+R utility functions\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+A list if contained functions in any package can be displayed in R by
+(eg. for parallel package),
+
+\begin{verbatim}
+library(help = "parallel")  # of substitute any package name for "parallel"
+\end{verbatim}
+
+The other list installed with first R install are the recommended
+packages. These are kind of and appocrapha of functions providing useful
+capabilities from some books and papers about specialized uses of the R
+system. These are,
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+\begin{minipage}[b]{0.16\columnwidth}\raggedright\strut
+Package\strut
+\end{minipage} & \begin{minipage}[b]{0.73\columnwidth}\raggedright\strut
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+kernsmooth\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Functions for \textbf{kernel smoothing} (and density estimation)
+corresponding to the book: Wand, M.P. and Jones, M.C. (1995) ``Kernel
+Smoothing''.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+MASS\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+\emph{Functions and datasets} to support Venables and Ripley, ``Modern
+Applied Statistics with S'' (4th edition, 2002).\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Matrix\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+A rich hierarchy of \textbf{matrix classes}, including \emph{triangular,
+symmetric, and diagonal matrices}, both \emph{dense} and \emph{sparse},
+using `LAPACK' and `SuiteSparse' libraries.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+boot\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Functions and datasets for \textbf{bootstrapping} from the book
+``Bootstrap Methods and Their Application'' by A. C. Davison and D. V.
+Hinkley (1997, CUP), originally written by Angelo Canty for S.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+class\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Various functions for \textbf{classification}, including \emph{k-nearest
+neighbour}, \emph{Learning Vector Quantization} and
+\emph{Self-Organizing Maps}.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+cluster\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Methods for \textbf{Cluster analysis}. Much extended the original from
+Peter Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and
+Rousseeuw (1990) ``Finding Groups in Data''.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+codetools\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Code analysis tools for R.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+foreign\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Reading and writing data stored by some versions of `Epi Info',
+`Minitab', `S', `SAS', `SPSS', `Stata', `Systat', `Weka', and for
+reading and writing some `dBase' files.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+lattice\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+A powerful and elegant \textbf{high-level data visualization system}
+inspired by Trellis graphics, with an \emph{emphasis on multivariate
+data}.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+mgcv\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Multiscale Graph Correlation (MGC) is a framework developed by Shen et
+al. (2017) \textless{}arXiv:1609.05148\textgreater{} that extends global
+correlation procedures to be multiscale;\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+nlme\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+\emph{Linear and Nonlinear} \textbf{Mixed Effects Models}.Fit and
+compare Gaussian linear and nonlinear mixed-effects models.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+nnet\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Feed-Forward Neural Networks and Multinomial Log-Linear Models\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+rpart\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+\emph{Recursive partitioning} for classification, regression and
+survival trees. An implementation of most of the functionality of the
+1984 book by Breiman, Friedman, Olshen and Stone.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+spatial\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Functions for kriging and point pattern analysis.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+survival\strut
+\end{minipage} & \begin{minipage}[t]{0.73\columnwidth}\raggedright\strut
+Contains the core \textbf{survival analysis} routines.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+There are literally thousands of CRAN repository packages accumulated
+over the years plus many more managed outside of the CRAN repository.
+Inclusion in CRAN requires a minimum standard process of package
+structure and documentation.
+
+\section{\texorpdfstring{Python
+\href{https://docs.python.org/3.7/library/index.html}{Standard
+Library\textsuperscript{2}}
+List}{Python Standard Library2 List}}\label{python-standard-library2-list}
+
+see also: \url{https://docs.python.org/3.7/library/index.html}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/functions.html}{Built-in
+Functions\textsuperscript{2}}}{Built-in Functions2}}\label{built-in-functions2}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+abs() & delattr() & hash() & memoryview() & set()\tabularnewline
+all() & dict() & help() & min() & setattr()\tabularnewline
+any() & dir() & hex() & next() & slice()\tabularnewline
+ascii() & divmod() & id() & object() & sorted()\tabularnewline
+bin() & enumerate() & input() & oct() & staticmethod()\tabularnewline
+bool() & eval() & int() & open() & str()\tabularnewline
+breakpoint() & exec() & isinstance() & ord() & sum()\tabularnewline
+bytearray() & filter() & issubclass() & pow() & super()\tabularnewline
+bytes() & float() & iter() & print() & tuple()\tabularnewline
+callable() & format() & len() & property() & type()\tabularnewline
+chr() & frozenset() & list() & range() & vars()\tabularnewline
+classmethod() & getattr() & locals() & repr() & zip()\tabularnewline
+compile() & globals() & map() & reversed() &
+\textbf{import}()\tabularnewline
+complex() & hasattr() & max() & round() &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/constants.html}{Built-in
+Constants}}{Built-in Constants}}\label{built-in-constants}
+
+includes Constants added by the \textbf{site} module
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+False & True & None & NotImplemented & Ellipsis or
+``\ldots{}''\tabularnewline
+\texttt{\_\_debug\_\_} & quit(code=None) & exit(code=None) & copyright
+&\tabularnewline
+credits & license & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/stdtypes.html}{Built-in
+Types}}{Built-in Types}}\label{built-in-types}
+
+\begin{itemize}
+\tightlist
 \item
-  Core R Team (Ed).,
-  \href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
-  Reference Index}, R Foundation for Statistical Computing, Vienna,
-  2018.
+  Truth Value Testing
 \item
-  Hellmann, Doug,
-  \href{https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7}{The
-  Python 3 Standard Library by example}, Addison-Wesley, Boston MA,
-  2017.
+  Boolean Operations --- \texttt{and}, \texttt{or}, \texttt{not}
 \item
-  Python Software Foundation.,
-  \href{https://docs.python.org/3.7/}{Python 3.7.1 documentation},
-  Python Software Foundation, Wilmington, Delaware, 2018
+  Comparisons
+  \texttt{==\ \textless{}=\ \textgreater{}=\ \textless{}\ \textgreater{}\ !=}
 \item
-  RStudio Consortium,
-  \href{https://support.rstudio.com/hc/en-us/categories/200035113-Documentation}{RStudio
-  Documentation}, Boston, MA, 2018
-\end{enumerate}
+  Numeric Types --- \texttt{int}, \texttt{float}, \texttt{complex}
+\item
+  Iterator Types
+\item
+  Sequence Types --- `list', `tuple', `range'
+\item
+  Text Sequence Type --- `str'
+\item
+  Binary Sequence Types --- `bytes', \texttt{bytearray},
+  \texttt{memoryview}
+\item
+  Set Types --- \texttt{set}, \texttt{frozenset}
+\item
+  Mapping Types --- \texttt{dict}
+\item
+  Context Manager \texttt{Types}
+\item
+  Other Built-in Types
+\item
+  Special Attributes
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/exceptions.html}{Built-in
+Exceptions}}{Built-in Exceptions}}\label{built-in-exceptions}
+
+\begin{itemize}
+\tightlist
+\item
+  Base classes
+\item
+  Concrete exceptions
+\item
+  Warnings
+\item
+  Exception hierarchy
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/text.html}{Text
+Processing
+Services}}{Text Processing Services}}\label{text-processing-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{string} --- Common string operations
+\item
+  \texttt{re} --- Regular expression operations
+\item
+  \texttt{difflib} --- Helpers for computing deltas
+\item
+  \texttt{textwrap} --- Text wrapping and filling
+\item
+  \texttt{unicodedata} --- Unicode Database
+\item
+  \texttt{stringprep} --- Internet String Preparation
+\item
+  \texttt{rlcompleter} --- Completion function for GNU readline
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/binary.html}{Binary
+Data Services}}{Binary Data Services}}\label{binary-data-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{struct} --- Interpret bytes as packed binary data
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Functions and Exceptions
+  \item
+    Format Strings
+  \item
+    Classes
+  \end{itemize}
+\item
+  codecs --- Codec registry and base classes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Codec Base Classes
+  \item
+    Encodings and Unicode
+  \item
+    Standard Encodings
+  \item
+    Python Specific Encodings
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Text Encodings
+    \item
+      Binary Transforms
+    \item
+      Text Transforms
+    \end{itemize}
+  \item
+    \texttt{encodings.idna} --- Internationalized Domain Names in
+    Applications
+  \item
+    \texttt{encodings.mbcs} --- Windows ANSI codepage
+  \item
+    \texttt{encodings.utf\_8\_sig} --- UTF-8 codec with BOM signature
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/datatypes.html}{Data
+Types}}{Data Types}}\label{data-types}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{datetime} --- Basic date and time types
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Available Types
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{timedelta} Objects
+    \item
+      \texttt{date} Objects
+    \item
+      \texttt{datetime} Objects
+    \item
+      \texttt{time} Objects
+    \item
+      \texttt{tzinfo} Objects
+    \item
+      \texttt{timezone} Objects
+    \item
+      \texttt{strftime()} and \texttt{strptime()} Behavior
+    \end{itemize}
+  \end{itemize}
+\item
+  \texttt{calendar} --- General calendar-related functions
+\item
+  \texttt{collections} --- Container datatypes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{ChainMap} objects
+  \item
+    \texttt{Counter} objects
+  \item
+    \texttt{deque} objects
+  \item
+    \texttt{defaultdic}t objects
+  \item
+    \texttt{namedtuple()} Factory Function for Tuples with Named Fields
+  \item
+    \texttt{OrderedDict} objects
+  \item
+    \texttt{UserDict} objects
+  \item
+    \texttt{UserList} objects
+  \item
+    \texttt{UserString} objects
+  \end{itemize}
+\item
+  \texttt{collections.abc} --- Abstract Base Classes for Containers
+\item
+  \texttt{heapq} --- Heap queue algorithm
+\item
+  \texttt{bisect} --- Array bisection algorithm
+\item
+  \texttt{array} --- Efficient arrays of numeric values
+\item
+  \texttt{weakref} --- Weak references
+\item
+  \texttt{types} --- Dynamic type creation and names for built-in types
+\item
+  \texttt{copy} --- Shallow and deep copy operations
+\item
+  \texttt{pprint} --- Data pretty printer
+\item
+  \texttt{reprlib} --- Alternate repr() implementation
+\item
+  \texttt{enum} --- Support for enumerations
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/numeric.html}{Numerical
+and Mathematical
+Modules}}{Numerical and Mathematical Modules}}\label{numerical-and-mathematical-modules}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{numbers} --- Numeric abstract base classes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The numeric tower
+  \end{itemize}
+\item
+  \texttt{math} --- Mathematical functions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Number-theoretic and representation functions
+  \item
+    Power and logarithmic functions
+  \item
+    Trigonometric functions
+  \item
+    Angular conversion
+  \item
+    Hyperbolic functions
+  \item
+    Special functions
+  \item
+    Constants
+  \end{itemize}
+\item
+  \texttt{cmath} --- Mathematical functions for complex numbers
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Conversions to and from polar coordinates
+  \item
+    Power and logarithmic functions
+  \item
+    Trigonometric functions
+  \item
+    Hyperbolic functions
+  \item
+    Classification functions
+  \item
+    Constants
+  \end{itemize}
+\item
+  \texttt{decimal} --- Decimal fixed point and floating point arithmetic
+\item
+  \texttt{fractions} --- Rational numbers
+\item
+  \texttt{random} --- Generate pseudo-random numbers
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Bookkeeping functions
+  \item
+    Functions for integers
+  \item
+    Functions for sequences
+  \item
+    Real-valued distributions
+  \item
+    Alternative Generator
+  \end{itemize}
+\item
+  \texttt{statistics} --- Mathematical statistics functions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Averages and measures of central location
+  \item
+    Measures of spread
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/functional.html}{Functional
+Programming
+Modules}}{Functional Programming Modules}}\label{functional-programming-modules}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{itertools} --- Functions creating iterators for efficient
+  looping
+\item
+  \texttt{functools} --- Higher-order functions and operations,
+  functions that act on or return other functions.
+\item
+  \texttt{operator} --- Standard operators as functions, efficient
+  functions corresponding to the intrinsic operators of Python.
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/filesys.html}{File
+and Directory
+Access}}{File and Directory Access}}\label{file-and-directory-access}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pathlib} --- Object-oriented filesystem paths
+\item
+  \texttt{os.path} --- Common pathname manipulations
+\item
+  \texttt{fileinput} --- Iterate over lines from multiple input streams
+\item
+  \texttt{stat} --- Interpreting stat() results
+\item
+  \texttt{filecmp} --- File and Directory Comparisons
+\item
+  \texttt{tempfile} --- Generate temporary files and directories
+\item
+  \texttt{glob} --- Unix style pathname pattern expansion
+\item
+  \texttt{fnmatch} --- Unix filename pattern matching
+\item
+  \texttt{linecache} --- Random access to text lines
+\item
+  \texttt{shutil} --- High-level file operations
+\item
+  \texttt{macpath} --- Mac OS 9 path manipulation functions
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/persistence.html}{Data
+Persistence}}{Data Persistence}}\label{data-persistence}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{pickle} --- Python object serialization
+\item
+  \texttt{copyreg} --- Register pickle support functions
+\item
+  \texttt{shelve} --- Python object persistence
+\item
+  \texttt{marshal} --- Internal Python object serialization
+\item
+  \texttt{dbm} --- Interfaces to Unix ``databases''
+\item
+  \texttt{sqlite3} --- DB-API 2.0 interface for SQLite databases
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/archiving.html}{Data
+Compression and
+Archiving}}{Data Compression and Archiving}}\label{data-compression-and-archiving}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{zlib} --- Compression compatible with gzip
+\item
+  \texttt{gzip} --- Support for gzip files
+\item
+  \texttt{bz2} --- Support for bzip2 compression
+\item
+  \texttt{lzma} --- Compression using the LZMA algorithm
+\item
+  \texttt{zipfile} --- Work with ZIP archives
+\item
+  \texttt{tarfile} --- Read and write tar archive files
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/fileformats.html}{File
+Formats}}{File Formats}}\label{file-formats}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{csv} --- CSV File Reading and Writing
+\item
+  \texttt{configparse} --- Configuration file parser
+\item
+  \texttt{netrc} --- netrc file processing
+\item
+  \texttt{xdrlib} --- Encode and decode XDR data
+\item
+  \texttt{plistlib} --- Generate and parse Mac OS X .plist files
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/crypto.html}{Cryptographic
+Services}}{Cryptographic Services}}\label{cryptographic-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{hashlib} --- Secure hashes and message digests
+\item
+  \texttt{hmac} --- Keyed-Hashing for Message Authentication
+\item
+  \texttt{secrets} --- Generate secure random numbers for managing
+  secrets
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/allos.html}{Generic
+Operating System
+Services}}{Generic Operating System Services}}\label{generic-operating-system-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{os} --- Miscellaneous operating system interfaces
+\item
+  \texttt{io} --- Core tools for working with streams
+\item
+  \texttt{time} --- Time access and conversions
+\item
+  \texttt{argparse} --- Parser for command-line options, arguments and
+  sub-commands
+\item
+  \texttt{getopt} --- C-style parser for command line options
+\item
+  \texttt{logging} --- Logging facility for Python
+\item
+  \texttt{logging.config} --- Logging configuration
+\item
+  \texttt{logging.handlers} --- Logging handlers
+\item
+  \texttt{getpass} --- Portable password input
+\item
+  \texttt{curses} --- Terminal handling for character-cell displays
+\item
+  \texttt{curses.textpad} --- Text input widget for curses programs
+\item
+  \texttt{curses.ascii} --- Utilities for ASCII characters
+\item
+  \texttt{curses.panel} --- A panel stack extension for curses
+\item
+  \texttt{platform} --- Access to underlying platform's identifying data
+\item
+  \texttt{errno} --- Standard errno system symbols
+\item
+  \texttt{ctypes} --- A foreign function library for Python
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/concurrency.html}{Concurrent
+Execution}}{Concurrent Execution}}\label{concurrent-execution}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{threading} --- Thread-based parallelism
+\item
+  \texttt{multiprocessing} --- Process-based parallelism
+\item
+  \texttt{concurrent}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{concurrent.futures} --- Launching parallel tasks
+  \end{itemize}
+\item
+  \texttt{subprocess} --- Subprocess management
+\item
+  \texttt{sched} --- Event scheduler
+\item
+  \texttt{queue} --- A synchronized queue class
+\item
+  \texttt{\_thread} --- Low-level threading API
+\item
+  \texttt{\_dummy\_thread} --- Drop-in replacement for the \_thread
+  module
+\item
+  \texttt{dummy\_threading} --- Drop-in replacement for the threading
+  module
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/contextvars.html\#module-contextvars}{Context
+Variables}}{Context Variables}}\label{context-variables}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{contextvars} - module provides APIs to manage, store, and
+  access context-local state (context variables)
+\item
+  \texttt{asyncio} - support for asynchronous io
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/ipc.html}{Networking
+and Interprocess
+Communication}}{Networking and Interprocess Communication}}\label{networking-and-interprocess-communication}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{asyncio} --- Asynchronous I/O (see associated context
+  services)
+\item
+  \texttt{socket} --- Low-level networking interface
+\item
+  \texttt{ssl} --- TLS/SSL wrapper for socket objects
+\item
+  \texttt{select} --- Waiting for I/O completion
+\item
+  \texttt{selectors} --- High-level I/O multiplexing
+\item
+  \texttt{asyncore} --- Asynchronous socket handler
+\item
+  `asynchat --- Asynchronous socket command/response handler
+\item
+  \texttt{signal} --- Set handlers for asynchronous events
+\item
+  \texttt{mmap} --- Memory-mapped file support
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/netdata.html}{Internet
+Data Handling}}{Internet Data Handling}}\label{internet-data-handling}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{email} --- An email and MIME handling package
+\item
+  \texttt{json} --- JSON encoder and decoder
+\item
+  \texttt{mailcap} --- Mailcap file handling
+\item
+  \texttt{mailbox} --- Manipulate mailboxes in various formats
+\item
+  \texttt{mimetypes} --- Map filenames to MIME types
+\item
+  \texttt{base64} --- Base16, Base32, Base64, Base85 Data Encodings
+\item
+  \texttt{binhex} --- Encode and decode binhex4 files
+\item
+  \texttt{binascii} --- Convert between binary and ASCII
+\item
+  \texttt{quopri} --- Encode and decode MIME quoted-printable data
+\item
+  \texttt{uu} --- Encode and decode uuencode files
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/markup.html}{Structured
+Markup Processing
+Tools}}{Structured Markup Processing Tools}}\label{structured-markup-processing-tools}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{html} --- HyperText Markup Language support
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{html.parser} --- Simple HTML and XHTML parser
+  \item
+    \texttt{html.entities} --- Definitions of HTML general entities
+  \end{itemize}
+\item
+  \texttt{xml} XML Processing Modules
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{xml.etree.ElementTree} --- The ElementTree XML API
+  \item
+    \texttt{xml.dom} --- The Document Object Model API
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{xml.dom.minidom} --- Minimal DOM implementation
+    \end{itemize}
+  \item
+    \texttt{xml.dom.pulldom} --- Support for building partial DOM trees
+  \item
+    \texttt{xml.sax} --- Support for SAX2 parsers
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{xml.sax.handler} --- Base classes for SAX handlers
+    \item
+      \texttt{xml.sax.saxutils} --- SAX Utilities
+    \item
+      \texttt{xml.sax.xmlreader} --- Interface for XML parsers
+    \item
+      \texttt{xml.parsers.expat} --- Fast XML parsing using Expat
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/internet.html}{Internet
+Protocols and
+Support}}{Internet Protocols and Support}}\label{internet-protocols-and-support}
+
+\begin{itemize}
+\tightlist
+\item
+  `webbrowser --- Convenient Web-browser controller
+\item
+  \texttt{cgi} --- Common Gateway Interface support
+\item
+  \texttt{cgitb} --- Traceback manager for CGI scripts
+\item
+  \texttt{wsgiref} --- WSGI Utilities and Reference Implementation
+\item
+  \texttt{urllib} --- URL handling modules
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{urllib.request} --- Extensible library for opening URLs
+  \item
+    \texttt{urllib.response} --- Response classes used by urllib
+  \item
+    \texttt{urllib.parse} --- Parse URLs into components
+  \item
+    \texttt{urllib.error} --- Exception classes raised by urllib.request
+  \item
+    \texttt{urllib.robotparser} --- Parser for robots.txt
+  \end{itemize}
+\item
+  \texttt{http} --- HTTP modules
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{http.client} --- HTTP protocol client
+  \end{itemize}
+\item
+  \texttt{ftplib} --- FTP protocol client
+\item
+  \texttt{poplib} --- POP3 protocol client
+\item
+  \texttt{imaplib} --- IMAP4 protocol client
+\item
+  \texttt{nntplib} --- NNTP protocol client
+\item
+  \texttt{smtplib} --- SMTP protocol client
+\item
+  \texttt{smtpd} --- SMTP Server
+\item
+  \texttt{telnetlib} --- Telnet client
+\item
+  \texttt{uuid} --- UUID objects according to RFC 4122
+\item
+  \texttt{socketserver} --- A framework for network servers
+\item
+  \texttt{http.server} --- HTTP servers
+\item
+  \texttt{http.cookie} --- HTTP state management
+\item
+  \texttt{http.cookiejar} --- Cookie handling for HTTP clients
+\item
+  \texttt{xmlrpc} --- XMLRPC server and client modules
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{xmlrpc.client} --- XML-RPC client access
+  \item
+    \texttt{xmlrpc.server} --- Basic XML-RPC servers
+  \end{itemize}
+\item
+  \texttt{ipaddress} --- IPv4/IPv6 manipulation library
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/mm.html}{Multimedia
+Services}}{Multimedia Services}}\label{multimedia-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{audioop} --- Manipulate raw audio data
+\item
+  \texttt{aifc} --- Read and write AIFF and AIFC files
+\item
+  \texttt{sunau} --- Read and write Sun AU files
+\item
+  \texttt{wave} --- Read and write WAV files
+\item
+  \texttt{chunk} --- Read IFF chunked data
+\item
+  \texttt{colorsys} --- Conversions between color systems
+\item
+  \texttt{imghdr} --- Determine the type of an image
+\item
+  \texttt{sndhdr} --- Determine type of sound file
+\item
+  \texttt{ossaudiodev} --- Access to OSS-compatible audio devices
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/i18n.html}{Internationalization}}{Internationalization}}\label{internationalization}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{gettext} --- Multilingual internationalization services
+\item
+  \texttt{locale} --- Internationalization services
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/frameworks.html}{Program
+Frameworks}}{Program Frameworks}}\label{program-frameworks}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{turtle} --- Turtle graphics
+\item
+  \texttt{cmd} --- Support for line-oriented command interpreters
+\item
+  \texttt{shlex} --- Simple lexical analysis
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/tk.html}{Graphical
+User Interfaces with
+Tk}}{Graphical User Interfaces with Tk}}\label{graphical-user-interfaces-with-tk}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{tkinter} --- Python interface to Tcl/Tk
+\item
+  \texttt{tkinter.ttk} --- Tk themed widgets
+\item
+  \texttt{tkinter.tix} --- Extension widgets for Tk
+\item
+  \texttt{tkinter.scrolledtext} --- Scrolled Text Widget
+\item
+  \texttt{IDLE} - Python's Integrated Development and Learning
+  Environment
+\item
+  Other
+  \href{https://docs.python.org/3.7/library/othergui.html}{Graphical
+  User Interface} Packages
+
+  \begin{itemize}
+  \tightlist
+  \item
+    PyGObject - Provides introspection bindings for C libraries, incl.
+    GTK+ 3 widget set.
+  \item
+    PyGTK - PyGTK provides bindings for an older version of the library,
+    GTK+ 2.
+  \item
+    PyQt - A sip-wrapped binding to the Qt toolkit.
+  \item
+    PySide - A newer binding to the Qt toolkit, provided by Nokia..
+  \item
+    \texttt{wxPython} - A cross-platform GUI toolkit for Python that is
+    built around wxWidgets C++ toolkit
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/development.html}{Development
+Tools}}{Development Tools}}\label{development-tools}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{typing} --- Support for type hints
+\item
+  \texttt{pydoc} --- Documentation generator and online help system
+\item
+  \texttt{doctest} --- Test interactive Python examples
+\item
+  \texttt{unittest} --- Unit testing framework
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{unittest.mock} --- mock object library
+  \end{itemize}
+\item
+  \texttt{2to3} - Automated Python 2 to 3 code translation
+\item
+  \texttt{test} --- Regression tests package for Python
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{test.support} --- Utilities for the Python test suite
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \texttt{test.support.script\_helper} --- Utilities for the Python
+      execution tests
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/debug.html}{Debugging
+and Profiling}}{Debugging and Profiling}}\label{debugging-and-profiling}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{bdb} --- Debugger framework
+\item
+  \texttt{faulthandler} --- Dump the Python traceback
+\item
+  \texttt{pdb} --- The Python Debugger
+\item
+  The \href{https://docs.python.org/3.7/library/othergui.html}{Python
+  Profilers}
+\item
+  \texttt{timeit} --- Measure execution time of small code snippets
+\item
+  \texttt{trace} --- Trace or track Python statement execution
+\item
+  \texttt{tracemalloc} --- Trace memory allocations
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/distribution.html}{Software
+Packaging and
+Distribution}}{Software Packaging and Distribution}}\label{software-packaging-and-distribution}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{distutils} --- Building and installing Python modules
+\item
+  \texttt{ensurepip} --- Bootstrapping the pip installer
+\item
+  \texttt{venv} --- Creation of virtual environments
+\item
+  \texttt{zipapp} --- Manage executable Python zip archives
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/python.html}{Python
+Runtime
+Services}}{Python Runtime Services}}\label{python-runtime-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{sys} --- System-specific parameters and functions
+\item
+  \texttt{sysconfig} --- Provide access to Python's configuration
+  information
+\item
+  \texttt{builtins} --- Built-in objects
+\item
+  \texttt{\_\_main\_\_} --- Top-level script environment
+\item
+  \texttt{warnings} --- Warning control
+\item
+  \texttt{dataclasses} --- Data Classes
+\item
+  \texttt{contextlib} --- Utilities for with-statement contexts
+\item
+  \texttt{abc} --- Abstract Base Classes
+\item
+  \texttt{atexit} --- Exit handlers
+\item
+  \texttt{traceback} --- Print or retrieve a stack traceback
+\item
+  \texttt{\_\_future\_\_} --- Future statement definitions
+\item
+  \texttt{gc} --- Garbage Collector interface
+\item
+  \texttt{inspect} --- Inspect live objects
+\item
+  \texttt{site} --- Site-specific configuration hook
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/custominterp.html}{Custom
+Python
+Interpreters}}{Custom Python Interpreters}}\label{custom-python-interpreters}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{code} --- Interpreter base classes
+\item
+  \texttt{codeop} --- Compile Python code
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/modules.html}{Importing
+Modules}}{Importing Modules}}\label{importing-modules}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{zipimport} --- Import modules from Zip archives
+\item
+  \texttt{pkgutil} --- Package extension utility
+\item
+  \texttt{modulefinder} --- Find modules used by a script
+\item
+  \texttt{runpy} --- Locating and executing Python modules
+\item
+  \texttt{importlib} --- The implementation of import
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/language.html}{Python
+Language
+Services}}{Python Language Services}}\label{python-language-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{parser} --- Access Python parse trees
+\item
+  \texttt{ast} --- Abstract Syntax Trees
+\item
+  \texttt{symtable} --- Access to the compiler's symbol tables
+\item
+  \texttt{symbol} --- Constants used with Python parse trees
+\item
+  \texttt{token} --- Constants used with Python parse trees
+\item
+  \texttt{keyword} --- Testing for Python keywords
+\item
+  \texttt{tokenize} --- Tokenizer for Python source
+\item
+  \texttt{tabnanny} --- Detection of ambiguous indentation
+\item
+  \texttt{pyclbr} --- Python class browser support
+\item
+  \texttt{py\_compile} --- Compile Python source files
+\item
+  \texttt{compileall} --- Byte-compile Python libraries
+\item
+  \texttt{dis} --- Disassembler for Python bytecode
+\item
+  \texttt{pickletools} --- Tools for pickle developers
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/misc.html}{Miscellaneous
+Services}}{Miscellaneous Services}}\label{miscellaneous-services}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{formatter} --- Generic output formatting
+\end{itemize}
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/misc.html}{MS
+Windows Specific
+Services}}{MS Windows Specific Services}}\label{ms-windows-specific-services}
+
+See also the
+\href{https://docs.python.org/3.7/library/misc.html}{pywin32
+extensions}. These are available to install via PIP, and provide access
+to many of the Windows APIs from Python.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{msilib} --- Read and write Microsoft Installer files
+\item
+  \texttt{msvcrt} --- Useful routines from the MS VC++ runtime
+\item
+  \texttt{winreg} --- Windows registry access
+\item
+  \texttt{winsound} --- Sound-playing interface for Windows
+\end{itemize}
+
+See also ``Undocumented services''" below.
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/unix.html}{Unix
+Specific
+Services}}{Unix Specific Services}}\label{unix-specific-services}
+
+Module provides interfaces to features that are unique to the Unix
+operating system, or in some cases to some or many variants of it.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{posix} --- The most common POSIX system calls
+\item
+  \texttt{pwd} --- The password database
+\item
+  \texttt{spwd} --- The shadow password database
+\item
+  \texttt{grp} --- The group database
+\item
+  \texttt{crypt} --- Function to check Unix passwords
+\item
+  \texttt{termios} --- POSIX style tty control
+\item
+  \texttt{tty} --- Terminal control functions
+\item
+  \texttt{pty} --- Pseudo-terminal utilities
+\item
+  \texttt{cntl} --- The fcntl and ioctl system calls
+\item
+  \texttt{pipes} --- Interface to shell pipelines
+\item
+  \texttt{resource} --- Resource usage information
+\item
+  \texttt{nis} --- Interface to Sun's NIS (Yellow Pages)
+\item
+  \texttt{syslog} --- Unix syslog library routines
+\end{itemize}
+
+See also ``Undocumented services''" below.
+
+\subsection{\texorpdfstring{\href{https://docs.python.org/3.7/library/undoc.html}{Undocumented
+Modules}}{Undocumented Modules}}\label{undocumented-modules}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{ntpath} --- Implementation of os.path on Win32 and Win64
+  platforms.
+\item
+  \texttt{posixpath} --- Implementation of os.path on POSIX.
+\end{itemize}
+
+\section{Other Package Sources (Third
+Party)}\label{other-package-sources-third-party}
+
+\subsection{CRAN R Package Repository}\label{cran-r-package-repository}
+
+The packages of the CRAN Package repository meet a minimum requirement
+for package documentation and usability in order to be included the
+\href{https://cran.cnr.berkeley.edu/web/packages/index.html}{Available
+CRAN Packages} list. There is also a compilation of the packages by
+topic in the \href{https://cran.cnr.berkeley.edu/web/views/}{CRAN Task
+Views}.
+
+An external repository developed and managed by bioinformatics genomic
+oriented users in \href{https://www.bioconductor.org/}{Bioconnector}.
+
+Many high quality packages are available from github repositories,
+particularly thos maintained by
+\href{https://www.rstudio.com/products/rpackages/}{RStudio}
+
+\subsection{PyPI - Python Package
+Index}\label{pypi---python-package-index}
+
+\chapter{Appendix 4}\label{appendix-4}
+
+\section{Selected Tutorials and Learning
+Resources}\label{selected-tutorials-and-learning-resources}
 
 
 \end{document}

@@ -1,0 +1,3 @@
+# Non-Stochastic Models
+
+Many mathematical models are deterministic. This includes mathematical programming.
