@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R to Python</title>
+  <meta name="description" content="R to Python, This is a bookbook in progress on the throughts of an R programmer moving to (or learning) Python.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R to Python" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="R to Python, This is a bookbook in progress on the throughts of an R programmer moving to (or learning) Python." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R to Python" />
+  
+  <meta name="twitter:description" content="R to Python, This is a bookbook in progress on the throughts of an R programmer moving to (or learning) Python." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="appendix-2.html">
+<link rel="next" href="appendix-4.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">R to Python</a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Thoughts of an R programmer Learning Python</b></span></li>
+<li class="chapter" data-level="1" data-path="front-material.html"><a href="front-material.html"><i class="fa fa-check"></i><b>1</b> Front Material</a><ul>
+<li class="chapter" data-level="1.1" data-path="front-material.html"><a href="front-material.html#colophon"><i class="fa fa-check"></i><b>1.1</b> Colophon</a></li>
+<li class="chapter" data-level="1.2" data-path="front-material.html"><a href="front-material.html#preface"><i class="fa fa-check"></i><b>1.2</b> Preface</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
+<li class="part"><span><b>II R and Python, Side by Side</b></span></li>
+<li class="chapter" data-level="3" data-path="a-comparative-look.html"><a href="a-comparative-look.html"><i class="fa fa-check"></i><b>3</b> A Comparative Look</a><ul>
+<li class="chapter" data-level="3.1" data-path="a-comparative-look.html"><a href="a-comparative-look.html#functional-programming-commonalities."><i class="fa fa-check"></i><b>3.1</b> Functional Programming Commonalities.</a></li>
+<li class="chapter" data-level="3.2" data-path="a-comparative-look.html"><a href="a-comparative-look.html#building-blocks-of-functions-as-procedures"><i class="fa fa-check"></i><b>3.2</b> Building Blocks of Functions as Procedures</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="a-comparative-look.html"><a href="a-comparative-look.html#statements-and-expressions"><i class="fa fa-check"></i><b>3.2.1</b> Statements and Expressions</a></li>
+<li class="chapter" data-level="3.2.2" data-path="a-comparative-look.html"><a href="a-comparative-look.html#assignment-of-values-to-memory-and-the-variable"><i class="fa fa-check"></i><b>3.2.2</b> Assignment of Values to Memory and the Variable</a></li>
+<li class="chapter" data-level="3.2.3" data-path="a-comparative-look.html"><a href="a-comparative-look.html#decisions-and-choices"><i class="fa fa-check"></i><b>3.2.3</b> Decisions and Choices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="a-comparative-look.html"><a href="a-comparative-look.html#doing-it-over-again-and-again"><i class="fa fa-check"></i><b>3.2.4</b> Doing it Over Again (and again …)</a></li>
+<li class="chapter" data-level="3.2.5" data-path="a-comparative-look.html"><a href="a-comparative-look.html#functions"><i class="fa fa-check"></i><b>3.2.5</b> Functions</a></li>
+<li class="chapter" data-level="3.2.6" data-path="a-comparative-look.html"><a href="a-comparative-look.html#objects-and-classes-anticipating-object-oriented-programming"><i class="fa fa-check"></i><b>3.2.6</b> Objects and Classes anticipating Object-Oriented Programming</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html"><i class="fa fa-check"></i><b>4</b> Set-up for R and Python Exercises</a><ul>
+<li class="chapter" data-level="4.1" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#package-libraries"><i class="fa fa-check"></i><b>4.1</b> Package Libraries</a></li>
+<li class="chapter" data-level="4.2" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#pulling-it-together"><i class="fa fa-check"></i><b>4.2</b> Pulling it Together</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#the-prompts"><i class="fa fa-check"></i><b>4.2.1</b> The Prompts</a></li>
+<li class="chapter" data-level="4.2.2" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#installing-packages"><i class="fa fa-check"></i><b>4.2.2</b> Installing Packages</a></li>
+<li class="chapter" data-level="4.2.3" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#using-packages"><i class="fa fa-check"></i><b>4.2.3</b> Using Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#using-r-and-python-together"><i class="fa fa-check"></i><b>4.3</b> Using R and Python Together</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#working-in-r-and-calling-python"><i class="fa fa-check"></i><b>4.3.1</b> Working in R and Calling Python</a></li>
+<li class="chapter" data-level="4.3.2" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#working-in-python-and-calling-r"><i class="fa fa-check"></i><b>4.3.2</b> Working in Python and Calling R</a></li>
+<li class="chapter" data-level="4.3.3" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#working-in-jupyter-and-writing-in-r-python-or-both-in-the-same-notebook"><i class="fa fa-check"></i><b>4.3.3</b> Working in Jupyter and Writing in R, Python or Both in the Same Notebook</a></li>
+<li class="chapter" data-level="4.3.4" data-path="set-up-for-r-and-python-exercises.html"><a href="set-up-for-r-and-python-exercises.html#working-in-rmarkdown-and-using-r-and-python-code-chunks"><i class="fa fa-check"></i><b>4.3.4</b> Working in rmarkdown and Using R and Python Code Chunks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic-mathematics-in-r-and-python.html"><a href="basic-mathematics-in-r-and-python.html"><i class="fa fa-check"></i><b>5</b> Basic Mathematics in R and Python</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic-mathematics-in-r-and-python.html"><a href="basic-mathematics-in-r-and-python.html#add-subtract-multiply-and-divide"><i class="fa fa-check"></i><b>5.1</b> Add, Subtract, Multiply and Divide</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="basic-mathematics-in-r-and-python.html"><a href="basic-mathematics-in-r-and-python.html#r-scripting"><i class="fa fa-check"></i><b>5.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="5.1.2" data-path="basic-mathematics-in-r-and-python.html"><a href="basic-mathematics-in-r-and-python.html#python-scripting"><i class="fa fa-check"></i><b>5.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="basic-mathematics-in-r-and-python.html"><a href="basic-mathematics-in-r-and-python.html#other-basic-algebraic-operators-in-r-and-python"><i class="fa fa-check"></i><b>5.2</b> Other basic algebraic operators in R and Python</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html"><i class="fa fa-check"></i><b>6</b> Functional Programming with R and Python</a><ul>
+<li class="chapter" data-level="6.1" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#defining-functions"><i class="fa fa-check"></i><b>6.1</b> Defining Functions</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#r-scripting-1"><i class="fa fa-check"></i><b>6.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="6.1.2" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#python-scripting-1"><i class="fa fa-check"></i><b>6.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#calling-and-using-functions"><i class="fa fa-check"></i><b>6.2</b> Calling and Using Functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#r-scripting-2"><i class="fa fa-check"></i><b>6.2.1</b> R Scripting</a></li>
+<li class="chapter" data-level="6.2.2" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#python-scripting-2"><i class="fa fa-check"></i><b>6.2.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#writing-function-examples-in-r-and-python"><i class="fa fa-check"></i><b>6.3</b> Writing Function Examples in R and Python</a></li>
+<li class="chapter" data-level="6.4" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#using-the-core-r-and-python-standard-libraries"><i class="fa fa-check"></i><b>6.4</b> Using the Core R and Python Standard Libraries</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#r-scripting-3"><i class="fa fa-check"></i><b>6.4.1</b> R Scripting</a></li>
+<li class="chapter" data-level="6.4.2" data-path="functional-programming-with-r-and-python.html"><a href="functional-programming-with-r-and-python.html#python-scripting-3"><i class="fa fa-check"></i><b>6.4.2</b> Python Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html"><i class="fa fa-check"></i><b>7</b> Object-Oriented Programming with R and Python</a><ul>
+<li class="chapter" data-level="7.1" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#defining-classes"><i class="fa fa-check"></i><b>7.1</b> Defining Classes</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#r-scripting-4"><i class="fa fa-check"></i><b>7.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="7.1.2" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#python-scripting-4"><i class="fa fa-check"></i><b>7.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#using-objects-and-classes"><i class="fa fa-check"></i><b>7.2</b> Using Objects and Classes</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#r-scripting-5"><i class="fa fa-check"></i><b>7.2.1</b> R Scripting</a></li>
+<li class="chapter" data-level="7.2.2" data-path="object-oriented-programming-with-r-and-python.html"><a href="object-oriented-programming-with-r-and-python.html#python-scripting-5"><i class="fa fa-check"></i><b>7.2.2</b> Python Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>III Data Science Topics in Python Compared to R</b></span></li>
+<li class="chapter" data-level="8" data-path="clean-and-tidy-data.html"><a href="clean-and-tidy-data.html"><i class="fa fa-check"></i><b>8</b> Clean and Tidy Data</a><ul>
+<li class="chapter" data-level="8.1" data-path="clean-and-tidy-data.html"><a href="clean-and-tidy-data.html#reproducibility"><i class="fa fa-check"></i><b>8.1</b> Reproducibility</a></li>
+<li class="chapter" data-level="8.2" data-path="clean-and-tidy-data.html"><a href="clean-and-tidy-data.html#r-data-munging"><i class="fa fa-check"></i><b>8.2</b> R Data Munging</a></li>
+<li class="chapter" data-level="8.3" data-path="clean-and-tidy-data.html"><a href="clean-and-tidy-data.html#python-data-munging"><i class="fa fa-check"></i><b>8.3</b> Python Data Munging</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html"><i class="fa fa-check"></i><b>9</b> Using Probability Distributions with R and Python</a><ul>
+<li class="chapter" data-level="9.1" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#basic-probability-issues"><i class="fa fa-check"></i><b>9.1</b> Basic Probability Issues</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#r-scripting-6"><i class="fa fa-check"></i><b>9.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="9.1.2" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#python-scripting-6"><i class="fa fa-check"></i><b>9.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#using-the-distrbutions"><i class="fa fa-check"></i><b>9.2</b> Using the Distrbutions</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#r-scripting-7"><i class="fa fa-check"></i><b>9.2.1</b> R Scripting</a></li>
+<li class="chapter" data-level="9.2.2" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#python-scripting-7"><i class="fa fa-check"></i><b>9.2.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#other-libraries-with-probability-and-statistical-packages"><i class="fa fa-check"></i><b>9.3</b> Other Libraries with Probability and Statistical Packages</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#r-scripting-8"><i class="fa fa-check"></i><b>9.3.1</b> R Scripting</a></li>
+<li class="chapter" data-level="9.3.2" data-path="using-probability-distributions-with-r-and-python.html"><a href="using-probability-distributions-with-r-and-python.html#python-scripting-8"><i class="fa fa-check"></i><b>9.3.2</b> Python Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html"><i class="fa fa-check"></i><b>10</b> Descriptive Statistics and Data Exploration</a><ul>
+<li class="chapter" data-level="10.1" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#defining-functions-1"><i class="fa fa-check"></i><b>10.1</b> Defining Functions</a><ul>
+<li class="chapter" data-level="10.1.1" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#r-scripting-9"><i class="fa fa-check"></i><b>10.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="10.1.2" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#python-scripting-9"><i class="fa fa-check"></i><b>10.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#calling-and-using-functions-1"><i class="fa fa-check"></i><b>10.2</b> Calling and Using Functions</a><ul>
+<li class="chapter" data-level="10.2.1" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#r-scripting-10"><i class="fa fa-check"></i><b>10.2.1</b> R Scripting</a></li>
+<li class="chapter" data-level="10.2.2" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#python-scripting-10"><i class="fa fa-check"></i><b>10.2.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#the-core-or-standard-libraries"><i class="fa fa-check"></i><b>10.3</b> The Core or Standard Libraries</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#r-scripting-11"><i class="fa fa-check"></i><b>10.3.1</b> R Scripting</a></li>
+<li class="chapter" data-level="10.3.2" data-path="descriptive-statistics-and-data-exploration.html"><a href="descriptive-statistics-and-data-exploration.html#python-scripting-11"><i class="fa fa-check"></i><b>10.3.2</b> Python Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html"><i class="fa fa-check"></i><b>11</b> Statistical Analysis and Modeling</a><ul>
+<li class="chapter" data-level="11.1" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#defining-the-available-functions"><i class="fa fa-check"></i><b>11.1</b> Defining the Available Functions</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#r-scripting-12"><i class="fa fa-check"></i><b>11.1.1</b> R Scripting</a></li>
+<li class="chapter" data-level="11.1.2" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#python-scripting-12"><i class="fa fa-check"></i><b>11.1.2</b> Python Scripting</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#calling-and-using-functions-2"><i class="fa fa-check"></i><b>11.2</b> Calling and Using Functions</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#r-scripting-13"><i class="fa fa-check"></i><b>11.2.1</b> R Scripting</a></li>
+<li class="chapter" data-level="11.2.2" data-path="statistical-analysis-and-modeling.html"><a href="statistical-analysis-and-modeling.html#python-scripting-13"><i class="fa fa-check"></i><b>11.2.2</b> Python Scripting</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="non-stochastic-models.html"><a href="non-stochastic-models.html"><i class="fa fa-check"></i><b>12</b> Non-Stochastic Models</a></li>
+<li class="chapter" data-level="13" data-path="reproducible-research.html"><a href="reproducible-research.html"><i class="fa fa-check"></i><b>13</b> Reproducible Research</a></li>
+<li class="chapter" data-level="14" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>14</b> References</a></li>
+<li class="chapter" data-level="15" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>15</b> Bibliography</a></li>
+<li class="part"><span><b>IV Appendices</b></span></li>
+<li class="chapter" data-level="16" data-path="appendix-1.html"><a href="appendix-1.html"><i class="fa fa-check"></i><b>16</b> Appendix 1</a><ul>
+<li class="chapter" data-level="16.1" data-path="appendix-1.html"><a href="appendix-1.html#comparative-syntax-for-programming-constructs-of-r-and-python"><i class="fa fa-check"></i><b>16.1</b> Comparative Syntax for Programming Constructs of R and Python</a></li>
+<li class="chapter" data-level="16.2" data-path="appendix-1.html"><a href="appendix-1.html#extended-structures"><i class="fa fa-check"></i><b>16.2</b> Extended Structures</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="appendix-2.html"><a href="appendix-2.html"><i class="fa fa-check"></i><b>17</b> Appendix 2</a><ul>
+<li class="chapter" data-level="17.1" data-path="appendix-2.html"><a href="appendix-2.html#mixed-r-and-python-examples-with-rmarkdown-and-jupyter-sos-notebooks"><i class="fa fa-check"></i><b>17.1</b> Mixed R and Python Examples with rMarkdown and Jupyter-SOS Notebooks</a><ul>
+<li class="chapter" data-level="17.1.1" data-path="appendix-2.html"><a href="appendix-2.html#using-rmarkdown-as-a-mixed-language-environment"><i class="fa fa-check"></i><b>17.1.1</b> Using rmarkdown as a Mixed Language Environment</a></li>
+<li class="chapter" data-level="17.1.2" data-path="appendix-2.html"><a href="appendix-2.html#using-jupyter-with-sos-as-a-mixed-language-environment"><i class="fa fa-check"></i><b>17.1.2</b> Using Jupyter with SOS as a Mixed Language Environment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html"><i class="fa fa-check"></i><b>18</b> Appendix 3, R and Python Packages</a><ul>
+<li class="chapter" data-level="18.1" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#r-core-package-list"><i class="fa fa-check"></i><b>18.1</b> R Core Package List</a></li>
+<li class="chapter" data-level="18.2" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#python-standard-library2-list"><i class="fa fa-check"></i><b>18.2</b> Python <a href="https://docs.python.org/3.7/library/index.html">Standard Library<sup>2</sup></a> List</a><ul>
+<li class="chapter" data-level="18.2.1" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#built-in-functions2"><i class="fa fa-check"></i><b>18.2.1</b> <a href="https://docs.python.org/3.7/library/functions.html">Built-in Functions<sup>2</sup></a></a></li>
+<li class="chapter" data-level="18.2.2" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#built-in-constants"><i class="fa fa-check"></i><b>18.2.2</b> <a href="https://docs.python.org/3.7/library/constants.html">Built-in Constants</a></a></li>
+<li class="chapter" data-level="18.2.3" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#built-in-types"><i class="fa fa-check"></i><b>18.2.3</b> <a href="https://docs.python.org/3.7/library/stdtypes.html">Built-in Types</a></a></li>
+<li class="chapter" data-level="18.2.4" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#built-in-exceptions"><i class="fa fa-check"></i><b>18.2.4</b> <a href="https://docs.python.org/3.7/library/exceptions.html">Built-in Exceptions</a></a></li>
+<li class="chapter" data-level="18.2.5" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#text-processing-services"><i class="fa fa-check"></i><b>18.2.5</b> <a href="https://docs.python.org/3.7/library/text.html">Text Processing Services</a></a></li>
+<li class="chapter" data-level="18.2.6" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#binary-data-services"><i class="fa fa-check"></i><b>18.2.6</b> <a href="https://docs.python.org/3.7/library/binary.html">Binary Data Services</a></a></li>
+<li class="chapter" data-level="18.2.7" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#data-types"><i class="fa fa-check"></i><b>18.2.7</b> <a href="https://docs.python.org/3.7/library/datatypes.html">Data Types</a></a></li>
+<li class="chapter" data-level="18.2.8" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#numerical-and-mathematical-modules"><i class="fa fa-check"></i><b>18.2.8</b> <a href="https://docs.python.org/3.7/library/numeric.html">Numerical and Mathematical Modules</a></a></li>
+<li class="chapter" data-level="18.2.9" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#functional-programming-modules"><i class="fa fa-check"></i><b>18.2.9</b> <a href="https://docs.python.org/3.7/library/functional.html">Functional Programming Modules</a></a></li>
+<li class="chapter" data-level="18.2.10" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#file-and-directory-access"><i class="fa fa-check"></i><b>18.2.10</b> <a href="https://docs.python.org/3.7/library/filesys.html">File and Directory Access</a></a></li>
+<li class="chapter" data-level="18.2.11" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#data-persistence"><i class="fa fa-check"></i><b>18.2.11</b> <a href="https://docs.python.org/3.7/library/persistence.html">Data Persistence</a></a></li>
+<li class="chapter" data-level="18.2.12" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#data-compression-and-archiving"><i class="fa fa-check"></i><b>18.2.12</b> <a href="https://docs.python.org/3.7/library/archiving.html">Data Compression and Archiving</a></a></li>
+<li class="chapter" data-level="18.2.13" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#file-formats"><i class="fa fa-check"></i><b>18.2.13</b> <a href="https://docs.python.org/3.7/library/fileformats.html">File Formats</a></a></li>
+<li class="chapter" data-level="18.2.14" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#cryptographic-services"><i class="fa fa-check"></i><b>18.2.14</b> <a href="https://docs.python.org/3.7/library/crypto.html">Cryptographic Services</a></a></li>
+<li class="chapter" data-level="18.2.15" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#generic-operating-system-services"><i class="fa fa-check"></i><b>18.2.15</b> <a href="https://docs.python.org/3.7/library/allos.html">Generic Operating System Services</a></a></li>
+<li class="chapter" data-level="18.2.16" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#concurrent-execution"><i class="fa fa-check"></i><b>18.2.16</b> <a href="https://docs.python.org/3.7/library/concurrency.html">Concurrent Execution</a></a></li>
+<li class="chapter" data-level="18.2.17" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#context-variables"><i class="fa fa-check"></i><b>18.2.17</b> <a href="https://docs.python.org/3.7/library/contextvars.html#module-contextvars">Context Variables</a></a></li>
+<li class="chapter" data-level="18.2.18" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#networking-and-interprocess-communication"><i class="fa fa-check"></i><b>18.2.18</b> <a href="https://docs.python.org/3.7/library/ipc.html">Networking and Interprocess Communication</a></a></li>
+<li class="chapter" data-level="18.2.19" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#internet-data-handling"><i class="fa fa-check"></i><b>18.2.19</b> <a href="https://docs.python.org/3.7/library/netdata.html">Internet Data Handling</a></a></li>
+<li class="chapter" data-level="18.2.20" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#structured-markup-processing-tools"><i class="fa fa-check"></i><b>18.2.20</b> <a href="https://docs.python.org/3.7/library/markup.html">Structured Markup Processing Tools</a></a></li>
+<li class="chapter" data-level="18.2.21" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#internet-protocols-and-support"><i class="fa fa-check"></i><b>18.2.21</b> <a href="https://docs.python.org/3.7/library/internet.html">Internet Protocols and Support</a></a></li>
+<li class="chapter" data-level="18.2.22" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#multimedia-services"><i class="fa fa-check"></i><b>18.2.22</b> <a href="https://docs.python.org/3.7/library/mm.html">Multimedia Services</a></a></li>
+<li class="chapter" data-level="18.2.23" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#internationalization"><i class="fa fa-check"></i><b>18.2.23</b> <a href="https://docs.python.org/3.7/library/i18n.html">Internationalization</a></a></li>
+<li class="chapter" data-level="18.2.24" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#program-frameworks"><i class="fa fa-check"></i><b>18.2.24</b> <a href="https://docs.python.org/3.7/library/frameworks.html">Program Frameworks</a></a></li>
+<li class="chapter" data-level="18.2.25" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#graphical-user-interfaces-with-tk"><i class="fa fa-check"></i><b>18.2.25</b> <a href="https://docs.python.org/3.7/library/tk.html">Graphical User Interfaces with Tk</a></a></li>
+<li class="chapter" data-level="18.2.26" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#development-tools"><i class="fa fa-check"></i><b>18.2.26</b> <a href="https://docs.python.org/3.7/library/development.html">Development Tools</a></a></li>
+<li class="chapter" data-level="18.2.27" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#debugging-and-profiling"><i class="fa fa-check"></i><b>18.2.27</b> <a href="https://docs.python.org/3.7/library/debug.html">Debugging and Profiling</a></a></li>
+<li class="chapter" data-level="18.2.28" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#software-packaging-and-distribution"><i class="fa fa-check"></i><b>18.2.28</b> <a href="https://docs.python.org/3.7/library/distribution.html">Software Packaging and Distribution</a></a></li>
+<li class="chapter" data-level="18.2.29" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#python-runtime-services"><i class="fa fa-check"></i><b>18.2.29</b> <a href="https://docs.python.org/3.7/library/python.html">Python Runtime Services</a></a></li>
+<li class="chapter" data-level="18.2.30" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#custom-python-interpreters"><i class="fa fa-check"></i><b>18.2.30</b> <a href="https://docs.python.org/3.7/library/custominterp.html">Custom Python Interpreters</a></a></li>
+<li class="chapter" data-level="18.2.31" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#importing-modules"><i class="fa fa-check"></i><b>18.2.31</b> <a href="https://docs.python.org/3.7/library/modules.html">Importing Modules</a></a></li>
+<li class="chapter" data-level="18.2.32" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#python-language-services"><i class="fa fa-check"></i><b>18.2.32</b> <a href="https://docs.python.org/3.7/library/language.html">Python Language Services</a></a></li>
+<li class="chapter" data-level="18.2.33" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#miscellaneous-services"><i class="fa fa-check"></i><b>18.2.33</b> <a href="https://docs.python.org/3.7/library/misc.html">Miscellaneous Services</a></a></li>
+<li class="chapter" data-level="18.2.34" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#ms-windows-specific-services"><i class="fa fa-check"></i><b>18.2.34</b> <a href="https://docs.python.org/3.7/library/misc.html">MS Windows Specific Services</a></a></li>
+<li class="chapter" data-level="18.2.35" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#unix-specific-services"><i class="fa fa-check"></i><b>18.2.35</b> <a href="https://docs.python.org/3.7/library/unix.html">Unix Specific Services</a></a></li>
+<li class="chapter" data-level="18.2.36" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#undocumented-modules"><i class="fa fa-check"></i><b>18.2.36</b> <a href="https://docs.python.org/3.7/library/undoc.html">Undocumented Modules</a></a></li>
+</ul></li>
+<li class="chapter" data-level="18.3" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#other-package-sources-third-party"><i class="fa fa-check"></i><b>18.3</b> Other Package Sources (Third Party)</a><ul>
+<li class="chapter" data-level="18.3.1" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#cran-r-package-repository"><i class="fa fa-check"></i><b>18.3.1</b> CRAN R Package Repository</a></li>
+<li class="chapter" data-level="18.3.2" data-path="appendix-3-r-and-python-packages.html"><a href="appendix-3-r-and-python-packages.html#pypi---python-package-index"><i class="fa fa-check"></i><b>18.3.2</b> PyPI - Python Package Index</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="19" data-path="appendix-4.html"><a href="appendix-4.html"><i class="fa fa-check"></i><b>19</b> Appendix 4</a><ul>
+<li class="chapter" data-level="19.1" data-path="appendix-4.html"><a href="appendix-4.html#selected-tutorials-and-learning-resources"><i class="fa fa-check"></i><b>19.1</b> Selected Tutorials and Learning Resources</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R to Python</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="appendix-3-r-and-python-packages" class="section level1">
+<h1><span class="header-section-number">18</span> Appendix 3, R and Python Packages</h1>
+<div id="r-core-package-list" class="section level2">
+<h2><span class="header-section-number">18.1</span> R Core Package List</h2>
+<p>The base packages are part of R and are grouped bt functionality and to some degree of chonology of incorporation into the base distribution. The Packages of base functions are,</p>
+<table>
+<colgroup>
+<col width="13%" />
+<col width="86%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>base</td>
+<td>Base R functions</td>
+</tr>
+<tr class="even">
+<td>compiler</td>
+<td>Functions to provide an interface to a byte code compiler for R</td>
+</tr>
+<tr class="odd">
+<td>datasets</td>
+<td>Base R datasets</td>
+</tr>
+<tr class="even">
+<td>grDevices</td>
+<td>R Graphics Devices and Support for Colours and Fonts. Support for base and grid graphics</td>
+</tr>
+<tr class="odd">
+<td>graphics</td>
+<td>R functions for base graphics</td>
+</tr>
+<tr class="even">
+<td>grid</td>
+<td>The Grid Graphics Package. A rewrite of the graphics layout capabilities.</td>
+</tr>
+<tr class="odd">
+<td>methods</td>
+<td>Formal Methods and Classes. Formally defined methods and classes for R objects and other programming tools.</td>
+</tr>
+<tr class="even">
+<td>parallel</td>
+<td>Support for Parallel Computation, including random-number generation.</td>
+</tr>
+<tr class="odd">
+<td>splines</td>
+<td>Regression Spline Functions and Classes.</td>
+</tr>
+<tr class="even">
+<td>stats</td>
+<td>R statistical functions</td>
+</tr>
+<tr class="odd">
+<td>stats4</td>
+<td>Statistical Functions using S4 classes.</td>
+</tr>
+<tr class="even">
+<td>tcltk</td>
+<td>Interface and language bindings to Tcl/Tk GUI elements.</td>
+</tr>
+<tr class="odd">
+<td>tools</td>
+<td>Tools for package development, administration and documentation.</td>
+</tr>
+<tr class="even">
+<td>utils</td>
+<td>R utility functions</td>
+</tr>
+</tbody>
+</table>
+<p>A list if contained functions in any package can be displayed in R by (eg. for parallel package),</p>
+<pre><code>library(help = &quot;parallel&quot;)  # of substitute any package name for &quot;parallel&quot;</code></pre>
+<p>The other list installed with first R install are the recommended packages. These are kind of and appocrapha of functions providing useful capabilities from some books and papers about specialized uses of the R system. These are,</p>
+<table style="width:94%;">
+<colgroup>
+<col width="16%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>kernsmooth</td>
+<td>Functions for <strong>kernel smoothing</strong> (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) “Kernel Smoothing”.</td>
+</tr>
+<tr class="even">
+<td>MASS</td>
+<td><em>Functions and datasets</em> to support Venables and Ripley, “Modern Applied Statistics with S” (4th edition, 2002).</td>
+</tr>
+<tr class="odd">
+<td>Matrix</td>
+<td>A rich hierarchy of <strong>matrix classes</strong>, including <em>triangular, symmetric, and diagonal matrices</em>, both <em>dense</em> and <em>sparse</em>, using ‘LAPACK’ and ‘SuiteSparse’ libraries.</td>
+</tr>
+<tr class="even">
+<td>boot</td>
+<td>Functions and datasets for <strong>bootstrapping</strong> from the book “Bootstrap Methods and Their Application” by A. C. Davison and D. V. Hinkley (1997, CUP), originally written by Angelo Canty for S.</td>
+</tr>
+<tr class="odd">
+<td>class</td>
+<td>Various functions for <strong>classification</strong>, including <em>k-nearest neighbour</em>, <em>Learning Vector Quantization</em> and <em>Self-Organizing Maps</em>.</td>
+</tr>
+<tr class="even">
+<td>cluster</td>
+<td>Methods for <strong>Cluster analysis</strong>. Much extended the original from Peter Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw (1990) “Finding Groups in Data”.</td>
+</tr>
+<tr class="odd">
+<td>codetools</td>
+<td>Code analysis tools for R.</td>
+</tr>
+<tr class="even">
+<td>foreign</td>
+<td>Reading and writing data stored by some versions of ‘Epi Info’, ‘Minitab’, ‘S’, ‘SAS’, ‘SPSS’, ‘Stata’, ‘Systat’, ‘Weka’, and for reading and writing some ‘dBase’ files.</td>
+</tr>
+<tr class="odd">
+<td>lattice</td>
+<td>A powerful and elegant <strong>high-level data visualization system</strong> inspired by Trellis graphics, with an <em>emphasis on multivariate data</em>.</td>
+</tr>
+<tr class="even">
+<td>mgcv</td>
+<td>Multiscale Graph Correlation (MGC) is a framework developed by Shen et al. (2017) &lt;arXiv:1609.05148&gt; that extends global correlation procedures to be multiscale;</td>
+</tr>
+<tr class="odd">
+<td>nlme</td>
+<td><em>Linear and Nonlinear</em> <strong>Mixed Effects Models</strong>.Fit and compare Gaussian linear and nonlinear mixed-effects models.</td>
+</tr>
+<tr class="even">
+<td>nnet</td>
+<td>Feed-Forward Neural Networks and Multinomial Log-Linear Models</td>
+</tr>
+<tr class="odd">
+<td>rpart</td>
+<td><em>Recursive partitioning</em> for classification, regression and survival trees. An implementation of most of the functionality of the 1984 book by Breiman, Friedman, Olshen and Stone.</td>
+</tr>
+<tr class="even">
+<td>spatial</td>
+<td>Functions for kriging and point pattern analysis.</td>
+</tr>
+<tr class="odd">
+<td>survival</td>
+<td>Contains the core <strong>survival analysis</strong> routines.</td>
+</tr>
+</tbody>
+</table>
+<p>There are literally thousands of CRAN repository packages accumulated over the years plus many more managed outside of the CRAN repository. Inclusion in CRAN requires a minimum standard process of package structure and documentation.</p>
+</div>
+<div id="python-standard-library2-list" class="section level2">
+<h2><span class="header-section-number">18.2</span> Python <a href="https://docs.python.org/3.7/library/index.html">Standard Library<sup>2</sup></a> List</h2>
+<p>see also: <a href="https://docs.python.org/3.7/library/index.html" class="uri">https://docs.python.org/3.7/library/index.html</a></p>
+<div id="built-in-functions2" class="section level3">
+<h3><span class="header-section-number">18.2.1</span> <a href="https://docs.python.org/3.7/library/functions.html">Built-in Functions<sup>2</sup></a></h3>
+<table>
+<tbody>
+<tr class="odd">
+<td>abs()</td>
+<td>delattr()</td>
+<td>hash()</td>
+<td>memoryview()</td>
+<td>set()</td>
+</tr>
+<tr class="even">
+<td>all()</td>
+<td>dict()</td>
+<td>help()</td>
+<td>min()</td>
+<td>setattr()</td>
+</tr>
+<tr class="odd">
+<td>any()</td>
+<td>dir()</td>
+<td>hex()</td>
+<td>next()</td>
+<td>slice()</td>
+</tr>
+<tr class="even">
+<td>ascii()</td>
+<td>divmod()</td>
+<td>id()</td>
+<td>object()</td>
+<td>sorted()</td>
+</tr>
+<tr class="odd">
+<td>bin()</td>
+<td>enumerate()</td>
+<td>input()</td>
+<td>oct()</td>
+<td>staticmethod()</td>
+</tr>
+<tr class="even">
+<td>bool()</td>
+<td>eval()</td>
+<td>int()</td>
+<td>open()</td>
+<td>str()</td>
+</tr>
+<tr class="odd">
+<td>breakpoint()</td>
+<td>exec()</td>
+<td>isinstance()</td>
+<td>ord()</td>
+<td>sum()</td>
+</tr>
+<tr class="even">
+<td>bytearray()</td>
+<td>filter()</td>
+<td>issubclass()</td>
+<td>pow()</td>
+<td>super()</td>
+</tr>
+<tr class="odd">
+<td>bytes()</td>
+<td>float()</td>
+<td>iter()</td>
+<td>print()</td>
+<td>tuple()</td>
+</tr>
+<tr class="even">
+<td>callable()</td>
+<td>format()</td>
+<td>len()</td>
+<td>property()</td>
+<td>type()</td>
+</tr>
+<tr class="odd">
+<td>chr()</td>
+<td>frozenset()</td>
+<td>list()</td>
+<td>range()</td>
+<td>vars()</td>
+</tr>
+<tr class="even">
+<td>classmethod()</td>
+<td>getattr()</td>
+<td>locals()</td>
+<td>repr()</td>
+<td>zip()</td>
+</tr>
+<tr class="odd">
+<td>compile()</td>
+<td>globals()</td>
+<td>map()</td>
+<td>reversed()</td>
+<td><strong>import</strong>()</td>
+</tr>
+<tr class="even">
+<td>complex()</td>
+<td>hasattr()</td>
+<td>max()</td>
+<td>round()</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="built-in-constants" class="section level3">
+<h3><span class="header-section-number">18.2.2</span> <a href="https://docs.python.org/3.7/library/constants.html">Built-in Constants</a></h3>
+<p>includes Constants added by the <strong>site</strong> module</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>False</td>
+<td>True</td>
+<td>None</td>
+<td>NotImplemented</td>
+<td>Ellipsis or “…”</td>
+</tr>
+<tr class="even">
+<td><code>__debug__</code></td>
+<td>quit(code=None)</td>
+<td>exit(code=None)</td>
+<td>copyright</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>credits</td>
+<td>license</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="built-in-types" class="section level3">
+<h3><span class="header-section-number">18.2.3</span> <a href="https://docs.python.org/3.7/library/stdtypes.html">Built-in Types</a></h3>
+<ul>
+<li>Truth Value Testing</li>
+<li>Boolean Operations — <code>and</code>, <code>or</code>, <code>not</code></li>
+<li>Comparisons <code>== &lt;= &gt;= &lt; &gt; !=</code></li>
+<li>Numeric Types — <code>int</code>, <code>float</code>, <code>complex</code></li>
+<li>Iterator Types</li>
+<li>Sequence Types — ‘list’, ‘tuple’, ‘range’</li>
+<li>Text Sequence Type — ‘str’</li>
+<li>Binary Sequence Types — ‘bytes’, <code>bytearray</code>, <code>memoryview</code></li>
+<li>Set Types — <code>set</code>, <code>frozenset</code></li>
+<li>Mapping Types — <code>dict</code></li>
+<li>Context Manager <code>Types</code></li>
+<li>Other Built-in Types</li>
+<li>Special Attributes</li>
+</ul>
+</div>
+<div id="built-in-exceptions" class="section level3">
+<h3><span class="header-section-number">18.2.4</span> <a href="https://docs.python.org/3.7/library/exceptions.html">Built-in Exceptions</a></h3>
+<ul>
+<li>Base classes</li>
+<li>Concrete exceptions</li>
+<li>Warnings</li>
+<li>Exception hierarchy</li>
+</ul>
+</div>
+<div id="text-processing-services" class="section level3">
+<h3><span class="header-section-number">18.2.5</span> <a href="https://docs.python.org/3.7/library/text.html">Text Processing Services</a></h3>
+<ul>
+<li><code>string</code> — Common string operations</li>
+<li><code>re</code> — Regular expression operations</li>
+<li><code>difflib</code> — Helpers for computing deltas</li>
+<li><code>textwrap</code> — Text wrapping and filling</li>
+<li><code>unicodedata</code> — Unicode Database</li>
+<li><code>stringprep</code> — Internet String Preparation</li>
+<li><code>rlcompleter</code> — Completion function for GNU readline</li>
+</ul>
+</div>
+<div id="binary-data-services" class="section level3">
+<h3><span class="header-section-number">18.2.6</span> <a href="https://docs.python.org/3.7/library/binary.html">Binary Data Services</a></h3>
+<ul>
+<li><code>struct</code> — Interpret bytes as packed binary data
+<ul>
+<li>Functions and Exceptions</li>
+<li>Format Strings</li>
+<li>Classes</li>
+</ul></li>
+<li>codecs — Codec registry and base classes
+<ul>
+<li>Codec Base Classes</li>
+<li>Encodings and Unicode</li>
+<li>Standard Encodings</li>
+<li>Python Specific Encodings
+<ul>
+<li>Text Encodings</li>
+<li>Binary Transforms</li>
+<li>Text Transforms</li>
+</ul></li>
+<li><code>encodings.idna</code> — Internationalized Domain Names in Applications</li>
+<li><code>encodings.mbcs</code> — Windows ANSI codepage</li>
+<li><code>encodings.utf_8_sig</code> — UTF-8 codec with BOM signature</li>
+</ul></li>
+</ul>
+</div>
+<div id="data-types" class="section level3">
+<h3><span class="header-section-number">18.2.7</span> <a href="https://docs.python.org/3.7/library/datatypes.html">Data Types</a></h3>
+<ul>
+<li><code>datetime</code> — Basic date and time types
+<ul>
+<li>Available Types
+<ul>
+<li><code>timedelta</code> Objects</li>
+<li><code>date</code> Objects</li>
+<li><code>datetime</code> Objects</li>
+<li><code>time</code> Objects</li>
+<li><code>tzinfo</code> Objects</li>
+<li><code>timezone</code> Objects</li>
+<li><code>strftime()</code> and <code>strptime()</code> Behavior</li>
+</ul></li>
+</ul></li>
+<li><code>calendar</code> — General calendar-related functions</li>
+<li><code>collections</code> — Container datatypes
+<ul>
+<li><code>ChainMap</code> objects</li>
+<li><code>Counter</code> objects</li>
+<li><code>deque</code> objects</li>
+<li><code>defaultdic</code>t objects</li>
+<li><code>namedtuple()</code> Factory Function for Tuples with Named Fields</li>
+<li><code>OrderedDict</code> objects</li>
+<li><code>UserDict</code> objects</li>
+<li><code>UserList</code> objects</li>
+<li><code>UserString</code> objects</li>
+</ul></li>
+<li><code>collections.abc</code> — Abstract Base Classes for Containers</li>
+<li><code>heapq</code> — Heap queue algorithm</li>
+<li><code>bisect</code> — Array bisection algorithm</li>
+<li><code>array</code> — Efficient arrays of numeric values</li>
+<li><code>weakref</code> — Weak references</li>
+<li><code>types</code> — Dynamic type creation and names for built-in types</li>
+<li><code>copy</code> — Shallow and deep copy operations</li>
+<li><code>pprint</code> — Data pretty printer</li>
+<li><code>reprlib</code> — Alternate repr() implementation</li>
+<li><code>enum</code> — Support for enumerations</li>
+</ul>
+</div>
+<div id="numerical-and-mathematical-modules" class="section level3">
+<h3><span class="header-section-number">18.2.8</span> <a href="https://docs.python.org/3.7/library/numeric.html">Numerical and Mathematical Modules</a></h3>
+<ul>
+<li><code>numbers</code> — Numeric abstract base classes
+<ul>
+<li>The numeric tower</li>
+</ul></li>
+<li><code>math</code> — Mathematical functions
+<ul>
+<li>Number-theoretic and representation functions</li>
+<li>Power and logarithmic functions</li>
+<li>Trigonometric functions</li>
+<li>Angular conversion</li>
+<li>Hyperbolic functions</li>
+<li>Special functions</li>
+<li>Constants</li>
+</ul></li>
+<li><code>cmath</code> — Mathematical functions for complex numbers
+<ul>
+<li>Conversions to and from polar coordinates</li>
+<li>Power and logarithmic functions</li>
+<li>Trigonometric functions</li>
+<li>Hyperbolic functions</li>
+<li>Classification functions</li>
+<li>Constants</li>
+</ul></li>
+<li><code>decimal</code> — Decimal fixed point and floating point arithmetic</li>
+<li><code>fractions</code> — Rational numbers</li>
+<li><code>random</code> — Generate pseudo-random numbers
+<ul>
+<li>Bookkeeping functions</li>
+<li>Functions for integers</li>
+<li>Functions for sequences</li>
+<li>Real-valued distributions</li>
+<li>Alternative Generator</li>
+</ul></li>
+<li><code>statistics</code> — Mathematical statistics functions
+<ul>
+<li>Averages and measures of central location</li>
+<li>Measures of spread</li>
+</ul></li>
+</ul>
+</div>
+<div id="functional-programming-modules" class="section level3">
+<h3><span class="header-section-number">18.2.9</span> <a href="https://docs.python.org/3.7/library/functional.html">Functional Programming Modules</a></h3>
+<ul>
+<li><code>itertools</code> — Functions creating iterators for efficient looping</li>
+<li><code>functools</code> — Higher-order functions and operations, functions that act on or return other functions.</li>
+<li><code>operator</code> — Standard operators as functions, efficient functions corresponding to the intrinsic operators of Python.</li>
+</ul>
+</div>
+<div id="file-and-directory-access" class="section level3">
+<h3><span class="header-section-number">18.2.10</span> <a href="https://docs.python.org/3.7/library/filesys.html">File and Directory Access</a></h3>
+<ul>
+<li><code>pathlib</code> — Object-oriented filesystem paths</li>
+<li><code>os.path</code> — Common pathname manipulations</li>
+<li><code>fileinput</code> — Iterate over lines from multiple input streams</li>
+<li><code>stat</code> — Interpreting stat() results</li>
+<li><code>filecmp</code> — File and Directory Comparisons</li>
+<li><code>tempfile</code> — Generate temporary files and directories</li>
+<li><code>glob</code> — Unix style pathname pattern expansion</li>
+<li><code>fnmatch</code> — Unix filename pattern matching</li>
+<li><code>linecache</code> — Random access to text lines</li>
+<li><code>shutil</code> — High-level file operations</li>
+<li><code>macpath</code> — Mac OS 9 path manipulation functions</li>
+</ul>
+</div>
+<div id="data-persistence" class="section level3">
+<h3><span class="header-section-number">18.2.11</span> <a href="https://docs.python.org/3.7/library/persistence.html">Data Persistence</a></h3>
+<ul>
+<li><code>pickle</code> — Python object serialization</li>
+<li><code>copyreg</code> — Register pickle support functions</li>
+<li><code>shelve</code> — Python object persistence</li>
+<li><code>marshal</code> — Internal Python object serialization</li>
+<li><code>dbm</code> — Interfaces to Unix “databases”</li>
+<li><code>sqlite3</code> — DB-API 2.0 interface for SQLite databases</li>
+</ul>
+</div>
+<div id="data-compression-and-archiving" class="section level3">
+<h3><span class="header-section-number">18.2.12</span> <a href="https://docs.python.org/3.7/library/archiving.html">Data Compression and Archiving</a></h3>
+<ul>
+<li><code>zlib</code> — Compression compatible with gzip</li>
+<li><code>gzip</code> — Support for gzip files</li>
+<li><code>bz2</code> — Support for bzip2 compression</li>
+<li><code>lzma</code> — Compression using the LZMA algorithm</li>
+<li><code>zipfile</code> — Work with ZIP archives</li>
+<li><code>tarfile</code> — Read and write tar archive files</li>
+</ul>
+</div>
+<div id="file-formats" class="section level3">
+<h3><span class="header-section-number">18.2.13</span> <a href="https://docs.python.org/3.7/library/fileformats.html">File Formats</a></h3>
+<ul>
+<li><code>csv</code> — CSV File Reading and Writing</li>
+<li><code>configparse</code> — Configuration file parser</li>
+<li><code>netrc</code> — netrc file processing</li>
+<li><code>xdrlib</code> — Encode and decode XDR data</li>
+<li><code>plistlib</code> — Generate and parse Mac OS X .plist files</li>
+</ul>
+</div>
+<div id="cryptographic-services" class="section level3">
+<h3><span class="header-section-number">18.2.14</span> <a href="https://docs.python.org/3.7/library/crypto.html">Cryptographic Services</a></h3>
+<ul>
+<li><code>hashlib</code> — Secure hashes and message digests</li>
+<li><code>hmac</code> — Keyed-Hashing for Message Authentication</li>
+<li><code>secrets</code> — Generate secure random numbers for managing secrets</li>
+</ul>
+</div>
+<div id="generic-operating-system-services" class="section level3">
+<h3><span class="header-section-number">18.2.15</span> <a href="https://docs.python.org/3.7/library/allos.html">Generic Operating System Services</a></h3>
+<ul>
+<li><code>os</code> — Miscellaneous operating system interfaces</li>
+<li><code>io</code> — Core tools for working with streams</li>
+<li><code>time</code> — Time access and conversions</li>
+<li><code>argparse</code> — Parser for command-line options, arguments and sub-commands</li>
+<li><code>getopt</code> — C-style parser for command line options</li>
+<li><code>logging</code> — Logging facility for Python</li>
+<li><code>logging.config</code> — Logging configuration</li>
+<li><code>logging.handlers</code> — Logging handlers</li>
+<li><code>getpass</code> — Portable password input</li>
+<li><code>curses</code> — Terminal handling for character-cell displays</li>
+<li><code>curses.textpad</code> — Text input widget for curses programs</li>
+<li><code>curses.ascii</code> — Utilities for ASCII characters</li>
+<li><code>curses.panel</code> — A panel stack extension for curses</li>
+<li><code>platform</code> — Access to underlying platform’s identifying data</li>
+<li><code>errno</code> — Standard errno system symbols</li>
+<li><code>ctypes</code> — A foreign function library for Python</li>
+</ul>
+</div>
+<div id="concurrent-execution" class="section level3">
+<h3><span class="header-section-number">18.2.16</span> <a href="https://docs.python.org/3.7/library/concurrency.html">Concurrent Execution</a></h3>
+<ul>
+<li><code>threading</code> — Thread-based parallelism</li>
+<li><code>multiprocessing</code> — Process-based parallelism</li>
+<li><code>concurrent</code>
+<ul>
+<li><code>concurrent.futures</code> — Launching parallel tasks</li>
+</ul></li>
+<li><code>subprocess</code> — Subprocess management</li>
+<li><code>sched</code> — Event scheduler</li>
+<li><code>queue</code> — A synchronized queue class</li>
+<li><code>_thread</code> — Low-level threading API</li>
+<li><code>_dummy_thread</code> — Drop-in replacement for the _thread module</li>
+<li><code>dummy_threading</code> — Drop-in replacement for the threading module</li>
+</ul>
+</div>
+<div id="context-variables" class="section level3">
+<h3><span class="header-section-number">18.2.17</span> <a href="https://docs.python.org/3.7/library/contextvars.html#module-contextvars">Context Variables</a></h3>
+<ul>
+<li><code>contextvars</code> - module provides APIs to manage, store, and access context-local state (context variables)</li>
+<li><code>asyncio</code> - support for asynchronous io</li>
+</ul>
+</div>
+<div id="networking-and-interprocess-communication" class="section level3">
+<h3><span class="header-section-number">18.2.18</span> <a href="https://docs.python.org/3.7/library/ipc.html">Networking and Interprocess Communication</a></h3>
+<ul>
+<li><code>asyncio</code> — Asynchronous I/O (see associated context services)</li>
+<li><code>socket</code> — Low-level networking interface</li>
+<li><code>ssl</code> — TLS/SSL wrapper for socket objects</li>
+<li><code>select</code> — Waiting for I/O completion</li>
+<li><code>selectors</code> — High-level I/O multiplexing</li>
+<li><code>asyncore</code> — Asynchronous socket handler</li>
+<li>`asynchat — Asynchronous socket command/response handler</li>
+<li><code>signal</code> — Set handlers for asynchronous events</li>
+<li><code>mmap</code> — Memory-mapped file support</li>
+</ul>
+</div>
+<div id="internet-data-handling" class="section level3">
+<h3><span class="header-section-number">18.2.19</span> <a href="https://docs.python.org/3.7/library/netdata.html">Internet Data Handling</a></h3>
+<ul>
+<li><code>email</code> — An email and MIME handling package</li>
+<li><code>json</code> — JSON encoder and decoder</li>
+<li><code>mailcap</code> — Mailcap file handling</li>
+<li><code>mailbox</code> — Manipulate mailboxes in various formats</li>
+<li><code>mimetypes</code> — Map filenames to MIME types</li>
+<li><code>base64</code> — Base16, Base32, Base64, Base85 Data Encodings</li>
+<li><code>binhex</code> — Encode and decode binhex4 files</li>
+<li><code>binascii</code> — Convert between binary and ASCII</li>
+<li><code>quopri</code> — Encode and decode MIME quoted-printable data</li>
+<li><code>uu</code> — Encode and decode uuencode files</li>
+</ul>
+</div>
+<div id="structured-markup-processing-tools" class="section level3">
+<h3><span class="header-section-number">18.2.20</span> <a href="https://docs.python.org/3.7/library/markup.html">Structured Markup Processing Tools</a></h3>
+<ul>
+<li><code>html</code> — HyperText Markup Language support
+<ul>
+<li><code>html.parser</code> — Simple HTML and XHTML parser</li>
+<li><code>html.entities</code> — Definitions of HTML general entities</li>
+</ul></li>
+<li><code>xml</code> XML Processing Modules
+<ul>
+<li><code>xml.etree.ElementTree</code> — The ElementTree XML API</li>
+<li><code>xml.dom</code> — The Document Object Model API
+<ul>
+<li><code>xml.dom.minidom</code> — Minimal DOM implementation</li>
+</ul></li>
+<li><code>xml.dom.pulldom</code> — Support for building partial DOM trees</li>
+<li><code>xml.sax</code> — Support for SAX2 parsers
+<ul>
+<li><code>xml.sax.handler</code> — Base classes for SAX handlers</li>
+<li><code>xml.sax.saxutils</code> — SAX Utilities</li>
+<li><code>xml.sax.xmlreader</code> — Interface for XML parsers</li>
+<li><code>xml.parsers.expat</code> — Fast XML parsing using Expat</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="internet-protocols-and-support" class="section level3">
+<h3><span class="header-section-number">18.2.21</span> <a href="https://docs.python.org/3.7/library/internet.html">Internet Protocols and Support</a></h3>
+<ul>
+<li>`webbrowser — Convenient Web-browser controller</li>
+<li><code>cgi</code> — Common Gateway Interface support</li>
+<li><code>cgitb</code> — Traceback manager for CGI scripts</li>
+<li><code>wsgiref</code> — WSGI Utilities and Reference Implementation</li>
+<li><code>urllib</code> — URL handling modules
+<ul>
+<li><code>urllib.request</code> — Extensible library for opening URLs</li>
+<li><code>urllib.response</code> — Response classes used by urllib</li>
+<li><code>urllib.parse</code> — Parse URLs into components</li>
+<li><code>urllib.error</code> — Exception classes raised by urllib.request</li>
+<li><code>urllib.robotparser</code> — Parser for robots.txt</li>
+</ul></li>
+<li><code>http</code> — HTTP modules
+<ul>
+<li><code>http.client</code> — HTTP protocol client</li>
+</ul></li>
+<li><code>ftplib</code> — FTP protocol client</li>
+<li><code>poplib</code> — POP3 protocol client</li>
+<li><code>imaplib</code> — IMAP4 protocol client</li>
+<li><code>nntplib</code> — NNTP protocol client</li>
+<li><code>smtplib</code> — SMTP protocol client</li>
+<li><code>smtpd</code> — SMTP Server</li>
+<li><code>telnetlib</code> — Telnet client</li>
+<li><code>uuid</code> — UUID objects according to RFC 4122</li>
+<li><code>socketserver</code> — A framework for network servers</li>
+<li><code>http.server</code> — HTTP servers</li>
+<li><code>http.cookie</code> — HTTP state management</li>
+<li><code>http.cookiejar</code> — Cookie handling for HTTP clients</li>
+<li><code>xmlrpc</code> — XMLRPC server and client modules
+<ul>
+<li><code>xmlrpc.client</code> — XML-RPC client access</li>
+<li><code>xmlrpc.server</code> — Basic XML-RPC servers</li>
+</ul></li>
+<li><code>ipaddress</code> — IPv4/IPv6 manipulation library</li>
+</ul>
+</div>
+<div id="multimedia-services" class="section level3">
+<h3><span class="header-section-number">18.2.22</span> <a href="https://docs.python.org/3.7/library/mm.html">Multimedia Services</a></h3>
+<ul>
+<li><code>audioop</code> — Manipulate raw audio data</li>
+<li><code>aifc</code> — Read and write AIFF and AIFC files</li>
+<li><code>sunau</code> — Read and write Sun AU files</li>
+<li><code>wave</code> — Read and write WAV files</li>
+<li><code>chunk</code> — Read IFF chunked data</li>
+<li><code>colorsys</code> — Conversions between color systems</li>
+<li><code>imghdr</code> — Determine the type of an image</li>
+<li><code>sndhdr</code> — Determine type of sound file</li>
+<li><code>ossaudiodev</code> — Access to OSS-compatible audio devices</li>
+</ul>
+</div>
+<div id="internationalization" class="section level3">
+<h3><span class="header-section-number">18.2.23</span> <a href="https://docs.python.org/3.7/library/i18n.html">Internationalization</a></h3>
+<ul>
+<li><code>gettext</code> — Multilingual internationalization services</li>
+<li><code>locale</code> — Internationalization services</li>
+</ul>
+</div>
+<div id="program-frameworks" class="section level3">
+<h3><span class="header-section-number">18.2.24</span> <a href="https://docs.python.org/3.7/library/frameworks.html">Program Frameworks</a></h3>
+<ul>
+<li><code>turtle</code> — Turtle graphics</li>
+<li><code>cmd</code> — Support for line-oriented command interpreters</li>
+<li><code>shlex</code> — Simple lexical analysis</li>
+</ul>
+</div>
+<div id="graphical-user-interfaces-with-tk" class="section level3">
+<h3><span class="header-section-number">18.2.25</span> <a href="https://docs.python.org/3.7/library/tk.html">Graphical User Interfaces with Tk</a></h3>
+<ul>
+<li><code>tkinter</code> — Python interface to Tcl/Tk</li>
+<li><code>tkinter.ttk</code> — Tk themed widgets</li>
+<li><code>tkinter.tix</code> — Extension widgets for Tk</li>
+<li><code>tkinter.scrolledtext</code> — Scrolled Text Widget</li>
+<li><code>IDLE</code> - Python’s Integrated Development and Learning Environment</li>
+<li>Other <a href="https://docs.python.org/3.7/library/othergui.html">Graphical User Interface</a> Packages
+<ul>
+<li>PyGObject - Provides introspection bindings for C libraries, incl. GTK+ 3 widget set.</li>
+<li>PyGTK - PyGTK provides bindings for an older version of the library, GTK+ 2.</li>
+<li>PyQt - A sip-wrapped binding to the Qt toolkit.</li>
+<li>PySide - A newer binding to the Qt toolkit, provided by Nokia..</li>
+<li><code>wxPython</code> - A cross-platform GUI toolkit for Python that is built around wxWidgets C++ toolkit</li>
+</ul></li>
+</ul>
+</div>
+<div id="development-tools" class="section level3">
+<h3><span class="header-section-number">18.2.26</span> <a href="https://docs.python.org/3.7/library/development.html">Development Tools</a></h3>
+<ul>
+<li><code>typing</code> — Support for type hints</li>
+<li><code>pydoc</code> — Documentation generator and online help system</li>
+<li><code>doctest</code> — Test interactive Python examples</li>
+<li><code>unittest</code> — Unit testing framework
+<ul>
+<li><code>unittest.mock</code> — mock object library</li>
+</ul></li>
+<li><code>2to3</code> - Automated Python 2 to 3 code translation</li>
+<li><code>test</code> — Regression tests package for Python
+<ul>
+<li><code>test.support</code> — Utilities for the Python test suite
+<ul>
+<li><code>test.support.script_helper</code> — Utilities for the Python execution tests</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="debugging-and-profiling" class="section level3">
+<h3><span class="header-section-number">18.2.27</span> <a href="https://docs.python.org/3.7/library/debug.html">Debugging and Profiling</a></h3>
+<ul>
+<li><code>bdb</code> — Debugger framework</li>
+<li><code>faulthandler</code> — Dump the Python traceback</li>
+<li><code>pdb</code> — The Python Debugger</li>
+<li>The <a href="https://docs.python.org/3.7/library/othergui.html">Python Profilers</a></li>
+<li><code>timeit</code> — Measure execution time of small code snippets</li>
+<li><code>trace</code> — Trace or track Python statement execution</li>
+<li><code>tracemalloc</code> — Trace memory allocations</li>
+</ul>
+</div>
+<div id="software-packaging-and-distribution" class="section level3">
+<h3><span class="header-section-number">18.2.28</span> <a href="https://docs.python.org/3.7/library/distribution.html">Software Packaging and Distribution</a></h3>
+<ul>
+<li><code>distutils</code> — Building and installing Python modules</li>
+<li><code>ensurepip</code> — Bootstrapping the pip installer</li>
+<li><code>venv</code> — Creation of virtual environments</li>
+<li><code>zipapp</code> — Manage executable Python zip archives</li>
+</ul>
+</div>
+<div id="python-runtime-services" class="section level3">
+<h3><span class="header-section-number">18.2.29</span> <a href="https://docs.python.org/3.7/library/python.html">Python Runtime Services</a></h3>
+<ul>
+<li><code>sys</code> — System-specific parameters and functions</li>
+<li><code>sysconfig</code> — Provide access to Python’s configuration information</li>
+<li><code>builtins</code> — Built-in objects</li>
+<li><code>__main__</code> — Top-level script environment</li>
+<li><code>warnings</code> — Warning control</li>
+<li><code>dataclasses</code> — Data Classes</li>
+<li><code>contextlib</code> — Utilities for with-statement contexts</li>
+<li><code>abc</code> — Abstract Base Classes</li>
+<li><code>atexit</code> — Exit handlers</li>
+<li><code>traceback</code> — Print or retrieve a stack traceback</li>
+<li><code>__future__</code> — Future statement definitions</li>
+<li><code>gc</code> — Garbage Collector interface</li>
+<li><code>inspect</code> — Inspect live objects</li>
+<li><code>site</code> — Site-specific configuration hook</li>
+</ul>
+</div>
+<div id="custom-python-interpreters" class="section level3">
+<h3><span class="header-section-number">18.2.30</span> <a href="https://docs.python.org/3.7/library/custominterp.html">Custom Python Interpreters</a></h3>
+<ul>
+<li><code>code</code> — Interpreter base classes</li>
+<li><code>codeop</code> — Compile Python code</li>
+</ul>
+</div>
+<div id="importing-modules" class="section level3">
+<h3><span class="header-section-number">18.2.31</span> <a href="https://docs.python.org/3.7/library/modules.html">Importing Modules</a></h3>
+<ul>
+<li><code>zipimport</code> — Import modules from Zip archives</li>
+<li><code>pkgutil</code> — Package extension utility</li>
+<li><code>modulefinder</code> — Find modules used by a script</li>
+<li><code>runpy</code> — Locating and executing Python modules</li>
+<li><code>importlib</code> — The implementation of import</li>
+</ul>
+</div>
+<div id="python-language-services" class="section level3">
+<h3><span class="header-section-number">18.2.32</span> <a href="https://docs.python.org/3.7/library/language.html">Python Language Services</a></h3>
+<ul>
+<li><code>parser</code> — Access Python parse trees</li>
+<li><code>ast</code> — Abstract Syntax Trees</li>
+<li><code>symtable</code> — Access to the compiler’s symbol tables</li>
+<li><code>symbol</code> — Constants used with Python parse trees</li>
+<li><code>token</code> — Constants used with Python parse trees</li>
+<li><code>keyword</code> — Testing for Python keywords</li>
+<li><code>tokenize</code> — Tokenizer for Python source</li>
+<li><code>tabnanny</code> — Detection of ambiguous indentation</li>
+<li><code>pyclbr</code> — Python class browser support</li>
+<li><code>py_compile</code> — Compile Python source files</li>
+<li><code>compileall</code> — Byte-compile Python libraries</li>
+<li><code>dis</code> — Disassembler for Python bytecode</li>
+<li><code>pickletools</code> — Tools for pickle developers</li>
+</ul>
+</div>
+<div id="miscellaneous-services" class="section level3">
+<h3><span class="header-section-number">18.2.33</span> <a href="https://docs.python.org/3.7/library/misc.html">Miscellaneous Services</a></h3>
+<ul>
+<li><code>formatter</code> — Generic output formatting</li>
+</ul>
+</div>
+<div id="ms-windows-specific-services" class="section level3">
+<h3><span class="header-section-number">18.2.34</span> <a href="https://docs.python.org/3.7/library/misc.html">MS Windows Specific Services</a></h3>
+<p>See also the <a href="https://docs.python.org/3.7/library/misc.html">pywin32 extensions</a>. These are available to install via PIP, and provide access to many of the Windows APIs from Python.</p>
+<ul>
+<li><code>msilib</code> — Read and write Microsoft Installer files</li>
+<li><code>msvcrt</code> — Useful routines from the MS VC++ runtime</li>
+<li><code>winreg</code> — Windows registry access</li>
+<li><code>winsound</code> — Sound-playing interface for Windows</li>
+</ul>
+<p>See also “Undocumented services”&quot; below.</p>
+</div>
+<div id="unix-specific-services" class="section level3">
+<h3><span class="header-section-number">18.2.35</span> <a href="https://docs.python.org/3.7/library/unix.html">Unix Specific Services</a></h3>
+<p>Module provides interfaces to features that are unique to the Unix operating system, or in some cases to some or many variants of it.</p>
+<ul>
+<li><code>posix</code> — The most common POSIX system calls</li>
+<li><code>pwd</code> — The password database</li>
+<li><code>spwd</code> — The shadow password database</li>
+<li><code>grp</code> — The group database</li>
+<li><code>crypt</code> — Function to check Unix passwords</li>
+<li><code>termios</code> — POSIX style tty control</li>
+<li><code>tty</code> — Terminal control functions</li>
+<li><code>pty</code> — Pseudo-terminal utilities</li>
+<li><code>cntl</code> — The fcntl and ioctl system calls</li>
+<li><code>pipes</code> — Interface to shell pipelines</li>
+<li><code>resource</code> — Resource usage information</li>
+<li><code>nis</code> — Interface to Sun’s NIS (Yellow Pages)</li>
+<li><code>syslog</code> — Unix syslog library routines</li>
+</ul>
+<p>See also “Undocumented services”&quot; below.</p>
+</div>
+<div id="undocumented-modules" class="section level3">
+<h3><span class="header-section-number">18.2.36</span> <a href="https://docs.python.org/3.7/library/undoc.html">Undocumented Modules</a></h3>
+<ul>
+<li><code>ntpath</code> — Implementation of os.path on Win32 and Win64 platforms.</li>
+<li><code>posixpath</code> — Implementation of os.path on POSIX.</li>
+</ul>
+</div>
+</div>
+<div id="other-package-sources-third-party" class="section level2">
+<h2><span class="header-section-number">18.3</span> Other Package Sources (Third Party)</h2>
+<div id="cran-r-package-repository" class="section level3">
+<h3><span class="header-section-number">18.3.1</span> CRAN R Package Repository</h3>
+<p>The packages of the CRAN Package repository meet a minimum requirement for package documentation and usability in order to be included the <a href="https://cran.cnr.berkeley.edu/web/packages/index.html">Available CRAN Packages</a> list. There is also a compilation of the packages by topic in the <a href="https://cran.cnr.berkeley.edu/web/views/">CRAN Task Views</a>.</p>
+<p>An external repository developed and managed by bioinformatics genomic oriented users in <a href="https://www.bioconductor.org/">Bioconnector</a>.</p>
+<p>Many high quality packages are available from github repositories, particularly thos maintained by <a href="https://www.rstudio.com/products/rpackages/">RStudio</a></p>
+</div>
+<div id="pypi---python-package-index" class="section level3">
+<h3><span class="header-section-number">18.3.2</span> PyPI - Python Package Index</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="appendix-2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix-4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/17-Appendix_3_Packages.Rmd",
+"text": "Edit"
+},
+"download": ["RPythonBook.pdf", "RPythonBook.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
