@@ -4,4 +4,4 @@ A Small book discussing transitioning for R scripting to R and Python programmin
 
 ![cover](images/cover.jpg)
 
-[Start Book](docs/fronmatter.html)
+[Start Book](https://medmatix.github.io/RPythonBook/)
