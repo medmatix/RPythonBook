@@ -1,5 +1,7 @@
 # Appendix 4 Selected Tutorials and Learning Resources
 
+This book is available for download in [pdf](RPythonBookc.pdf) format.
+
 1 The **R Project for Statistical Computing**, https://www.r-project.org/ Probably should start here, or of course, here,
 
 2. **Python Software Foundation**, https://www.python.org/, Official Documentation, Tutorials and more.

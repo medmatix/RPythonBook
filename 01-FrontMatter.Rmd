@@ -20,7 +20,7 @@ This manuscript may be freely copied and distributed, under the MIT Licence
 
 self-published, on Toth-York Imprint, Calhoun GA USA, November 27, 2018 
 
-https://github.com/medmatix/RtoPythonThoughts 
+https://github.com/medmatix/RPythonBook 
   
 
 
