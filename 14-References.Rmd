@@ -26,8 +26,10 @@
 
 13. Veneble W.; B. Ripley; Modern Applied Statistics with S, 4^th^ ed, Springer, New York NY, 2002.
 
-14 Härdle, Wolfgang K; Léopold Simar; Applied Multivariable Analysis,3^rd^ Ed., Springer, New York NY, 2012.
+14. Härdle, Wolfgang K; Léopold Simar; Applied Multivariable Analysis,3^rd^ Ed., Springer, New York NY, 2012.
 
 15. George, Janeve [Understanding Programming Paradigms](http://www.janeve.me/software-programming/understanding-programming-paradigms),Bangalore, India, 2013. (Accessed:12/07/2018 1:25PM.)
 
 16. Wikipedia contributors, "Programming paradigm," Wikipedia, The Free Encyclopedia, https://en.wikipedia.org/w/index.php?title=Programming_paradigm&oldid=871880549 (Accessed:12/07/2018 1:25PM.)
+
+17. Aylett, Andrew; "What is the difference between a module and a script in Python?" https://stackoverflow.com/questions/2996110/what-is-the-difference-between-a-module-and-a-script-in-python, accessed 12/11/2018 2:58PM.

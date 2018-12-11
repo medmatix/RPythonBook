@@ -1521,28 +1521,326 @@ the Python Documentation\textsuperscript{3}, but generally including
 only occasional examples of the many functions each contain. Again a
 more exhaustive handling is available as indicated.
 
+It's a good time to dive into the functions of the core libraries and
+try some more sophisticated R and Python tasks. We'll first compare
+loading and saving datasets in both languages. R has file functions for
+saving dataframes as comma separated variables, csv, files. We will then
+load this data back into R and python to compare these tasks in each.
+
 \subsection{R Scripting}\label{r-scripting-3}
 
+The dataframe airquality is a built in dataset. Rather than display the
+whole tales head(n) displays the first n lines (default n=6). SImilarly
+tail(n) would display the last n lines. The named dataframe `table' is
+created from airquality data. Then we tell R to write a file names
+airquality.csv. R automatically closes the file after writing is
+complete.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# loading dataset from base R called }
+\KeywordTok{head}\NormalTok{(airquality)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Ozone Solar.R Wind Temp Month Day
+## 1    41     190  7.4   67     5   1
+## 2    36     118  8.0   72     5   2
+## 3    12     149 12.6   74     5   3
+## 4    18     313 11.5   62     5   4
+## 5    NA      NA 14.3   56     5   5
+## 6    28      NA 14.9   66     5   6
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{table =}\StringTok{ }\NormalTok{airquality}
+\KeywordTok{write.csv}\NormalTok{(table,}\DataTypeTok{file=}\StringTok{"airquality.csv"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \subsection{Python Scripting}\label{python-scripting-3}
+
+We need the io module for the file access function. The open() function
+opens the file ``airquality.csv'' for reading only (``r'') and creates a
+filehandle, we called file. Now, file is a handle object so here is a
+first nod to OOP dotted function syntax to read a line from it.
+Something more functionally intuitive, like \texttt{readline(file)} will
+yield an error. Because calling of R function use dot syntax calls this
+is not new to us here. Next chapter moves fully to OOP paradigm.
+
+Then we print out what we read - a single line from file (in fact, the
+first line)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Needs io module functions}
+\ImportTok{import}\NormalTok{ io}
+\CommentTok{#load csv data with Python }
+\BuiltInTok{file} \OperatorTok{=} \BuiltInTok{open}\NormalTok{(}\StringTok{"airquality.csv"}\NormalTok{, }\StringTok{"r"}\NormalTok{)}
+\NormalTok{aline }\OperatorTok{=} \BuiltInTok{file}\NormalTok{.readline()}
+\BuiltInTok{print}\NormalTok{(aline)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## "","Ozone","Solar.R","Wind","Temp","Month","Day"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{aline }\OperatorTok{=} \BuiltInTok{file}\NormalTok{.readline()}
+\BuiltInTok{print}\NormalTok{(aline)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## "1",41,190,7.4,67,5,1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{file}\NormalTok{.close}
+\end{Highlighting}
+\end{Shaded}
+
+When we read a line again, we read the next line. Python readline
+maintains a pointer it moves as we continue to readlines. The Two lines
+we printer were the column names as we saved them and a line of comma
+separated values.
+
+Lets read the airquality.csv file back into R assigning a name
+``newtable'' to the dataframe the read.csv command creates to store the
+data loaded.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Load csv data with R}
+\NormalTok{newtab =}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\DataTypeTok{file=}\StringTok{"airquality.csv"}\NormalTok{, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(newtab)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   X Ozone Solar.R Wind Temp Month Day
+## 1 1    41     190  7.4   67     5   1
+## 2 2    36     118  8.0   72     5   2
+## 3 3    12     149 12.6   74     5   3
+## 4 4    18     313 11.5   62     5   4
+## 5 5    NA      NA 14.3   56     5   5
+## 6 6    28      NA 14.9   66     5   6
+\end{verbatim}
+
+R automatically loads the csv data back into a dataframe. However, the
+python readline reads the data as a data stream (a stream of characters)
+which we told it to store in the aline variable. python does not in this
+case parse the stream int any special structure - that is left to us to
+do.
+
+We see something else too. R wrote the row numbers to the file (because
+we didn't say otherwise) and assigned a new set again when we loaded the
+data again.
+
+\subsection{More Function Examples}\label{more-function-examples}
+
+Basic plotting functions are part of the r-base system we can easily
+plot a function,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Create a function to make a line plot or squares of x between 1 and 8}
+\NormalTok{linePlotMySquares <-}\ControlFlowTok{function}\NormalTok{(}\DataTypeTok{type =} \StringTok{"l"}\NormalTok{, ...) \{}
+\NormalTok{  x =}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{)}
+\NormalTok{  y =}\StringTok{ }\NormalTok{x}\OperatorTok{**}\DecValTok{2}
+  \KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{type =}\NormalTok{ type, ...)}
+\NormalTok{\}}
+
+\CommentTok{# Call our function}
+\KeywordTok{linePlotMySquares}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{RPythonBook_files/figure-latex/unnamed-chunk-26-1.pdf}
+
+Python does not have a basic plotting function and the Standard Library
+has not provided one either. You casn write your own but there is a
+popular python library from the SciPy folks called Matplotlib which once
+installed from the shell with PIP,
+
+\begin{verbatim}
+> pip install matplotlib
+
+OR
+
+> python -m pip install matplotlib
+\end{verbatim}
+
+is available for import, and it contains a module called pyplot which
+has a simple plot function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ matplotlib }\ImportTok{import}\NormalTok{ pyplot }\ImportTok{as}\NormalTok{ plt  }\CommentTok{# import pyplot library module from matplotlib}
+\NormalTok{x }\OperatorTok{=} \BuiltInTok{list}\NormalTok{(}\BuiltInTok{range}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{11}\NormalTok{))                  }\CommentTok{# make a sequence of numbers from 1 through 8, called x}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ [}\DecValTok{0}\NormalTok{,]                              }\CommentTok{# create a list, must have at least one element to concat to}
+\ControlFlowTok{for}\NormalTok{ val }\KeywordTok{in}\NormalTok{ x:                         }\CommentTok{# loop through list x to calculate squares}
+\NormalTok{    y }\OperatorTok{=}\NormalTok{ y }\OperatorTok{+}\NormalTok{ [val}\OperatorTok{**}\DecValTok{2}\NormalTok{,]                 }\CommentTok{# concatinate each square to list y as calculated}
+\NormalTok{y }\OperatorTok{=}\NormalTok{ y[}\DecValTok{1}\NormalTok{:}\DecValTok{11}\NormalTok{]                            }\CommentTok{# select the values 1 to 8 from y, call them y}
+\NormalTok{plt.plot(x,y)                         }\CommentTok{# plot the x vs y pairs}
+\NormalTok{plt.show()                            }\CommentTok{# show the plot}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{RPythonBook_files/figure-latex/unnamed-chunk-27-1.pdf}
+
+There are a few things to discuss here. First is the structure of the
+matplotlib library. Python code for import are module files (which end
+in the .py extension like any python scripts or programs).
+
+\begin{quote}
+A script or program is generally a directly executable piece of code,
+run by itself. A module is generally a library, imported by other pieces
+of code.
+\end{quote}
+
+\begin{quote}
+Note that there's no internal distinction -- both are executable and
+importable, although library code often won't do anything (or will just
+run its unit tests) when executed directly and importing code designed
+to be a script will cause it to execute, hence the common if
+\textbf{name} == ``\textbf{main}'' test.\textsuperscript{17}
+\end{quote}
+
+So what we are doing with
+\texttt{from\ matplotlib\ import\ pyplot\ as\ plt} is saying: ``from the
+file matplotlib(.py) import the functions in the pyplot class and call
+the namespace containing them plt''" so that we can call them.
+
+\textbf{Note:} pip is a module, but runs independently from the command
+line because it contains script with a \texttt{\_\_main\_\_} function
+accessed via pip3.exe to setup and start the process.
+
+It also runs from command line as a module executed by python with the
+-m switch, by
+
+\begin{verbatim}
+python -m pip install <some package>
+\end{verbatim}
+
+the -m switch tells python to run the module as a script. Most library
+modules are not executable as python scripts or if they are, run
+self-tests called by a main() function.
 
 \chapter{Object-Oriented Programming with R and
 Python}\label{object-oriented-programming-with-r-and-python}
 
-At this point we are ready to discuss the functional programming
-paradigm in R and Python. The other important paradigm, Object-Oriented,
-will be discussed in the following Chapter.
+At this point we are ready to expand our exploration with
+object-oriented programming (OOP) in R and Python. Objects are like
+(collections of one or more) functions with some added structure. This
+structure has been defined by the four principles which set apart OOP.
 
-\section{Defining Classes}\label{defining-classes}
+\begin{itemize}
+\tightlist
+\item
+  Abstraction.
+\item
+  Encapsulation.
+\item
+  Inheritance.
+\item
+  Polymorphism.
+\end{itemize}
+
+Additionally the functions an object contains, called it's methods are
+conceptualized as relating to the actions of the object. The methods are
+actions which are done by the object for itself - an add method enables
+the object to add itself. A square object would add something to itself
+in an internally defined fashion.
+
+Consider a function/method to transparently operates on a variable as
+would be appropriate to the data-type. This is \textbf{polymorphism}. An
+add method would do some add operation in a fashion appropriate to the
+object and the input, and it would do it inside the blackbox of the
+object and the details are inaccessible to the user (see abstraction).
+Access to the objects characteristics is also by such methods and in no
+other way. This is \textbf{encapsulation} or `information hiding'.
+
+You can only alter an object itself by extending it's pattern in a new
+object. All the things of the old object are passed on and exist in the
+new object by re-inplementation of old characteristics and new
+characteristics and behaviors are implemented on top of the parent
+object's pattern. This is \textbf{inheritance}.
+
+As above the object has control over how it is seen in the environment
+external to the object. The picture the object releases is an
+\textbf{abstraction} of it's pattern definition and contents. The
+totality of object data structure emerges from the outputs of the object
+methods.
+
+In a generic form a class pattern or definition consists of a class
+signature (or name) and a contained code block with class details. This
+is the fundamental abstraction which is an object. It could be
+represented like this,
+
+\begin{verbatim}
+# Class indentity
+class() [ include inheritance]
+
+    #Class details
+    # the characteristics
+    class constants 
+    class variables
+  
+    # instance creation
+    constructor()
+    
+    # class actions
+    methods()
+    
+\end{verbatim}
+
+\section{Defining Classes in R and
+Python}\label{defining-classes-in-r-and-python}
+
+A class is a specific object pattern, The automobile class is an object
+with wheels, some mode of propulsion and driver methods. A class
+instance is a particular realization of car with specifics values added
+to characteristics inherited from the class.
+
+Due to how it evolved, R has at least 3 kinds or levels of objects,
+developed in a chronologic order.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# An R class}
+\KeywordTok{print}\NormalTok{(}\StringTok{'R Class'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "R Class"
+\end{verbatim}
+
+Python Objects
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# A pythonclass}
+\ControlFlowTok{pass}
+\end{Highlighting}
+\end{Shaded}
+
+\section{Using Objects and Classes}\label{using-objects-and-classes}
+
+An instance of a class is created by the class' constructor. An object
+constructor is implicitly inherited from the language's object
+definition and implementation. It is often explicitly overridden by a
+customized contructor.
 
 \subsection{R Scripting}\label{r-scripting-4}
 
 \subsection{Python Scripting}\label{python-scripting-4}
-
-\section{Using Objects and Classes}\label{using-objects-and-classes}
-
-\subsection{R Scripting}\label{r-scripting-5}
-
-\subsection{Python Scripting}\label{python-scripting-5}
 
 \part{Data Science Topics in Python Compared to
 R}\label{part-data-science-topics-in-python-compared-to-r}
@@ -1571,22 +1869,22 @@ will be discussed in the following Chapter.
 
 \section{Basic Probability Issues}\label{basic-probability-issues}
 
+\subsection{R Scripting}\label{r-scripting-5}
+
+\subsection{Python Scripting}\label{python-scripting-5}
+
+\section{Using the Distrbutions}\label{using-the-distrbutions}
+
 \subsection{R Scripting}\label{r-scripting-6}
 
 \subsection{Python Scripting}\label{python-scripting-6}
 
-\section{Using the Distrbutions}\label{using-the-distrbutions}
+\section{Other Libraries with Probability and Statistical
+Packages}\label{other-libraries-with-probability-and-statistical-packages}
 
 \subsection{R Scripting}\label{r-scripting-7}
 
 \subsection{Python Scripting}\label{python-scripting-7}
-
-\section{Other Libraries with Probability and Statistical
-Packages}\label{other-libraries-with-probability-and-statistical-packages}
-
-\subsection{R Scripting}\label{r-scripting-8}
-
-\subsection{Python Scripting}\label{python-scripting-8}
 
 \chapter{Descriptive Statistics and Data
 Exploration}\label{descriptive-statistics-and-data-exploration}
@@ -1597,23 +1895,23 @@ will be discussed in the following Chapter.
 
 \section{Defining Functions}\label{defining-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-9}
+\subsection{R Scripting}\label{r-scripting-8}
 
-\subsection{Python Scripting}\label{python-scripting-9}
+\subsection{Python Scripting}\label{python-scripting-8}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-10}
+\subsection{R Scripting}\label{r-scripting-9}
 
-\subsection{Python Scripting}\label{python-scripting-10}
+\subsection{Python Scripting}\label{python-scripting-9}
 
 \section{The Core or Standard
 Libraries}\label{the-core-or-standard-libraries}
 
-\subsection{R Scripting}\label{r-scripting-11}
+\subsection{R Scripting}\label{r-scripting-10}
 
-\subsection{Python Scripting}\label{python-scripting-11}
+\subsection{Python Scripting}\label{python-scripting-10}
 
 \chapter{Statistical Analysis and
 Modeling}\label{statistical-analysis-and-modeling}
@@ -1625,16 +1923,16 @@ will be discussed in the following Chapter.
 \section{Defining the Available
 Functions}\label{defining-the-available-functions}
 
-\subsection{R Scripting}\label{r-scripting-12}
+\subsection{R Scripting}\label{r-scripting-11}
 
-\subsection{Python Scripting}\label{python-scripting-12}
+\subsection{Python Scripting}\label{python-scripting-11}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-2}
 
-\subsection{R Scripting}\label{r-scripting-13}
+\subsection{R Scripting}\label{r-scripting-12}
 
-\subsection{Python Scripting}\label{python-scripting-13}
+\subsection{Python Scripting}\label{python-scripting-12}
 
 \chapter{Non-Stochastic Models}\label{non-stochastic-models}
 
@@ -1715,6 +2013,11 @@ Analysis,3\textsuperscript{rd} Ed., Springer, New York NY, 2012.
   \url{https://en.wikipedia.org/w/index.php?title=Programming_paradigm\&oldid=871880549}
   (Accessed:12/07/2018 1:25PM.)
 \end{enumerate}
+
+17.Aylett, Andrew; ``What is the difference between a module and a
+script in Python?''
+\url{https://stackoverflow.com/questions/2996110/what-is-the-difference-between-a-module-and-a-script-in-python},
+accessed 12/11/2018 2:58PM.
 
 \chapter{Bibliography}\label{bibliography}
 
@@ -3185,6 +3488,50 @@ Index}\label{pypi---python-package-index}
 
 \section{Selected Tutorials and Learning
 Resources}\label{selected-tutorials-and-learning-resources}
+
+1 The \textbf{R Project for Statistical Computing},
+\url{https://www.r-project.org/} Probably should start here, or of
+course, here,
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  \textbf{Python Software Foundation}, \url{https://www.python.org/},
+  Official Documentation, Tutorials and more.
+\item
+  \textbf{Stack overflow}, \url{https://stackoverflow.com/questions}, is
+  an ever accessible help desk wiki. It addresses quests in a multitude
+  of domains including \textbf{R}, \textbf{Python}, many areas of
+  mathematics including \textbf{Statistics}, and much much more. If you
+  can't find you answer there (which is very unlikely) you can put your
+  question out there to be answered. !! A Highly Recommended Go To !!
+\item
+  Just \textbf{Google} your topic, (or use your favorite search engine).
+  This will yield, blogs, articles and tutorials and online books etc.
+\item
+  \textbf{W3schools} Developers Site,
+  \url{https://www.w3schools.com/python/default.asp} these are quick and
+  clear and concise. They will get you up and running quickly,
+  particularly with many Web oriented tools. \emph{Tutorials, References
+  and Examples}. Unfortunately R is not yet represented here.
+\item
+  \textbf{SciPy} \url{https://scipy.org/} developed and supports much of
+  what can be considered the center court of python data science.
+  \textbf{Scipy Library} itself, \textbf{Numpy}, \textbf{Matplotlib},
+  \textbf{Pandas}, \textbf{IPython} and more. Tutorials for each
+  accessible from here.
+\item
+  \textbf{Wikipedia} \url{https://en.wikipedia.org/wiki/Main_Page}
+  Wikipaedia has it's proponents and opponents but with your eyes wide
+  open you can find anything you need to learn often in depth and in
+  brief. It is not peer reviewed by domain professionals and this
+  necessitates using you common sense and being an informed user. BUT,
+  most often those domain professionals are there orbiting especially in
+  computer and mathematics fields. I use it alot of alot of things. But
+  I also check the sources provided.
+\item
+\end{enumerate}
 
 
 \end{document}

@@ -1,16 +1,61 @@
 # Object-Oriented Programming with R and Python
 
-At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
+At this point we are ready to expand our exploration with object-oriented programming (OOP) in R and Python. Objects are like (collections of one or more) functions with some added structure. This structure has been defined by the four principles which set apart OOP.
 
-## Defining Classes
+* Abstraction.
+* Encapsulation.
+* Inheritance.
+* Polymorphism.
 
-### R Scripting
+Additionally the functions an object contains, called it's methods are conceptualized as relating to the actions of the object. The methods are actions which are done by the object for itself - an add method enables the object to add itself. A square object would add something to itself in an internally defined fashion.
+
+Consider a function/method to transparently operates on a variable as would be appropriate to the data-type. This is **polymorphism**. An add method would do some add operation in a fashion appropriate to the object and the input, and it would do it inside the blackbox of the object and the details are inaccessible to the user (see abstraction). Access to the objects characteristics is also by such methods and in no other way. This is **encapsulation** or 'information hiding'.
+
+You can only alter an object itself by extending it's pattern in a new object. All the things of the old object are passed on and exist in the new object by re-inplementation of old characteristics and new characteristics and behaviors are implemented on top of the parent object's pattern. This is **inheritance**.
+
+As above the object has control over how it is seen in the environment external to the object. The picture the object releases is an **abstraction** of it's pattern definition and contents. The totality of object data structure emerges from the outputs of the object methods.
+
+In a generic form a class pattern or definition consists of a class signature (or name) and a contained code block with class details. This is the fundamental abstraction which is an object. It could be represented like this,
+
+```{}
+# Class indentity
+class() [ include inheritance]
+
+    #Class details
+    # the characteristics
+    class constants 
+    class variables
+  
+    # instance creation
+    constructor()
+    
+    # class actions
+    methods()
+```
 
 
-### Python Scripting
+## Defining Classes in R and Python
+
+A class is a specific object pattern, The automobile class is an object with wheels, some mode of propulsion and driver methods. A class instance is a particular realization of car with specifics values added to characteristics inherited from the class. 
+
+Due to how it evolved, R has at least 3 kinds or levels of objects, developed in a chronologic order.
+
+```{r}
+# An R class
+print('R Class')
+```
+
+Python Objects
+
+```{python}
+# A pythonclass
+pass
+```
 
 
 ## Using Objects and Classes
+
+An instance of a class is created by the class' constructor. An object constructor is implicitly inherited by all classes, from the language's object definition and implementation. It is often explicitly overridden by a customized contructor.
 
 ### R Scripting
 

@@ -1,3 +1,19 @@
-# Appendix 4
+# Appendix 4 Selected Tutorials and Learning Resources
 
-## Selected Tutorials and Learning Resources 
+1 The **R Project for Statistical Computing**, https://www.r-project.org/ Probably should start here, or of course, here,
+
+2. **Python Software Foundation**, https://www.python.org/, Official Documentation, Tutorials and more.
+
+3. **Stack overflow**, https://stackoverflow.com/questions, is an ever accessible help desk wiki. It addresses quests in a multitude of domains including **R**, **Python**, many areas of mathematics including **Statistics**, and much much more. If you can't find you answer there (which is very unlikely) you can put your question out there to be answered. !! A Highly Recommended Go To !!
+
+4. Just **Google** your topic, (or use your favorite search engine). This will yield, blogs, articles and tutorials and online books etc.
+
+5. **W3schools** Developers Site, https://www.w3schools.com/python/default.asp these are quick and clear and concise. They will get you up and running quickly, particularly with many Web oriented tools. *Tutorials, References and Examples*. Unfortunately R is not yet represented here.
+
+6. **SciPy** https://scipy.org/ developed and supports much of what can be considered the center court of python data science. **Scipy Library** itself, **Numpy**, **Matplotlib**, **Pandas**, **IPython** and more. Tutorials for each accessible from here.
+
+7. **Wikipedia** https://en.wikipedia.org/wiki/Main_Page Wikipaedia has it's proponents and opponents but with your eyes wide open you can find anything you need to learn often in depth and in brief. It is not peer reviewed by domain professionals and this necessitates using you common sense and being an informed user. BUT, most often those domain professionals are there orbiting especially in computer and mathematics fields. I use it alot of alot of things. But I also check the sources provided.
+
+8. 
+
+

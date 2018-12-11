@@ -1,0 +1,548 @@
+# Appendix 3, R and Python Packages
+
+
+
+## R Core Package List
+
+The base packages are part of R and are grouped bt functionality and to some degree of chonology of incorporation into the base distribution. The Packages of base functions are,
+
+|Package  | Description                                                   |
+|---------|---------------------------------------------------------------|
+|base     |Base R functions|
+|compiler |Functions to provide an interface to a byte code compiler for R|
+|datasets |Base R datasets|
+|grDevices|R Graphics Devices and Support for Colours and Fonts. Support for base and grid graphics|
+|graphics |R functions for base graphics|
+|grid     |The Grid Graphics Package. A rewrite of the graphics layout capabilities.|
+|methods  |Formal Methods and Classes. Formally defined methods and classes for R objects and other programming tools.|
+|parallel |Support for Parallel Computation, including random-number generation.|
+|splines  |Regression Spline Functions and Classes.|
+|stats    |R statistical functions|
+|stats4   |Statistical Functions using S4 classes.|
+|tcltk    |Interface and language bindings to Tcl/Tk GUI elements.|
+|tools    |Tools for package development, administration and documentation.|
+|utils    |R utility functions|
+
+A list if contained functions in any package can be displayed in R by (eg. for parallel package), 
+
+```
+library(help = "parallel")  # of substitute any package name for "parallel"
+```
+
+The other list installed with first R install are the recommended packages. These are kind of and appocrapha of functions providing useful capabilities from some books and papers about specialized uses of the R system. These are,
+
+
+|Package|Description|
+|-----------|-------------------------------------------------------|
+|kernsmooth|Functions for **kernel smoothing** (and density estimation) corresponding to the book: Wand, M.P. and Jones, M.C. (1995) "Kernel Smoothing".|
+|MASS|*Functions and datasets* to support Venables and Ripley, "Modern Applied Statistics with S" (4th edition, 2002).|
+|Matrix|A rich hierarchy of **matrix classes**, including *triangular, symmetric, and diagonal matrices*, both *dense* and *sparse*, using 'LAPACK' and 'SuiteSparse' libraries.|
+|boot|Functions and datasets for **bootstrapping** from the book "Bootstrap Methods and Their Application" by A. C. Davison and D. V. Hinkley (1997, CUP), originally written by Angelo Canty for S.|
+|class|Various functions for **classification**, including *k-nearest neighbour*, *Learning Vector Quantization* and *Self-Organizing Maps*.|
+|cluster|Methods for **Cluster analysis**. Much extended the original from Peter Rousseeuw, Anja Struyf and Mia Hubert, based on Kaufman and Rousseeuw (1990) "Finding Groups in Data".|
+|codetools|Code analysis tools for R.|
+|foreign|Reading and writing data stored by some versions of 'Epi Info', 'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka', and for reading and writing some 'dBase' files.|
+|lattice|A powerful and elegant **high-level data visualization system** inspired by Trellis graphics, with an *emphasis on multivariate data*.|
+|mgcv|Multiscale Graph Correlation (MGC) is a framework developed by Shen et al. (2017) <arXiv:1609.05148> that extends global correlation procedures to be multiscale;|
+|nlme|*Linear and Nonlinear* **Mixed Effects Models**.Fit and compare Gaussian linear and nonlinear mixed-effects models.|
+|nnet|Feed-Forward Neural Networks and Multinomial Log-Linear Models|
+|rpart|*Recursive partitioning* for classification, regression and survival trees. An implementation of most of the functionality of the 1984 book by Breiman, Friedman, Olshen and Stone.|
+|spatial|Functions for kriging and point pattern analysis.|
+|survival|Contains the core **survival analysis** routines.|
+
+There are literally thousands of CRAN repository packages accumulated over the years plus many more managed outside of the CRAN repository. Inclusion in CRAN requires a minimum standard process of package structure and documentation.
+
+
+## Python [Standard Library^2^](https://docs.python.org/3.7/library/index.html) List
+see also: https://docs.python.org/3.7/library/index.html 
+
+### [Built-in Functions^2^](https://docs.python.org/3.7/library/functions.html)
+
+||||||
+|-----|-----|-----|-----|-----|
+|abs()|delattr()|hash()|memoryview()|set()|
+|all()|dict()|help()|min()|setattr()|
+|any()|dir()|hex()|next()|slice()|
+|ascii()|divmod()|id()|object()|sorted()|
+|bin()|enumerate()|input()|oct()|staticmethod()|
+|bool()|eval()|int()|open()|str()|
+|breakpoint()|exec()|isinstance()|ord()|sum()|
+|bytearray()|filter()|issubclass()|pow()|super()|
+|bytes()|float()|iter()|print()|tuple()|
+|callable()|format()|len()|property()|type()|
+|chr()|frozenset()|list()|range()|vars()|
+|classmethod()|getattr()|locals()|repr()|zip()|
+|compile()|globals()|map()|reversed()|__import__()|
+|complex()|hasattr()|max()|round()||
+
+
+### [Built-in Constants](https://docs.python.org/3.7/library/constants.html)
+
+includes Constants added by the **site** module
+
+||||||
+|-----|-----|-----|-----|-----|
+|False|True|None|NotImplemented|Ellipsis or  “...”|
+|`__debug__`|quit(code=None)|exit(code=None)|copyright|
+|credits|license||||
+
+
+### [Built-in Types](https://docs.python.org/3.7/library/stdtypes.html)
+
+- Truth Value Testing
+- Boolean Operations — `and`, `or`, `not`
+- Comparisons `== <= >= < > !=`
+- Numeric Types — `int`, `float`, `complex`
+- Iterator Types
+- Sequence Types — 'list', 'tuple', 'range'
+- Text Sequence Type — 'str'
+- Binary Sequence Types — 'bytes', `bytearray`, `memoryview`
+- Set Types — `set`, `frozenset`
+- Mapping Types — `dict`
+- Context Manager `Types`
+- Other Built-in Types
+- Special Attributes
+
+### [Built-in Exceptions](https://docs.python.org/3.7/library/exceptions.html)
+
+- Base classes
+- Concrete exceptions
+- Warnings
+- Exception hierarchy
+
+### [Text Processing Services](https://docs.python.org/3.7/library/text.html)
+
+- `string` — Common string operations
+- `re` — Regular expression operations
+- `difflib` — Helpers for computing deltas
+- `textwrap` — Text wrapping and filling
+- `unicodedata` — Unicode Database
+- `stringprep` — Internet String Preparation
+- `rlcompleter` — Completion function for GNU readline
+
+
+
+### [Binary Data Services](https://docs.python.org/3.7/library/binary.html)
+
+
+
+* `struct` — Interpret bytes as packed binary data
+    * Functions and Exceptions
+    * Format Strings
+    * Classes
+*  codecs — Codec registry and base classes
+    * Codec Base Classes
+    * Encodings and Unicode
+    * Standard Encodings
+    * Python Specific Encodings
+        * Text Encodings
+        * Binary Transforms
+        * Text Transforms
+    * `encodings.idna` — Internationalized Domain Names in Applications
+    * `encodings.mbcs` — Windows ANSI codepage
+    * `encodings.utf_8_sig` — UTF-8 codec with BOM signature
+
+
+### [Data Types](https://docs.python.org/3.7/library/datatypes.html)
+
+
+* `datetime` — Basic date and time types
+    * Available Types
+        * `timedelta` Objects
+        * `date` Objects
+        * `datetime` Objects
+        * `time` Objects
+        * `tzinfo` Objects
+        * `timezone` Objects
+        * `strftime()` and `strptime()` Behavior
+* `calendar` — General calendar-related functions
+* `collections` — Container datatypes
+    * `ChainMap` objects
+    * `Counter` objects
+    * `deque` objects
+    * `defaultdic`t objects
+    * `namedtuple()` Factory Function for Tuples with Named Fields
+    * `OrderedDict` objects
+    * `UserDict` objects
+    * `UserList` objects
+    * `UserString` objects
+* `collections.abc` — Abstract Base Classes for Containers
+* `heapq` — Heap queue algorithm
+* `bisect` — Array bisection algorithm
+* `array` — Efficient arrays of numeric values
+* `weakref` — Weak references
+* `types` — Dynamic type creation and names for built-in types
+* `copy` — Shallow and deep copy operations
+* `pprint` — Data pretty printer
+* `reprlib` — Alternate repr() implementation
+* `enum` — Support for enumerations
+
+### [Numerical and Mathematical Modules](https://docs.python.org/3.7/library/numeric.html)
+
+
+* `numbers` — Numeric abstract base classes
+    * The numeric tower
+* `math` — Mathematical functions
+    * Number-theoretic and representation functions
+    * Power and logarithmic functions
+    * Trigonometric functions
+    * Angular conversion
+    * Hyperbolic functions
+    * Special functions
+    * Constants
+* `cmath` — Mathematical functions for complex numbers
+    * Conversions to and from polar coordinates
+    * Power and logarithmic functions
+    * Trigonometric functions
+    * Hyperbolic functions
+    * Classification functions
+    * Constants
+* `decimal` — Decimal fixed point and floating point arithmetic
+* `fractions` — Rational numbers
+* `random` — Generate pseudo-random numbers
+    * Bookkeeping functions
+    * Functions for integers
+    * Functions for sequences
+    * Real-valued distributions
+    * Alternative Generator
+* `statistics` — Mathematical statistics functions
+    * Averages and measures of central location
+    * Measures of spread
+
+
+### [Functional Programming Modules](https://docs.python.org/3.7/library/functional.html)
+
+
+* `itertools` — Functions creating iterators for efficient looping
+* `functools` — Higher-order functions and operations, functions that act on or return other functions.
+* `operator` — Standard operators as functions, efficient functions corresponding to the intrinsic operators of Python.
+
+
+### [File and Directory Access](https://docs.python.org/3.7/library/filesys.html)
+
+* `pathlib` — Object-oriented filesystem paths
+* `os.path` — Common pathname manipulations
+* `fileinput` — Iterate over lines from multiple input streams
+* `stat` — Interpreting stat() results
+* `filecmp` — File and Directory Comparisons
+* `tempfile` — Generate temporary files and directories
+* `glob` — Unix style pathname pattern expansion
+* `fnmatch` — Unix filename pattern matching
+* `linecache` — Random access to text lines
+* `shutil` — High-level file operations
+* `macpath` — Mac OS 9 path manipulation functions
+
+### [Data Persistence](https://docs.python.org/3.7/library/persistence.html)
+
+* `pickle` — Python object serialization
+* `copyreg` — Register pickle support functions
+* `shelve` — Python object persistence
+* `marshal` — Internal Python object serialization
+* `dbm` — Interfaces to Unix “databases”
+* `sqlite3` — DB-API 2.0 interface for SQLite databases
+
+### [Data Compression and Archiving](https://docs.python.org/3.7/library/archiving.html)
+
+* `zlib` — Compression compatible with gzip
+* `gzip` — Support for gzip files
+* `bz2` — Support for bzip2 compression
+* `lzma` — Compression using the LZMA algorithm
+* `zipfile` — Work with ZIP archives
+* `tarfile` — Read and write tar archive files
+
+
+
+### [File Formats](https://docs.python.org/3.7/library/fileformats.html)
+
+* `csv` — CSV File Reading and Writing
+* `configparse` — Configuration file parser
+* `netrc` — netrc file processing
+* `xdrlib` — Encode and decode XDR data
+* `plistlib` — Generate and parse Mac OS X .plist files
+
+
+
+### [Cryptographic Services](https://docs.python.org/3.7/library/crypto.html)
+
+* `hashlib` — Secure hashes and message digests
+* `hmac` — Keyed-Hashing for Message Authentication
+* `secrets` — Generate secure random numbers for managing secrets
+
+### [Generic Operating System Services](https://docs.python.org/3.7/library/allos.html)
+
+* `os` — Miscellaneous operating system interfaces
+* `io` — Core tools for working with streams
+* `time` — Time access and conversions
+* `argparse` — Parser for command-line options, arguments and sub-commands
+* `getopt` — C-style parser for command line options
+* `logging` — Logging facility for Python
+* `logging.config` — Logging configuration
+* `logging.handlers` — Logging handlers
+* `getpass` — Portable password input
+* `curses` — Terminal handling for character-cell displays
+* `curses.textpad` — Text input widget for curses programs
+* `curses.ascii` — Utilities for ASCII characters
+* `curses.panel` — A panel stack extension for curses
+* `platform` — Access to underlying platform’s identifying data
+* `errno` — Standard errno system symbols
+* `ctypes` — A foreign function library for Python
+
+### [Concurrent Execution](https://docs.python.org/3.7/library/concurrency.html)
+
+* `threading` — Thread-based parallelism
+* `multiprocessing` — Process-based parallelism
+* `concurrent` 
+    * `concurrent.futures` — Launching parallel tasks
+* `subprocess` — Subprocess management
+* `sched` — Event scheduler
+* `queue` — A synchronized queue class
+* `_thread` — Low-level threading API
+* `_dummy_thread` — Drop-in replacement for the _thread module
+* `dummy_threading` — Drop-in replacement for the threading module
+
+### [Context Variables](https://docs.python.org/3.7/library/contextvars.html#module-contextvars)
+
+* `contextvars` - module provides APIs to manage, store, and access context-local state (context variables)
+* `asyncio` - support for asynchronous io
+
+### [Networking and Interprocess Communication](https://docs.python.org/3.7/library/ipc.html)
+
+* `asyncio` — Asynchronous I/O (see associated context services)
+* `socket` — Low-level networking interface
+* `ssl` — TLS/SSL wrapper for socket objects
+* `select` — Waiting for I/O completion
+* `selectors` — High-level I/O multiplexing
+* `asyncore` — Asynchronous socket handler
+* `asynchat — Asynchronous socket command/response handler
+* `signal` — Set handlers for asynchronous events
+* `mmap` — Memory-mapped file support
+
+### [Internet Data Handling](https://docs.python.org/3.7/library/netdata.html)
+
+* `email` — An email and MIME handling package
+* `json` — JSON encoder and decoder
+* `mailcap` — Mailcap file handling
+* `mailbox` — Manipulate mailboxes in various formats
+* `mimetypes` — Map filenames to MIME types
+* `base64` — Base16, Base32, Base64, Base85 Data Encodings
+* `binhex` — Encode and decode binhex4 files
+* `binascii` — Convert between binary and ASCII
+* `quopri` — Encode and decode MIME quoted-printable data
+* `uu` — Encode and decode uuencode files
+
+### [Structured Markup Processing Tools](https://docs.python.org/3.7/library/markup.html)
+
+* `html` — HyperText Markup Language support
+    * `html.parser` — Simple HTML and XHTML parser
+    * `html.entities` — Definitions of HTML general entities
+* `xml` XML Processing Modules
+    * `xml.etree.ElementTree` — The ElementTree XML API
+    * `xml.dom` — The Document Object Model API
+        * `xml.dom.minidom` — Minimal DOM implementation
+    * `xml.dom.pulldom` — Support for building partial DOM trees
+    * `xml.sax` — Support for SAX2 parsers
+        * `xml.sax.handler` — Base classes for SAX handlers
+        * `xml.sax.saxutils` — SAX Utilities
+        * `xml.sax.xmlreader` — Interface for XML parsers
+        * `xml.parsers.expat` — Fast XML parsing using Expat
+
+### [Internet Protocols and Support](https://docs.python.org/3.7/library/internet.html)
+
+* `webbrowser — Convenient Web-browser controller
+* `cgi` — Common Gateway Interface support
+* `cgitb` — Traceback manager for CGI scripts
+* `wsgiref` — WSGI Utilities and Reference Implementation
+* `urllib` — URL handling modules
+    * `urllib.request` — Extensible library for opening URLs
+    * `urllib.response` — Response classes used by urllib
+    * `urllib.parse` — Parse URLs into components
+    * `urllib.error` — Exception classes raised by urllib.request
+    * `urllib.robotparser` — Parser for robots.txt
+* `http` — HTTP modules
+    * `http.client` — HTTP protocol client
+* `ftplib` — FTP protocol client
+* `poplib` — POP3 protocol client
+* `imaplib` — IMAP4 protocol client
+* `nntplib` — NNTP protocol client
+* `smtplib` — SMTP protocol client
+* `smtpd` — SMTP Server
+* `telnetlib` — Telnet client
+* `uuid` — UUID objects according to RFC 4122
+* `socketserver` — A framework for network servers
+* `http.server` — HTTP servers
+* `http.cookie` — HTTP state management
+* `http.cookiejar` — Cookie handling for HTTP clients
+* `xmlrpc` — XMLRPC server and client modules
+    * `xmlrpc.client` — XML-RPC client access
+    * `xmlrpc.server` — Basic XML-RPC servers
+* `ipaddress` — IPv4/IPv6 manipulation library
+
+### [Multimedia Services](https://docs.python.org/3.7/library/mm.html)
+
+* `audioop` — Manipulate raw audio data
+* `aifc` — Read and write AIFF and AIFC files
+* `sunau` — Read and write Sun AU files
+* `wave` — Read and write WAV files
+* `chunk` — Read IFF chunked data
+* `colorsys` — Conversions between color systems
+* `imghdr` — Determine the type of an image
+* `sndhdr` — Determine type of sound file
+* `ossaudiodev` — Access to OSS-compatible audio devices
+
+### [Internationalization](https://docs.python.org/3.7/library/i18n.html)
+
+* `gettext` — Multilingual internationalization services
+* `locale` — Internationalization services
+
+### [Program Frameworks](https://docs.python.org/3.7/library/frameworks.html)
+
+* `turtle` — Turtle graphics
+* `cmd` — Support for line-oriented command interpreters
+* `shlex` — Simple lexical analysis
+
+### [Graphical User Interfaces with Tk](https://docs.python.org/3.7/library/tk.html)
+
+* `tkinter` — Python interface to Tcl/Tk
+* `tkinter.ttk` — Tk themed widgets
+* `tkinter.tix` — Extension widgets for Tk
+* `tkinter.scrolledtext` — Scrolled Text Widget
+* `IDLE` - Python’s Integrated Development and Learning Environment
+* Other [Graphical User Interface](https://docs.python.org/3.7/library/othergui.html) Packages
+    * PyGObject - Provides introspection bindings for C libraries, incl. GTK+ 3 widget set.
+    * PyGTK - PyGTK provides bindings for an older version of the library, GTK+ 2.
+    * PyQt - A sip-wrapped binding to the Qt toolkit.
+    * PySide - A newer binding to the Qt toolkit, provided by Nokia..
+    * `wxPython` - A cross-platform GUI toolkit for Python that is built around  wxWidgets C++ toolkit
+
+### [Development Tools](https://docs.python.org/3.7/library/development.html)
+
+* `typing` — Support for type hints
+* `pydoc` — Documentation generator and online help system
+* `doctest` — Test interactive Python examples
+* `unittest` — Unit testing framework
+    * `unittest.mock` — mock object library
+* `2to3` - Automated Python 2 to 3 code translation
+* `test` — Regression tests package for Python
+    * `test.support` — Utilities for the Python test suite
+        * `test.support.script_helper` — Utilities for the Python execution tests
+
+### [Debugging and Profiling](https://docs.python.org/3.7/library/debug.html)
+
+* `bdb` — Debugger framework
+* `faulthandler` — Dump the Python traceback
+* `pdb` — The Python Debugger
+* The [Python Profilers](https://docs.python.org/3.7/library/othergui.html)
+* `timeit` — Measure execution time of small code snippets
+* `trace` — Trace or track Python statement execution
+* `tracemalloc` — Trace memory allocations
+
+### [Software Packaging and Distribution](https://docs.python.org/3.7/library/distribution.html)
+
+* `distutils` — Building and installing Python modules
+* `ensurepip` — Bootstrapping the pip installer
+* `venv` — Creation of virtual environments
+* `zipapp` — Manage executable Python zip archives
+
+### [Python Runtime Services](https://docs.python.org/3.7/library/python.html)
+
+* `sys` — System-specific parameters and functions
+* `sysconfig` — Provide access to Python’s configuration information
+* `builtins` — Built-in objects
+* `__main__` — Top-level script environment
+* `warnings` — Warning control
+* `dataclasses` — Data Classes
+* `contextlib` — Utilities for with-statement contexts
+* `abc` — Abstract Base Classes
+* `atexit` — Exit handlers
+* `traceback` — Print or retrieve a stack traceback
+* `__future__` — Future statement definitions
+* `gc` — Garbage Collector interface
+* `inspect` — Inspect live objects
+* `site` — Site-specific configuration hook
+
+### [Custom Python Interpreters](https://docs.python.org/3.7/library/custominterp.html)
+
+* `code` — Interpreter base classes
+* `codeop` — Compile Python code
+
+### [Importing Modules](https://docs.python.org/3.7/library/modules.html)
+
+* `zipimport` — Import modules from Zip archives
+* `pkgutil` — Package extension utility
+* `modulefinder` — Find modules used by a script
+* `runpy` — Locating and executing Python modules
+* `importlib` — The implementation of import
+
+### [Python Language Services](https://docs.python.org/3.7/library/language.html)
+
+* `parser` — Access Python parse trees
+* `ast` — Abstract Syntax Trees
+* `symtable` — Access to the compiler’s symbol tables
+* `symbol` — Constants used with Python parse trees
+* `token` — Constants used with Python parse trees
+* `keyword` — Testing for Python keywords
+* `tokenize` — Tokenizer for Python source
+* `tabnanny` — Detection of ambiguous indentation
+* `pyclbr` — Python class browser support
+* `py_compile` — Compile Python source files
+* `compileall` — Byte-compile Python libraries
+* `dis` — Disassembler for Python bytecode
+* `pickletools` — Tools for pickle developers
+
+### [Miscellaneous Services](https://docs.python.org/3.7/library/misc.html)
+
+* `formatter` — Generic output formatting
+
+### [MS Windows Specific Services](https://docs.python.org/3.7/library/misc.html)
+
+See also the [pywin32 extensions](https://docs.python.org/3.7/library/misc.html). These are available to install via PIP, and provide access to many of the Windows APIs from Python.
+
+* `msilib` — Read and write Microsoft Installer files
+* `msvcrt` — Useful routines from the MS VC++ runtime
+* `winreg` — Windows registry access
+* `winsound` — Sound-playing interface for Windows
+
+See also "Undocumented services"" below.
+
+### [Unix Specific Services](https://docs.python.org/3.7/library/unix.html)
+
+Module provides interfaces to features that are unique to the Unix operating system, or in some cases to some or many variants of it.
+
+* `posix` — The most common POSIX system calls
+* `pwd` — The password database
+* `spwd` — The shadow password database
+* `grp` — The group database
+* `crypt` — Function to check Unix passwords
+* `termios` — POSIX style tty control
+* `tty` — Terminal control functions
+* `pty` — Pseudo-terminal utilities
+* `cntl` — The fcntl and ioctl system calls
+* `pipes` — Interface to shell pipelines
+* `resource` — Resource usage information
+* `nis` — Interface to Sun’s NIS (Yellow Pages)
+* `syslog` — Unix syslog library routines
+
+See also "Undocumented services"" below.
+
+### [Undocumented Modules](https://docs.python.org/3.7/library/undoc.html)
+
+* `ntpath` — Implementation of os.path on Win32 and Win64 platforms.
+* `posixpath` — Implementation of os.path on POSIX. 
+
+
+
+## Other Package Sources (Third Party)
+
+
+### CRAN R Package Repository
+
+The packages of the CRAN Package repository meet a minimum requirement for package documentation and usability in order to  be included the [Available CRAN Packages](https://cran.cnr.berkeley.edu/web/packages/index.html) list. There is also a compilation of the packages by topic in the [CRAN Task Views](https://cran.cnr.berkeley.edu/web/views/).
+
+An external repository developed and managed by bioinformatics genomic oriented users in [Bioconnector](https://www.bioconductor.org/).
+
+Many high quality packages are available from github repositories, particularly thos maintained by [RStudio](https://www.rstudio.com/products/rpackages/)
+
+
+### PyPI - Python Package Index
+
+
