@@ -16,6 +16,6 @@ This book is available for download in [pdf](RPythonBookc.pdf) format.
 
 7. **Wikipedia** https://en.wikipedia.org/wiki/Main_Page Wikipaedia has it's proponents and opponents but with your eyes wide open you can find anything you need to learn often in depth and in brief. It is not peer reviewed by domain professionals and this necessitates using you common sense and being an informed user. BUT, most often those domain professionals are there orbiting especially in computer and mathematics fields. I use it alot of alot of things. But I also check the sources provided.
 
-8. 
+8. Advanced R by Hadley Wickham, https://adv-r.hadley.nz/index.html The best book for taking R beyond scripting.
 
 

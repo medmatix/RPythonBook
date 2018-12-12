@@ -381,11 +381,16 @@ ad <span class="op">=</span> <span class="dv">25</span>     <span class="co"># a
 <p>Both functions return a value, typically the last value in the calculation chain for R but as an explicitly called return for python. Note for the two python functions one has a space after return and the other doesn’t. This is because the bracket do not contain return parmeters but group the expression to be returned.</p>
 <p>Also as previously alluded to pi in R is a core CONSTANT but in python it is a CONSTANT in the math module which must be imported to use it. We could have just explicitly imported only pi at the start and referred to it directly by name as in R.</p>
 <pre><code># Python code
-print(pi)</code></pre>
-<p>Gives an error:</p>
-<blockquote>
-<p>Traceback (most recent call last): File “C:-code-148c67392482.txt”, line 1, in <module> print(pi) NameError: name ‘pi’ is not defined ```</p>
-</blockquote>
+ print(pi)
+
+
+Gives an error:
+
+ Traceback (most recent call last):
+   File &quot;C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt&quot;, line 1, in
+   &lt;module&gt;
+     print(pi)
+ NameError: name &#39;pi&#39; is not defined</code></pre>
 <div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="im">from</span> math <span class="im">import</span> pi
 <span class="bu">print</span>(pi)</code></pre></div>
 <pre><code>## 3.141592653589793</code></pre>
@@ -455,7 +460,7 @@ linePlotMySquares &lt;-<span class="cf">function</span>(<span class="dt">type =<
 
 <span class="co"># Call our function</span>
 <span class="kw">linePlotMySquares</span>()</code></pre></div>
-<p><img src="RPythonBook_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="RPythonBook_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 <p>Python does not have a basic plotting function and the Standard Library has not provided one either. You casn write your own but there is a popular python library from the SciPy folks called Matplotlib which once installed from the shell with PIP,</p>
 <pre><code>&gt; pip install matplotlib
 
@@ -471,7 +476,7 @@ y <span class="op">=</span> [<span class="dv">0</span>,]                        
 y <span class="op">=</span> y[<span class="dv">1</span>:<span class="dv">11</span>]                            <span class="co"># select the values 1 to 8 from y, call them y</span>
 plt.plot(x,y)                         <span class="co"># plot the x vs y pairs</span>
 plt.show()                            <span class="co"># show the plot</span></code></pre></div>
-<p><img src="RPythonBook_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="RPythonBook_files/figure-html/unnamed-chunk-27-1.png" width="672" /></p>
 <p>There are a few things to discuss here. First is the structure of the matplotlib library. Python code for import are module files (which end in the .py extension like any python scripts or programs).</p>
 <blockquote>
 <p>A script or program is generally a directly executable piece of code, run by itself. A module is generally a library, imported by other pieces of code.</p>

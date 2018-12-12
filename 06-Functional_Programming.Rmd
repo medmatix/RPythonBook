@@ -121,17 +121,20 @@ Both functions return a value, typically the last value in the calculation chain
 
 Also as previously alluded to pi in R is a core CONSTANT but in python it is a CONSTANT in the math module which must be imported to use it. We could have just explicitly imported only pi at the start and referred to it directly by name as in R.
 
-```{}
-# Python code
-print(pi)
+
 ```
+# Python code
+ print(pi)
+
+
 Gives an error:
 
-> Traceback (most recent call last):
-   File "C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt", line 1, in <module>
+ Traceback (most recent call last):
+   File "C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt", line 1, in
+   <module>
      print(pi)
  NameError: name 'pi' is not defined
-
+```
 
 
 ```{python}

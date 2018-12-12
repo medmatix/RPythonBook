@@ -121,17 +121,21 @@ Both functions return a value, typically the last value in the calculation chain
 
 Also as previously alluded to pi in R is a core CONSTANT but in python it is a CONSTANT in the math module which must be imported to use it. We could have just explicitly imported only pi at the start and referred to it directly by name as in R.
 
+
 ```
 # Python code
-print(pi)
-```
+ print(pi)
+
+
 Gives an error:
+
+ Traceback (most recent call last):
+   File "C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt", line 1, in
+   <module>
+     print(pi)
+ NameError: name 'pi' is not defined
 ```
-Traceback (most recent call last):
-  File "C:\Users\medma\AppData\Local\Temp\RtmpYlYLtl\chunk-code-148c67392482.txt", line 1, in <module>
-    print(pi)
-NameError: name 'pi' is not defined
-```
+
 
 ```{python}
 from math import pi
@@ -216,7 +220,7 @@ linePlotMySquares()
 
 Python does not have a basic plotting function and the Standard Library has not provided one either. You casn write your own but there is a popular python library from the SciPy folks called Matplotlib which once installed from the shell with PIP,
 
-```
+```{}
 > pip install matplotlib
 
 OR
@@ -252,7 +256,7 @@ So what we are doing with `from matplotlib import pyplot as plt` is saying: "fro
 
 It also runs from command line as a module executed by python with the -m switch, by
 
-```
+```{}
 python -m pip install <some package>
 
 ```

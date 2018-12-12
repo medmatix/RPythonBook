@@ -298,10 +298,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Polymorphism.</li>
 </ul>
 <p>Additionally the functions an object contains, called it’s methods are conceptualized as relating to the actions of the object. The methods are actions which are done by the object for itself - an add method enables the object to add itself. A square object would add something to itself in an internally defined fashion.</p>
-<p>Consider a function/method to transparently operates on a variable as would be appropriate to the data-type. This is <strong>polymorphism</strong>. An add method would do some add operation in a fashion appropriate to the object and the input, and it would do it inside the blackbox of the object and the details are inaccessible to the user (see abstraction). Access to the objects characteristics is also by such methods and in no other way. This is <strong>encapsulation</strong> or ‘information hiding’.</p>
+<p>Consider a function/method to transparently operates on a variable as would be appropriate to the data-type. This is <strong>polymorphism</strong>, a consequence of the message-passing model. An ‘add’ method would do some sort of add operation in a fashion appropriate to the object and the input, and it would do it by passing a “do add”&quot; message into the blackbox of the object and the details are inaccessible to the user. Access to the objects characteristics is also by such methods and in no other way. This is <strong>encapsulation</strong> or ‘information hiding’.</p>
 <p>You can only alter an object itself by extending it’s pattern in a new object. All the things of the old object are passed on and exist in the new object by re-inplementation of old characteristics and new characteristics and behaviors are implemented on top of the parent object’s pattern. This is <strong>inheritance</strong>.</p>
 <p>As above the object has control over how it is seen in the environment external to the object. The picture the object releases is an <strong>abstraction</strong> of it’s pattern definition and contents. The totality of object data structure emerges from the outputs of the object methods.</p>
-<p>In a generic form a class pattern or definition consists of a class signature (or name) and a contained code block with class details. This is the fundamental abstraction which is an object. It could be represented like this,</p>
+<p>In a generic form (peudocode) a class pattern or definition consists of a class signature (or name) and a contained code block with class details. This is the fundamental abstraction which is an object. It could be represented like this,</p>
 <pre><code># Class indentity
 class() [ include inheritance]
 
@@ -318,13 +318,114 @@ class() [ include inheritance]
 <div id="defining-classes-in-r-and-python" class="section level2">
 <h2><span class="header-section-number">7.1</span> Defining Classes in R and Python</h2>
 <p>A class is a specific object pattern, The automobile class is an object with wheels, some mode of propulsion and driver methods. A class instance is a particular realization of car with specifics values added to characteristics inherited from the class.</p>
-<p>Due to how it evolved, R has at least 3 kinds or levels of objects, developed in a chronologic order.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An R class</span>
-<span class="kw">print</span>(<span class="st">&#39;R Class&#39;</span>)</code></pre></div>
-<pre><code>## [1] &quot;R Class&quot;</code></pre>
-<p>Python Objects</p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># A pythonclass</span>
-<span class="cf">pass</span></code></pre></div>
+<p><strong>R, Functions or Classes</strong></p>
+<p>Due to how it evolved, R has at least 3 kinds or levels of objects, developed in a chronologic order. These all, arguably, then strain the limits of what is or is not Object-Oriented. The explanation offered<sup>22</sup> is the origin of R from S as an interactive environment and further development faces compromises to this. It can be used as a scripting language, even as if running programs but at the base of it all the interpreter runs the scripts in the the main over it’s interactive nature.</p>
+<p>I think in an important sense none of the OOP attempts fit the bill. Witness that there are 3 attempts to provide an R environment for Object-Oriented development and all have different shortcomings in the implementation. Add further what is actually a 4th object-oriented-type, but outside of core-R, with the <a href="https://github.com/r-lib/R6/">R6 Package</a>. Summarizing,</p>
+<ul>
+<li>S3 (predominantly genertic functions without formal class definition)</li>
+<li>S4 (Class definitions)</li>
+<li>RC (Reference Classes, or ‘euphemistically’ S5 or R5)</li>
+<li>R6 (External to Core-R R6 package)</li>
+</ul>
+<p>The result of all this is that only the masochistically R obscessed or extreme programmer ventures here. R scripting afficionados even with lots of time proceed with caution.</p>
+<p>I learned Object-Oriented Programming with Java and statistics with R. After a look inside I wasn’t going there - all the more reason for adding Python to one’s Data Science repertoir.</p>
+<p>I am not going to explore R OOP beyond the discussion under calling R objects below, really <em>a syntatic variant</em> of functional programming. Those readers trully coming from R will understand.</p>
+<p><strong>Python Objects</strong></p>
+<p>In contrast to R python Object-Oriented Programming meets nearly everybody’s understanding of OOP. Python Objects when instantiated look, feel and behave like an object for me. The python system of namespaces and variable visability blend consistently with the idea of encapsulation and data-hiding.</p>
+<p>Python objects inherit from parent objects as expected and polymorphism operates behind the object envelope transparently and as one logicall expects for data-types or structures. Abstraction is a conceptualization of the data-structres created as objects.</p>
+<p>Lets create a simple python class<sup>8-p627</sup> like,</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># python code</span>
+<span class="kw">class</span> SimpleClass:                 
+  <span class="co"># Define the class object</span>
+  
+  <span class="co"># Note: Implied constructor is  </span>
+  <span class="co">#    that of the base object of  </span>
+  <span class="co">#    the python environment.</span>
+  
+  <span class="co"># Define class methods</span>
+  <span class="kw">def</span> setdata(<span class="va">self</span>, value):       <span class="co"># a value &#39;setter&#39; method</span>
+    <span class="va">self</span>.value <span class="op">=</span> value            <span class="co">#   self is the instance itself</span>
+  <span class="kw">def</span> getdata(<span class="va">self</span>):              <span class="co"># a value &#39;getter&#39; method</span>
+    <span class="bu">print</span>(<span class="va">self</span>.value)
+    
+<span class="co"># create object instance from class definition</span>
+x <span class="op">=</span> SimpleClass()
+x.setdata(<span class="dv">5</span>)                      <span class="co"># x became &#39;self&#39; in the abstract</span>
+x.getdata()                       <span class="co"># what is the value of x</span></code></pre></div>
+<pre><code>## 5</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(x.value)</code></pre></div>
+<pre><code>## 5</code></pre>
+<p>Well, now we just accessed the value of x directly - not hidden data as we should expect.</p>
+<p>Let’s try another, the ubiquitous car example.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># what is a car?</span>
+<span class="kw">class</span> Car:
+  _motor <span class="op">=</span> <span class="st">&quot;&quot;</span>
+  _style <span class="op">=</span> <span class="st">&quot;&quot;</span>
+  _year <span class="op">=</span> <span class="st">&quot;&quot;</span>
+  
+  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, year, style, motor):      <span class="co"># constructor, always an __init__ function</span>
+    <span class="va">self</span>._motor<span class="op">=</span>motor
+    <span class="va">self</span>._style<span class="op">=</span>style
+    <span class="va">self</span>._year<span class="op">=</span>year
+    
+  <span class="kw">def</span> setmotor(<span class="va">self</span>, motor):       <span class="co"># setters</span>
+    <span class="va">self</span>._motor<span class="op">=</span>motor
+    
+  <span class="kw">def</span> setstyle(<span class="va">self</span>, style):
+    <span class="va">self</span>._style<span class="op">=</span>style
+    
+  <span class="kw">def</span> getmotor(<span class="va">self</span>):              <span class="co"># getters</span>
+    <span class="cf">return</span> _self.motor
+    
+  <span class="kw">def</span> getstyle(<span class="va">self</span>): 
+    <span class="cf">return</span> _self.style
+    
+  <span class="kw">def</span> toString(<span class="va">self</span>):
+    <span class="cf">return</span> (<span class="va">self</span>._year<span class="op">+</span><span class="st">&quot;,&quot;</span><span class="op">+</span><span class="va">self</span>._motor<span class="op">+</span><span class="st">&quot;,&quot;</span><span class="op">+</span><span class="va">self</span>._style)
+    
+    
+<span class="co"># build a car</span>
+Newcar <span class="op">=</span> Car(<span class="st">&#39;2019&#39;</span>,<span class="st">&#39;Sedan&#39;</span>, <span class="st">&#39;4 cylinder gasoline&#39;</span> )
+<span class="co"># What is &#39;our&#39; Newcar?</span>
+<span class="bu">print</span>(Newcar)</code></pre></div>
+<pre><code>## &lt;__main__.Car object at 0x00000000629E3940&gt;</code></pre>
+<p>OOoops I printed out the object info not the instance data!</p>
+<p>What happens if I try direct access to an instance variable ‘style’?</p>
+<pre><code>print(Newcar.style)</code></pre>
+<p>We get an error,</p>
+<pre><code>Error in py_run_string_impl(code, local, convert) : 
+  AttributeError: &#39;Car&#39; object has no attribute &#39;style&#39;
+
+Detailed traceback: 
+  File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;
+Calls: &lt;Anonymous&gt; ... py_capture_output -&gt; force -&gt; py_run_string -&gt; py_run_string_impl
+Execution halted
+</code></pre>
+<p>Unfortunately, it is still accessible but you need to use the internal name ’_style’</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(Newcar._style)</code></pre></div>
+<pre><code>## Sedan</code></pre>
+<p>Well in terms of encapsulation in python OOP, close but no cigar. But as <a href="https://medium.com/@leandrotk_">leandrotk</a> notes in <a href="https://medium.com/the-renaissance-developer/python-101-object-oriented-programming-part-2-8e0db3ddd531">this blog</a></p>
+<blockquote>
+<p>Non-public variables are just a convention and should be treated as a non-public part of the API.</p>
+</blockquote>
+<p>That means when we see the leading underscore we ‘pretend’ the variable is private. The only way to control it at all is to not document the underscore for the object’s API.</p>
+<p>Now try again using the object’s own print method.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">print</span>(Newcar.toString())</code></pre></div>
+<pre><code>## 2019,4 cylinder gasoline,Sedan</code></pre>
+<p>What about inheritance? Let’s subclass the car as a truck.</p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="kw">class</span> Truck(Car):
+    _type <span class="op">=</span> <span class="st">&quot;&quot;</span>
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, year, style, motor, <span class="bu">type</span>):
+        <span class="bu">super</span>().<span class="fu">__init__</span>(year, style, motor)
+        <span class="va">self</span>._type <span class="op">=</span> <span class="bu">type</span>
+   
+    <span class="kw">def</span> toString(<span class="va">self</span>):
+        <span class="cf">return</span> <span class="bu">super</span>().toString() <span class="op">+</span> <span class="st">&quot;,&quot;</span> <span class="op">+</span> <span class="va">self</span>._type
+        
+Bigtruck <span class="op">=</span> Truck(<span class="st">&#39;2018&#39;</span>,<span class="st">&#39;Truck&#39;</span>,<span class="st">&#39;6 cylinder diesel&#39;</span>, <span class="st">&#39;box&#39;</span> )
+<span class="bu">print</span>(Bigtruck.toString())</code></pre></div>
+<pre><code>## 2018,6 cylinder diesel,Truck,box</code></pre>
+<p>We have used the car pattern, referring to it as the superclass super. and we have overridden the tostring function to include the _type variable appended to the car string.</p>
 </div>
 <div id="using-objects-and-classes" class="section level2">
 <h2><span class="header-section-number">7.2</span> Using Objects and Classes</h2>
