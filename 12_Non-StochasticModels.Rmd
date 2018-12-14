@@ -1,3 +1,4 @@
 # Non-Stochastic Models
 
+\index{non-stochastic}
 Many mathematical models are deterministic. This includes mathematical programming.

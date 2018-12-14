@@ -4,6 +4,7 @@ This is pretty straight forward and intuitive stuff. Just the same, for complete
 
 ## Add, Subtract, Multiply and Divide
 
+\index{syntax}
 The usual quick calculation would be done in immediate or interactive mode without relying on print statements. There is outwardly no difference if the print is used as would be the case in a script. However Printing a set of values reqires the set be organized into an object in itself, a vector.
 
 ```{r}
@@ -61,11 +62,12 @@ This differs from R where a single object is printed but that object may be a gr
 
 ## Other basic algebraic operators in R and Python
 
+\index{syntax}
 Next lets compare modulus, powers and interger division in R and python,
 ```{r}
 35 %% 2     # modulo operator
 35 %/% 2    # integer division
-35^2        # powers in R\
+35^2        # powers in R
 ```
 
 
@@ -85,7 +87,7 @@ abs(-5)          # absolute value
 sqrt(16)         # square root function
 exp(0)           # exponent (e^0 etc)
 ```
-Not necessarily so for python. We still have the basic functions for algebraic tasks but from sqrt on ward, we now need to go to the standard math library for these. As an aside we could have got more powerful versions of these functions (and more) importing numpy or numba or scipy library packages. This will come up in more detail later.
+Not necessarily so for python. We still have the basic functions for algebraic tasks but from sqrt on ward, we now need to go to the standard math library for these. As an aside we could have got more powerful versions of these functions (and more) importing numpy \index{numpy} or Numba \index{numba} or Scipy \index{Scipy} library packages. This will come up in more detail later.
 
 ```{python}
 print(abs(-5))
@@ -96,14 +98,14 @@ print(pow(3,4)) 	              # Raises a number to a power
 print(round(3.1415962,3))	      # Rounds a floating-point value
 print(sum([2,3,4,5,6]))       
 
-import math                     # Import math package/module from Standard Library
+import math                     # Import \index{math package}/module from \index{Standard Library}
 print(math.sqrt(16))            # square root function
 print(math.exp(0))              # exponentiation function (powers of e)
 print(math.log10(5))            # base 10 logarithm
 print(math.log(5))              # natural logarithm
 ```
 
-I suggest, choosing your favorite R introduction and work through it's early examples using both R and Python -  a good chance to try out Jupyter SOS kernel. It will also create a record of the basics of R and python side-by-side that you can refer back to.
+I suggest, choosing your favorite R introduction and work through it's early examples using both R and Python -  a good chance to try out Jupyter SOS kernel \index{SOS kernel}. It will also create a record of the basics of R and python side-by-side that you can refer back to.
 
 A full list of the built-in (as opposed to Standard Library Funtions) is displayed, from the python documentation, below.
 
@@ -128,9 +130,9 @@ A full list of the built-in (as opposed to Standard Library Funtions) is display
 
 R has a very large set of built-in functions available before the need to load any libraries arises. The [R Language Reference](https://cran.r-project.org/doc/manuals/r-release/R-lang.html) provides a comprehensive background on built in fucntions as well as the rest of the language.
 
-So R is centered around the mandate of being a complete mathematical system, much like Matlab,(Octave or SciLab) which Python's manadate is that of a full featured scripting and programming environment.
+So R is centered around the mandate of being a complete mathematical system, much like Matlab,(Octave or SciLab) which Python's mandate is that of a full featured scripting and programming environment.
 
-However, calling standard library modules in python puts it quite easily and effectively on a even par with R. Going into more complex activites requires thar both load or import fucther libraries. Like [**Python's Standard Library**](https://docs.python.org/3/library/index.html),  **the R Core Library** shipping with the R install is described in the [Full R Reference Manaual](https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf) and covers a wide range of mathematical, statistical and programming solutions.
+However, calling \index{standard library} modules in python puts it quite easily and effectively on a even par with R. Going into more complex activites requires thar both load or import fucther libraries. Like [**Python's Standard Library**](https://docs.python.org/3/library/index.html),  **the R Core Library** shipping with the R install is described in the [Full R Reference Manual](https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf) and covers a wide range of mathematical, statistical and programming solutions.
 
 We will go deeper into these and the other external Libraries and modules in the next chapter, covering functional programming in more detail. As well focused discussions on specific Data Science domains form a block of Chapters in Part II of the book.
 

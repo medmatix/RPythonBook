@@ -2,6 +2,8 @@
 
 At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
 
+\index{statistical analysis} \index{stochastic models}
+
 ## Defining the Available Functions
 
 ### R Scripting

@@ -1,32 +1,33 @@
 # References
 
+\index{reference sources}
 1. Core R Team (Ed.), [R Reference Index](https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf), R Foundation for Statistical Computing, Vienna, 2018.
 
-2. Hellmann, Doug, [The Python 3 Standard Library by example](https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7), Addison-Wesley, Boston MA, 2017.
+2. \index{Hellmann, Doug}; [The Python 3 Standard Library by example](https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7), Addison-Wesley, Boston MA, 2017.
 
-3.  Python Software Foundation (Ed.)., [Python 3.7.1 documentation](https://docs.python.org/3.7/),  Python Software Foundation, Wilmington Delaware, 2018
+3.  \index{Python Software Foundation} (Ed.)., [Python 3.7.1 documentation](https://docs.python.org/3.7/),  Python Software Foundation, Wilmington Delaware, 2018
 
-4. RStudio Consortium (Ed.), [RStudio Documentation](https://support.rstudio.com/hc/en-us/categories/200035113-Documentation),  Boston MA, 2018
+4. \index{RStudio} Consortium (Ed.), [RStudio Documentation](https://support.rstudio.com/hc/en-us/categories/200035113-Documentation),  Boston MA, 2018
 
 5. Core R Team (Ed.), [R Language Reference](https://cran.r-project.org/doc/manuals/r-release/R-lang.html), R Foundation for Statistical Computing, Vienna, 2018.
 
 6. Python Software Foundation(Ed.), [Python Package Index](https://pypi.org/), Wilmington Delaware, 2018
 
-7. Dalgaard, Peter; Introductory Statistics with R, Springer-Valng, New York NY, 2002.
+7. \index{Dalgaard, Peter}; Introductory Statistics with R, Springer-Valng, New York NY, 2002.
 
-8. Lutz, Mark; Learning Python 4^th^ Ed., O’Reilly Media, Sebastopol CA, 2009.
+8. \{Lutz, Mark}; Learning Python 4^th^ Ed., O’Reilly Media, Sebastopol CA, 2009.
 
-9. Grus, Joel; Data Science from Scratch, First Principles with Python, O’Reilly Media, Sebastopol CA, 2015
+9. \index{Grus, Joel}; Data Science from Scratch, First Principles with Python, O’Reilly Media, Sebastopol CA, 2015
 
 10. Boschetti, Alberto; Luca Massaron; Python Data Science Essentials, Packt Publishing, Birmingham UK, 2015
 
-11. Perktold, Josef; Skipper Seabold; Jonathan Taylor; [StatsModels](https://www.statsmodels.org/stable/index.html) Washington DC Chicago IL, 2017
+11. \index{Perktold, Josef}; Skipper Seabold; Jonathan Taylor; [StatsModels](https://www.statsmodels.org/stable/index.html) Washington DC Chicago IL, 2017
 
 12. Skipper Seabold; Perktold, Josef; "Statsmodels: Econometric and Statistical Modeling with Python", PROC. OF THE 9th PYTHON IN SCIENCE CONF. (SCIPY 2010) 
 
-13. Veneble W.; B. Ripley; [Modern Applied Statistics with S](https://www.amazon.com/Modern-Applied-Statistics-Computing-ebook/dp/B000S1LWTE/ref=mt_kindle?_encoding=UTF8&me=&qid=1544630778), 4^th^ ed, Springer, New York NY, 2002.
+13. index{Veneble W.}; B. Ripley; [Modern Applied Statistics with S](https://www.amazon.com/Modern-Applied-Statistics-Computing-ebook/dp/B000S1LWTE/ref=mt_kindle?_encoding=UTF8&me=&qid=1544630778), 4^th^ ed, Springer, New York NY, 2002.
 
-14. Härdle, Wolfgang K; Léopold Simar; [Applied Multivariable Analysis](http://pascal.upf.edu/am/dades/h-s-mva-book/mvahtml.html),3^rd^ Ed., Springer, New York NY, 2012.
+14. \index{Härdle, Wolfgang K}; Léopold Simar; [Applied Multivariable Analysis](http://pascal.upf.edu/am/dades/h-s-mva-book/mvahtml.html),3^rd^ Ed., Springer, New York NY, 2012.
 
 15. George, Janeve [Understanding Programming Paradigms](http://www.janeve.me/software-programming/understanding-programming-paradigms),Bangalore, India, 2013. (Accessed:12/07/2018 1:25PM.)
 
@@ -34,13 +35,13 @@
 
 17. Aylett, Andrew; "What is the difference between a module and a script in Python?" https://stackoverflow.com/questions/2996110/what-is-the-difference-between-a-module-and-a-script-in-python, accessed 12/11/2018 2:58PM.
 
-18. Wickham, Hadley [Advanced R]( https://adv-r.hadley.nz/index.html) Chapman & Hall/CRC The R Series, Abingdon UK, 2014.
+18. \index{Wickham, Hadley} [Advanced R]( https://adv-r.hadley.nz/index.html) Chapman & Hall/CRC The R Series, Abingdon UK, 2014.
 
 19. Black, Kelly; [R Object-Oriented Programming](https://smile.amazon.com/R-Object-oriented-Programming-Kelly-Black-ebook/dp/B00OYTCJQG/ref=sr_1_1?ie=UTF8&qid=1544629643&sr=8-1&keywords=Packt+R+Object-Oriented), Packt Publishing, Birmingham UK, 2014.
 
-20. Chambers, John M; [Extending R](https://smile.amazon.com/Extending-Chapman-Hall-John-Chambers-ebook/dp/B01GRHCLG0/ref=mt_kindle?_encoding=UTF8&me=&qid=1544629533), Chapman & Hall/CRC The R Series, Abington UK, 2016.
+20. \index{Chambers, John M}; [Extending R](https://smile.amazon.com/Extending-Chapman-Hall-John-Chambers-ebook/dp/B01GRHCLG0/ref=mt_kindle?_encoding=UTF8&me=&qid=1544629533), Chapman & Hall/CRC The R Series, Abington UK, 2016.
 
 21. Chang, Winston [R6](https://r6.r-lib.org/) with [R Infrastructure Group](https://github.com/r-lib), accessed 12/12/2018 11:27AM.
 
-22. Leisch, Friedrich; [Creating R Packages: A Tutoria](https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf), Compstat 2008-Proceedings
+22. \index{Leisch, Friedrich}; [Creating R Packages: A Tutoria](https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf), Compstat 2008-Proceedings
 in Computational Statistics.  Physica Verlag, Heidelberg, Germany, 2008. accessed 12/12/2018 3:58PM

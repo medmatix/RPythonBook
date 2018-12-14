@@ -21,6 +21,8 @@ This manuscript may be freely copied and distributed, under the MIT Licence
 self-published, on Toth-York Imprint, Calhoun GA USA, November 27, 2018 
 
 https://github.com/medmatix/RPythonBook 
+
+A [pdf](RPythonBookc.pdf) copy with hapters completed to date is available.
   
 
 
@@ -32,6 +34,12 @@ ___
   
   
   
+Disclaimer:  The opinions in this book are ventured based upon my own experiences and explorations. Others may have different experiences and drawn different conclusions. I would be interested in hearing yours. Be constructive and civil please. Dogma will be burned with the banned books on Guy Fawkes day.
+  
+  
+David York 2018; 
+  
+email:rpyfeedback@gmail.com
   
   
 ## Preface
@@ -54,4 +62,5 @@ In the second part of the book, an opportunity is taken to compare how data scie
 
 In part 3, a collection of syntax summaries, library reference materials and resources are compiled in Appendices.
 
-In a sense one could consider this book as a second or third source for applied R users learning python - perhaps after the beginner and intermediate level courses to get the necessary python syntax vocabulary and programming structures.
+In a sense one could consider this book as a second or third source for applied R users \index{learning python} - perhaps after the beginner and intermediate level courses to get the necessary python syntax vocabulary and programming structures. (see [Learning Python](references.html#Lutz-Mark-Learning- Python-4th-Ed-OReilly-Media-Sebastopol-CA-2009))
+

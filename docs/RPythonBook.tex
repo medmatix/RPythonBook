@@ -126,6 +126,8 @@
   
 \usepackage{booktabs}
 \usepackage{amsthm}
+\usepackage{makeidx}
+\makeindex
 \makeatletter
 \def\thm@space@setup{%
   \thm@preskip=8pt plus 2pt minus 4pt
@@ -184,6 +186,9 @@ self-published, on Toth-York Imprint, Calhoun GA USA, November 27, 2018
 
 \url{https://github.com/medmatix/RPythonBook}
 
+A \href{RPythonBookc.pdf}{pdf} copy with hapters completed to date is
+available.
+
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \begin{quote}
@@ -198,6 +203,15 @@ and to the past.''
 from Wikipedia, \url{https://en.wikipedia.org/wiki/Janus}, accessed 27
 November, 2018 at 4:17PM
 \end{quote}
+
+Disclaimer: The opinions in this book are ventured based upon my own
+experiences and explorations. Others may have different experiences and
+drawn different conclusions. I would be interested in hearing yours. Be
+constructive and civil please. Dogma will be burned with the banned
+books on Guy Fawkes day.
+
+David York 2018;
+email:\href{mailto:rpyfeedback@gmail.com}{\nolinkurl{rpyfeedback@gmail.com}}
 
 \section{Preface}\label{preface}
 
@@ -284,15 +298,17 @@ In part 3, a collection of syntax summaries, library reference materials
 and resources are compiled in Appendices.
 
 In a sense one could consider this book as a second or third source for
-applied R users learning python - perhaps after the beginner and
+applied R users \index{learning python} - perhaps after the beginner and
 intermediate level courses to get the necessary python syntax vocabulary
-and programming structures.
+and programming structures. (see
+\href{references.html\#Lutz-Mark-Learning-\%20Python-4th-Ed-OReilly-Media-Sebastopol-CA-2009}{Learning
+Python})
 
 \chapter{Introduction}\label{introduction}
 
 This is not a book on learning to program with R or python. Consider it
-the companion for non-programmers who are learning python with some
-knowledge of R.
+the companion for non-programmers who are learning python
+\index{learning python}with some knowledge of R.
 
 Learning a new programming or scripting language begs comparison. Often
 this is not overly helpful to the learner who, coming from a zone of
@@ -324,27 +340,29 @@ used R in a quick-and-dirty small problem focused way was quite high.
 This suited it's use as a learning environment for introductory
 statistics\textsuperscript{7}. I should think that those who try to
 start python at the same time as their first statistics course will find
-the learning curve too steep to help with their need to learn
-statistics.
+the \index{learning curve}learning curve too steep to help with their
+need to learn statistics.
 
-Dalgaard\textsuperscript{7} was the first source I used to learn R
-during my second semester of Statistics. I similarly used
-Lutz\textsuperscript{8} to learn Python well after I was comfortable
-with R and Probability and Statistics. One needs to get past the
-programming knowledge of python to affectively get up to speed with
-matrix algebra, probability and statistics and data munging using the
-available libraries outside of the basic and Standard
-Library\textsuperscript{2} functions of python. There are books to help
-you cut some corners in applying python to data
+Dalgaard\textsuperscript{7} \index{Dalgaard} was the first source I used
+to learn R during my second semester of Statistics. I similarly used
+Lutz\textsuperscript{8} \index{Lutz} to learn Python well after I was
+comfortable with R and Probability and Statistics. One needs to get past
+the very basic programming knowledge of python to effectively get up to
+speed with matrix algebra, probability and statistics and data munging
+using the available libraries outside of the basic and Standard
+Library\textsuperscript{2} \index{standard library} functions of python.
+There are books to help you cut some corners in applying python to data
 science\textsuperscript{9,} \textsuperscript{10}, but it's very easy to
 find oneself confused without a good level of comfort with the ideas and
-the pitfalls of importing modules in python. Namespaces and variable
-visibility are less forgiving in python than R.
+the pitfalls of importing modules in python. Namespaces
+\index{namespace} and variable visibility are less forgiving in python
+than R.
 
 Once you get comfortable with the math and stats functions available in
-numpy and/or scipy modules, the data structures and munging functions of
-Panda and the grphics and plotting functions of Matplotlib you are up to
-the speed you had gotten to much earlier with R.
+Numpy \index{numpy} and/or \index{scipy} Scipy modules, the data
+structures and munging functions of Pandas \index{Pandas} and the
+graphics and plotting functions of \index{matplotlib} Matplotlib you are
+up to the speed you had gotten to much earlier with R.
 
 As a final word, it may seem like I distain style, in favor of
 substance. I recall in a list of interview questions somewhere whether
@@ -371,10 +389,12 @@ markdown with integrated code, Rstudio and Jupyter addresses this issue
 superbly well and so their use is central to what I am writing. The fact
 that they allow multi-language processing in the documents is the bonus.
 See the References and Resources at the end of the book for other books
-and articles on Documentation, Style and Reproducibility.
+and articles on Documentation, \index{style}Style and Reprpoducibility
+\index{Reproducibility}.
 
 So now we can forge ahead and look at R and python side-by-side and
-perhaps reduce the learning curve for python Data Science libraries.
+perhaps reduce the learning curve for python \index{Data Science}
+DataScience libraries.
 
 \part{R and Python, Side by
 Side}\label{part-r-and-python-side-by-side}
@@ -425,6 +445,7 @@ the functions and include comparsions between how R and Python each
 express the tasks. As I've already stressed,this book not aimed at
 teaching beginning programming. Consult the bibliography for some
 suggested sources for beginning programmers\^{}7, 8\^{}.
+\index{beginner programming} \index{learning python}
 
 The later innovation of object oriented programming concepts evolving
 from this will be touched on in a comparative fashion in another
@@ -433,8 +454,9 @@ chapter.
 \section{Building Blocks of Functions as
 Procedures}\label{building-blocks-of-functions-as-procedures}
 
-\subsection{Statements and
-Expressions}\label{statements-and-expressions}
+\subsection{\texorpdfstring{Statements and Expressions
+\index{statements}
+\index{expression}}{Statements and Expressions  }}\label{statements-and-expressions}
 
 A program or script is of course considered as a series of instructions
 grouped together and run as a unit. These statements constitute
@@ -447,8 +469,9 @@ conceived of by John Von Neumann which moved programming from the moving
 wire jumpers to the input to the machine from various codes punched into
 tapes or cards to be held in memory while being used.
 
-\subsection{Assignment of Values to Memory and the
-Variable}\label{assignment-of-values-to-memory-and-the-variable}
+\subsection{\texorpdfstring{Assignment of Values to Memory and the
+Variable
+\index{assignement statements}}{Assignment of Values to Memory and the Variable }}\label{assignment-of-values-to-memory-and-the-variable}
 
 Variables are memory locations assigned values as the computing process
 goes on. The classification of specific locations determines a type of
@@ -467,22 +490,25 @@ Variables are named in both R and Python and neither may begin with a
 digit. There are other restrictions and conventions which are not gone
 into here.
 
-\subsection{Decisions and Choices}\label{decisions-and-choices}
+\subsection{\texorpdfstring{Decisions and Choices \index{conditionals}
+\index{branching} \index{program flow}
+\index{choices and decisions}}{Decisions and Choices    }}\label{decisions-and-choices}
 
 As currently implemented all choices by a computer resolve to yes or no
 results. Some semblance or the greys we think in are a result of a
 collection or range of yes-no questions. These choices are explicit or
 implicit `if' queries.
 
-\subsection{Doing it Over Again (and again
-\ldots{})}\label{doing-it-over-again-and-again}
+\subsection{\texorpdfstring{Doing it Over Again (and again \ldots{})
+\index{loops}}{Doing it Over Again (and again \ldots{}) }}\label{doing-it-over-again-and-again}
 
 Loops are created within a program logic, usually involving a choice
 test to be executed which cause tasks to be repeated zero or more times.
 It is considered bad parctice to create a loop without some form of exit
 (short of having to power down the machine).
 
-\subsection{Functions}\label{functions}
+\subsection{\texorpdfstring{Functions
+\index{functions}}{Functions }}\label{functions}
 
 Functions in fortran were short program clips that did a task and
 immediately returned a value . Subroutines are more like what functions
@@ -506,12 +532,12 @@ function.name <- function(arguments)
 \end{verbatim}
 
 and in Python indents take the place of brackets to define code blocks.
-Self in the function spec is the calling code block, and if omitted, is
-created by python implicitly. In the functional paradigm, self is always
-present but implicitly. It becomes important in object-oriented
-programming in python where, your first argument implicitly or
-explicitly is the calling namespace. `Self' in the indented code block
-would be the function itself.
+\index{Self} in the function spec is the calling code block, and if
+omitted, is created by python implicitly. In the functional paradigm,
+\index{self} is always present but implicitly. It becomes important in
+object-oriented programming in python where, your first argument
+implicitly or explicitly is the calling \index{namespace}.
+`\index{Self}' in the indented code block would be the function itself.
 
 \begin{verbatim}
 
@@ -529,8 +555,9 @@ are used such as functions the colon is needed at the end of definition.
 Functional programming with R and Python, will be expanded on in
 \href{06-Functional_Programming.Rmd}{Chapter 6} later on.
 
-\subsection{Objects and Classes anticipating Object-Oriented
-Programming}\label{objects-and-classes-anticipating-object-oriented-programming}
+\subsection{\texorpdfstring{Objects and Classes anticipating
+Object-Oriented Programming
+\index{object, class and instance}}{Objects and Classes anticipating Object-Oriented Programming }}\label{objects-and-classes-anticipating-object-oriented-programming}
 
 In general terms we will come to consider all program elements as
 objects. A Class will be considered as a pattern definition for an
@@ -572,34 +599,38 @@ well.
 Then I installed Python 3 from \href{https://www.python.org/}{Python
 Software Foundation}. From that point on I used PIP package manager for
 python and RGUI for package installs for python and R respectively and
-install jupyter see \href{http://jupyter.org/install}{Project Jupyter}.
-This gave the maximum flexibility for R and Python in their own
-environments. I also installed the SciPy (which includes numpy), Pandas,
-and Matplotlib all using PIP.
+install jupyter see \href{http://jupyter.org/install}{Project
+Jupyter}.\index{Project Jupyter} This gave the maximum flexibility for R
+and Python in their own environments. I also installed the Scipy
+\index{SciPy} (which includes numpy \index{numpy}, and Matplotlib
+\index{Matplotlib} all using PIP.
 
-I did do a parallel Anaconda install afterwards with R and RStudio and
-iPython for Jupyter Notebooks but as mentioned there was some path
-confusion with this approach. It does set you up nicely for any approach
-to data science and development you could choose down the road.
+I did do a parallel Anaconda \index{Anaconda} install afterwards with R
+and RStudio \index{RStudio} and iPython \index{iPython} for Jupyter
+Notebooks but as mentioned there was some path confusion with this
+approach. It does set you up nicely for any approach to data science and
+development you could choose down the road.
 
 You really are going to need an IDE for Python.
-\href{https://www.spyder-ide.org/}{Spyder}, available separately
-installed with PIP, or installed through Anaconda. It is a solid python
-focused choice. I personally use
-\href{https://www.eclipse.org/}{Eclipse} as it is open sourced and you
-can use it for multiple languages including R (not as strong yet) and
-python, HTML/CSS/javascript, C/C++, Java and others.
+\href{https://www.spyder-ide.org/}{Spyder} \index{Spyder}, available
+separately installed with PIP, or installed through Anaconda. It is a
+solid python focused choice. I personally use
+\href{https://www.eclipse.org/}{Eclipse} \index{Eclipse}as it is open
+sourced and you can use it for multiple languages including R (not as
+strong yet) and python, HTML/CSS/javascript, C/C++, Java and others.
 
 \section{Package Libraries}\label{package-libraries}
 
 The strength of both R and Python is from their libraries.
 \href{https://cran.cnr.berkeley.edu/index.html}{CRAN Package Repository}
-and \href{http://www.bioconductor.org/about/}{Bioconnector} are both
-well stocked with general and special purposed functions for R. RStudio
-develops \href{https://www.rstudio.com/products/rpackages/}{R Packages}
+\index{CRAN}and \href{http://www.bioconductor.org/about/}{Bioconductor}
+\index{Bioconductor} are both well stocked with general and special
+purposed functions for R. RStudio develops
+\href{https://www.rstudio.com/products/rpackages/}{R Packages}
 integrating well with the RStudio environment. The are lost of R
 packages in development awaiting addition to CRAN or hosted outside of
-CRAN such as on \href{https://github.com/search?q=R+language}{Github}.
+CRAN such as on \href{https://github.com/search?q=R+language}{Github}
+\index{R on Github}.
 
 If the reader has spent any time with R at all you have likely made
 inroads into these package sources. So how does Python compare? Python
@@ -608,16 +639,16 @@ functionality to compare with R-core. The best handing of the
 intricacies of the python standard library I've found is Doug Helmann's
 \href{https://amazon.com/Python-Standard-Library-Example-Developers/dp/0134291050/}{The
 Python 3 Standard Library by example}. Python Software foundation hosts
-the \href{https://pypi.org/}{Python Package Index , PyPi} analygous to
-the CRAN repositories and Bioconnector. Also, the most important
-resource to get you up to speed is \href{https://www.scipy.org/}{SciPy
-tools} consisting of SciPy, Numpy, Pandas and Matplotlib. These are the
-essential minimum to do any R-like work in python. These and more can be
-accessed as well through the
+the \href{https://pypi.org/}{Python Package Index , PyPi} \index{PyPi}
+analygous to the CRAN repositories and \index{Bioconnector}. Also, the
+most important resource to get you up to speed is
+\href{https://www.scipy.org/}{SciPy tools} consisting of SciPy, Numpy,
+Pandas and Matplotlib. These are the essential minimum to do any R-like
+work in python. These and more can be accessed as well through the
 \href{https://numfocus.org/sponsored-projects}{Numfocus Projects}.
-Finally, you should check out the
+\index{Numfocus} Finally, you should check out the
 \href{https://www.statsmodels.org/stable/index.html}{StatsModels\textsuperscript{11}}
-package site.
+\index{StatsModels} package site.
 
 \section{Pulling it Together}\label{pulling-it-together}
 
@@ -674,9 +705,10 @@ in the same .py extension. A package can be considered, in both R and
 python) as a collection of declarations, functions, classes, or modules
 for library purposes.
 
-\subsection{Installing Packages}\label{installing-packages}
+\subsection{\texorpdfstring{Installing Packages
+\index{Installing R Packages}}{Installing Packages }}\label{installing-packages}
 
-From the R GUI prompt we have,
+From the R GUI prompt we have \index{package-install()},
 
 \begin{verbatim}
   package-install()
@@ -684,7 +716,7 @@ From the R GUI prompt we have,
 
 Python packages from any source mentioned above can be installed with
 the PIP utility. This can be done from the shell prompt (remember to
-start as administrator or root):
+start as administrator or root) \index{installing with PIP}:
 
 \begin{verbatim}
 
@@ -720,7 +752,7 @@ also import only slected functions from a package module.
 
 \begin{verbatim}
 
-  import numpy as np             # usual format to use namespace segregation of functions
+  import numpy as np             # usual format to use \index{namespace} segregation of functions
   from numpy import sum, matrix  # economical import,still can conflict without renaming 
                                  #   using 'as', such as where base python has a sum()  
                                  #   function and math has a different one called sum()
@@ -735,9 +767,10 @@ together, to take best advantage of their respective strengths
 Python}\label{working-in-r-and-calling-python}
 
 In this instance one would find working in R the necessary starting
-place and find the need to employ python functions or packages helpful
-to your needs. A call would be made to the python function from R to
-have a task completed by python and control returned to the R program.
+place loading the reticulate \index{reticulate} library when finding the
+need to employ python functions or packages as helpful to your needs. A
+call would be made to the python function from R to have a task
+completed by python and control returned to the R program.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -763,7 +796,8 @@ have a task completed by python and control returned to the R program.
 \subsection{Working in Python and Calling
 R}\label{working-in-python-and-calling-r}
 
-Working in python and calling an R object would look like,
+Working in python and calling an R object requires the rpy2 \index{rpy2}
+package and would look like,
 
 \begin{verbatim}
 # Accessing an R object from from python 
@@ -782,9 +816,9 @@ rule, the notebooks only use one language kernel at a time. An exception
 is the {[}SOS kernel{]}(\url{https://vatlab.github.io/sos-docs/}.
 
 Jupyter is running first level in python. It is afterall a python
-module. When running the R kernel (irkernel) remmber you are running R
-in python. See the caution below in the contest of rMarkdown code
-chunks.
+module. When running the R kernel (irkernel)\index{irkernel} remember
+you are running R in python. See the caution below in the contest of
+rMarkdown code chunks.
 
 Consider this Jupyter notebook using the R kernel,
 
@@ -805,10 +839,10 @@ and this Jupyter notebook using the `Python kernel',
 \subsection{Working in rmarkdown and Using R and Python Code
 Chunks}\label{working-in-rmarkdown-and-using-r-and-python-code-chunks}
 
-Now consider an rmarkdown session running primarily in R. The T code
-chunks are executed in the same R session as the rMarkdown. On the
+Now consider an index\{rmarkdown\} session running primarily in R. The T
+code chunks are executed in the same R session as the rMarkdown. On the
 otherhand, a python code chunk is running in a python guest environment
-in the R level host.
+in the R level host using reticulate \index{reticulate}.
 
 Caution: I have found behavior is unpredictible to call R objects back
 with Python chunks run in rmarkdown (ie. inside another instance of R).
@@ -840,9 +874,9 @@ function beyond the four arithmetic operations.
 \section{Add, Subtract, Multiply and
 Divide}\label{add-subtract-multiply-and-divide}
 
-The usual quick calculation would be done in immediate or interactive
-mode without relying on print statements. There is outwardly no
-difference if the print is used as would be the case in a script.
+\index{syntax} The usual quick calculation would be done in immediate or
+interactive mode without relying on print statements. There is outwardly
+no difference if the print is used as would be the case in a script.
 However Printing a set of values reqires the set be organized into an
 object in itself, a vector.
 
@@ -988,7 +1022,8 @@ be a group of objects combined.
 \section{Other basic algebraic operators in R and
 Python}\label{other-basic-algebraic-operators-in-r-and-python}
 
-Next lets compare modulus, powers and interger division in R and python,
+\index{syntax} Next lets compare modulus, powers and interger division
+in R and python,
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1012,7 +1047,7 @@ Next lets compare modulus, powers and interger division in R and python,
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{35}\OperatorTok{^}\DecValTok{2}        \CommentTok{# powers in R\textbackslash{}}
+\DecValTok{35}\OperatorTok{^}\DecValTok{2}        \CommentTok{# powers in R}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1090,8 +1125,9 @@ load any library packages. All these are part of the core R.
 Not necessarily so for python. We still have the basic functions for
 algebraic tasks but from sqrt on ward, we now need to go to the standard
 math library for these. As an aside we could have got more powerful
-versions of these functions (and more) importing numpy or numba or scipy
-library packages. This will come up in more detail later.
+versions of these functions (and more) importing numpy \index{numpy} or
+Numba \index{numba} or Scipy \index{Scipy} library packages. This will
+come up in more detail later.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1165,7 +1201,7 @@ library packages. This will come up in more detail later.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\ImportTok{import}\NormalTok{ math                     }\CommentTok{# Import math package/module from Standard Library}
+\ImportTok{import}\NormalTok{ math                     }\CommentTok{# Import \textbackslash{}index\{math package\}/module from \textbackslash{}index\{Standard Library\}}
 \BuiltInTok{print}\NormalTok{(math.sqrt(}\DecValTok{16}\NormalTok{))            }\CommentTok{# square root function}
 \end{Highlighting}
 \end{Shaded}
@@ -1206,8 +1242,8 @@ library packages. This will come up in more detail later.
 
 I suggest, choosing your favorite R introduction and work through it's
 early examples using both R and Python - a good chance to try out
-Jupyter SOS kernel. It will also create a record of the basics of R and
-python side-by-side that you can refer back to.
+Jupyter SOS kernel \index{SOS kernel}. It will also create a record of
+the basics of R and python side-by-side that you can refer back to.
 
 A full list of the built-in (as opposed to Standard Library Funtions) is
 displayed, from the python documentation, below.
@@ -1243,18 +1279,19 @@ Language Reference} provides a comprehensive background on built in
 fucntions as well as the rest of the language.
 
 So R is centered around the mandate of being a complete mathematical
-system, much like Matlab,(Octave or SciLab) which Python's manadate is
+system, much like Matlab,(Octave or SciLab) which Python's mandate is
 that of a full featured scripting and programming environment.
 
-However, calling standard library modules in python puts it quite easily
-and effectively on a even par with R. Going into more complex activites
-requires thar both load or import fucther libraries. Like
+However, calling \index{standard library} modules in python puts it
+quite easily and effectively on a even par with R. Going into more
+complex activites requires thar both load or import fucther libraries.
+Like
 \href{https://docs.python.org/3/library/index.html}{\textbf{Python's
 Standard Library}}, \textbf{the R Core Library} shipping with the R
 install is described in the
 \href{https://cran.r-project.org/doc/manuals/r-release/fullrefman.pdf}{Full
-R Reference Manaual} and covers a wide range of mathematical,
-statistical and programming solutions.
+R Reference Manual} and covers a wide range of mathematical, statistical
+and programming solutions.
 
 We will go deeper into these and the other external Libraries and
 modules in the next chapter, covering functional programming in more
@@ -1274,7 +1311,8 @@ series of functions) to carry out steps of a larger task set. When data
 is passed to a function to carry out some task or analysis on a dataset
 results may then printed out directly, stored in memory or on disk, or
 displayed in graphical form by passing the analysis to another set of
-functions such as those of matplotlib for plotting etc.
+functions such as those of matplotlib \index{matplotlib} for plotting
+etc.
 
 A function is a set of stored programmatic statements stored in an
 accessible form for reuse. The function is called in R or Python by
@@ -1354,9 +1392,9 @@ which is running in an instance of R. The memory of the code chunk and
 the underling R which rmarkdown is running are the same. In python
 terms, the namespace is the same. This is not the case with the python
 code chunks. We have to explicitly pass to (and retrieve from) the R
-namespace for it to be accessible to the python chunk, running in it's
-on (python) namespace. As a result we had to redefine the function in
-the same namespace in which we were calling it.
+namespace \index{namespace} for it to be accessible to the python chunk,
+running in it's on (python) namespace. As a result we had to redefine
+the function in the same namespace in which we were calling it.
 
 With R code chunks the R memory space is open throughout but the python
 chunks name space is closed each time the python chunk closes. This is a
@@ -1499,15 +1537,16 @@ Gives an error:
 \end{verbatim}
 
 Once again you must know where to go to get some constants and functions
-with python which are built-in in R. Check out the math module in the
-standard python library\textsuperscript{3}.
+with python which are built-in in R. Check out the math module
+\index{math module} in the standard python library\textsuperscript{3}.
+\index{standard python library}
 
 \section{Using the Core R and Python Standard
 Libraries}\label{using-the-core-r-and-python-standard-libraries}
 
-Core R distributions currently install with a base set of function
-packages. The Table in the \href{17-Appendix_3_Packages.Rmd}{Appendix 3}
-lists these.
+\index{syntax} Core R distributions currently install with a base set of
+function packages. The Table in the
+\href{17-Appendix_3_Packages.Rmd}{Appendix 3} lists these.
 
 The python standard libraries contain alot of modules which can be
 imported. They are grouped in modules by functionality. The functions
@@ -1529,11 +1568,12 @@ load this data back into R and python to compare these tasks in each.
 
 \subsection{R Scripting}\label{r-scripting-3}
 
-The dataframe airquality is a built in dataset. Rather than display the
-whole tales head(n) displays the first n lines (default n=6). SImilarly
-tail(n) would display the last n lines. The named dataframe `table' is
-created from airquality data. Then we tell R to write a file names
-airquality.csv. R automatically closes the file after writing is
+The \index{dataframe} \index{airquality} is a built in dataset. Rather
+than display the whole tales head(n) \index{head(n)} displays the first
+n lines (default n=6). Similarly tail(n) \index{tail(n)} would display
+the last n lines. The named dataframe `table' is created from airquality
+data. Then we tell R to write a file names airquality.csv with write.csv
+\index{write.csv}. R automatically closes the file after writing is
 complete.
 
 \begin{Shaded}
@@ -1611,8 +1651,8 @@ we printer were the column names as we saved them and a line of comma
 separated values.
 
 Lets read the airquality.csv file back into R assigning a name
-``newtable'' to the dataframe the read.csv command creates to store the
-data loaded.
+``newtable'' to the dataframe the read.csv \index{read.csv} command
+creates to store the data loaded.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1645,7 +1685,7 @@ data again.
 \subsection{More Function Examples}\label{more-function-examples}
 
 Basic plotting functions are part of the r-base system we can easily
-plot a function,
+plot a function, \index{syntax}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1665,8 +1705,8 @@ plot a function,
 
 Python does not have a basic plotting function and the Standard Library
 has not provided one either. You casn write your own but there is a
-popular python library from the SciPy folks called Matplotlib which once
-installed from the shell with PIP,
+popular python library from the Scipy \index{Scipy} folks called
+Matplotlib which once installed from the shell with PIP \index{PIP},
 
 \begin{verbatim}
 > pip install matplotlib
@@ -1678,6 +1718,8 @@ OR
 
 is available for import, and it contains a module called pyplot which
 has a simple plot function
+
+\index{syntax}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1714,12 +1756,13 @@ to be a script will cause it to execute, hence the common if
 
 So what we are doing with
 \texttt{from\ matplotlib\ import\ pyplot\ as\ plt} is saying: ``from the
-file matplotlib(.py) import the functions in the pyplot class and call
-the namespace containing them plt''" so that we can call them.
+file matploylib \index{matplotlib}(.py) \index{pyplot} import the
+functions in the pyplot class and call the namespace containing them
+plt'' \index{namespace}so that we can call them.
 
-\textbf{Note:} pip is a module, but runs independently from the command
-line because it contains script with a \texttt{\_\_main\_\_} function
-accessed via pip3.exe to setup and start the process.
+\textbf{Note:} PIP \index{PIP} is a module, but runs independently from
+the command line because it contains script with a \texttt{\_\_main\_\_}
+function accessed via pip3.exe to setup and start the process.
 
 It also runs from command line as a module executed by python with the
 -m switch, by
@@ -1728,9 +1771,9 @@ It also runs from command line as a module executed by python with the
 python -m pip install <some package>
 \end{verbatim}
 
-the -m switch tells python to run the module as a script. Most library
-modules are not executable as python scripts or if they are, run
-self-tests called by a main() function.
+the -m switch \index{-m switch} tells python to run the module as a
+script. Most library modules are not executable as python scripts or if
+they are, run self-tests called by a main() function.
 
 \chapter{Object-Oriented Programming with R and
 Python}\label{object-oriented-programming-with-r-and-python}
@@ -1743,13 +1786,13 @@ structure has been defined by the four principles which set apart OOP.
 \begin{itemize}
 \tightlist
 \item
-  Abstraction.
+  Abstarction \index{Abstraction}.
 \item
-  Encapsulation.
+  Encapsulation \index{Encapsulation}.
 \item
-  Inheritance.
+  Inheritance \index{Inheritance}.
 \item
-  Polymorphism.
+  Polymorphism \index{Polymorphism}.
 \end{itemize}
 
 Additionally the functions an object contains, called it's methods are
@@ -1760,12 +1803,13 @@ in an internally defined fashion.
 
 Consider a function/method to transparently operates on a variable as
 would be appropriate to the data-type. This is \textbf{polymorphism}, a
-consequence of the message-passing model. An `add' method would do some
-sort of add operation in a fashion appropriate to the object and the
-input, and it would do it by passing a ``do add''" message into the
-blackbox of the object and the details are inaccessible to the user.
-Access to the objects characteristics is also by such methods and in no
-other way. This is \textbf{encapsulation} or `information hiding'.
+consequence of the message-passing \index{message-passing} model. An
+`add' method would do some sort of add operation in a fashion
+appropriate to the object and the input, and it would do it by passing a
+``do add''" message into the blackbox of the object and the details are
+inaccessible to the user. Access to the objects characteristics is also
+by such methods and in no other way. This is \textbf{encapsulation} or
+`information hiding'.
 
 You can only alter an object itself by extending it's pattern in a new
 object. All the things of the old object are passed on and exist in the
@@ -1779,10 +1823,10 @@ external to the object. The picture the object releases is an
 totality of object data structure emerges from the outputs of the object
 methods.
 
-In a generic form (peudocode) a class pattern or definition consists of
-a class signature (or name) and a contained code block with class
-details. This is the fundamental abstraction which is an object. It
-could be represented like this,
+A generic class pattern\index{class pattern} or definition (in
+pseudocode) consists of a class signature (or name) and a contained code
+block with class details. This is the fundamental abstraction which is
+an object. It could be represented like this,
 
 \begin{verbatim}
 # Class indentity
@@ -1829,13 +1873,14 @@ Package}. Summarizing,
 \begin{itemize}
 \tightlist
 \item
-  S3 (predominantly genertic functions without formal class definition)
+  \index{S3} (predominantly genertic functions without formal class
+  definition)
 \item
-  S4 (Class definitions)
+  \index{S4} (Class definitions)
 \item
-  RC (Reference Classes, or `euphemistically' S5 or R5)
+  RC (\index{Reference Class}es, or `euphemistically' S5 or \index{R5})
 \item
-  R6 (External to Core-R R6 package)
+  \index{R6} (External to Core-R R6 package)
 \end{itemize}
 
 The result of all this is that only the masochistically R obscessed or
@@ -1843,20 +1888,21 @@ extreme programmer ventures here. R scripting afficionados even with
 lots of time proceed with caution.
 
 I learned Object-Oriented Programming with Java and statistics with R.
-After a look inside I wasn't going there - all the more reason for
-adding Python to one's Data Science repertoir.
+After a look further inside R for OOP, I decided I wasn't going there -
+all the more reason for adding Python to one's Data Science repertoir.
 
-I am not going to explore R OOP beyond the discussion under calling R
-objects below, really \emph{a syntatic variant} of functional
-programming. Those readers trully coming from R will understand.
+I am not going to explore R OOP \index{R OOP} beyond the discussion
+under calling R objects below, really \emph{a syntatic variant} of
+functional programming. Those readers truly coming from R will
+understand. \index{syntax}
 
 \textbf{Python Objects}
 
 In contrast to R python Object-Oriented Programming meets nearly
-everybody's understanding of OOP. Python Objects when instantiated look,
-feel and behave like an object for me. The python system of namespaces
-and variable visability blend consistently with the idea of
-encapsulation and data-hiding.
+everybody's understanding of OOP. Python Objects \index{Python Objects}
+when instantiated look, feel and behave like an object for me. The
+python system of namespaces \index{namespace}s and variable visability
+blend consistently with the idea of encapsulation and data-hiding.
 
 Python objects inherit from parent objects as expected and polymorphism
 operates behind the object envelope transparently and as one logicall
@@ -1864,6 +1910,7 @@ expects for data-types or structures. Abstraction is a conceptualization
 of the data-structres created as objects.
 
 Lets create a simple python class\textsuperscript{8-p627} like,
+\index{syntax}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1877,13 +1924,13 @@ Lets create a simple python class\textsuperscript{8-p627} like,
   
   \CommentTok{# Define class methods}
   \KeywordTok{def}\NormalTok{ setdata(}\VariableTok{self}\NormalTok{, value):       }\CommentTok{# a value 'setter' method}
-    \VariableTok{self}\NormalTok{.value }\OperatorTok{=}\NormalTok{ value            }\CommentTok{#   self is the instance itself}
+    \VariableTok{self}\NormalTok{.value }\OperatorTok{=}\NormalTok{ value            }\CommentTok{#   \textbackslash{}index\{self\} is the instance itself}
   \KeywordTok{def}\NormalTok{ getdata(}\VariableTok{self}\NormalTok{):              }\CommentTok{# a value 'getter' method}
     \BuiltInTok{print}\NormalTok{(}\VariableTok{self}\NormalTok{.value)}
     
 \CommentTok{# create object instance from class definition}
 \NormalTok{x }\OperatorTok{=}\NormalTok{ SimpleClass()}
-\NormalTok{x.setdata(}\DecValTok{5}\NormalTok{)                      }\CommentTok{# x became 'self' in the abstract}
+\NormalTok{x.setdata(}\DecValTok{5}\NormalTok{)                      }\CommentTok{# x became '\textbackslash{}index\{self\}' in the abstract}
 \NormalTok{x.getdata()                       }\CommentTok{# what is the value of x}
 \end{Highlighting}
 \end{Shaded}
@@ -1905,7 +1952,8 @@ Lets create a simple python class\textsuperscript{8-p627} like,
 Well, now we just accessed the value of x directly - not hidden data as
 we should expect.
 
-Let's try another, the ubiquitous car example.
+Let's try another, the ubiquitous Car example \index{Car example}.
+\index{syntax}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1944,10 +1992,11 @@ Let's try another, the ubiquitous car example.
 \end{Shaded}
 
 \begin{verbatim}
-## <__main__.Car object at 0x0000000064B65EB8>
+## <__main__.Car object at 0x0000000064B48CF8>
 \end{verbatim}
 
-OOoops I printed out the object info not the instance data!
+OOoops I printed out the object info
+\index{object info vs instance data} not the instance data!
 
 What happens if I try direct access to an instance variable `style'?
 
@@ -1983,16 +2032,17 @@ name '\_style'
 Well in terms of encapsulation in python OOP, close but no cigar. But as
 \href{https://medium.com/@leandrotk_}{leandrotk} notes in
 \href{https://medium.com/the-renaissance-developer/python-101-object-oriented-programming-part-2-8e0db3ddd531}{this
-blog}
+blog} \index{Non-public variablesas convention}
 
 \begin{quote}
 Non-public variables are just a convention and should be treated as a
 non-public part of the API.
 \end{quote}
 
-That means when we see the leading underscore we `pretend' the variable
-is private. The only way to control it at all is to not document the
-underscore for the object's API.
+That means when we see the leading underscore \index{leading underscore}
+weare `pretending' the variable is private. The responsibility rests
+with the programmer. The only way to control it at all is to not
+document the underscore for the object's API.
 
 Now try again using the object's own print method.
 
@@ -2034,10 +2084,10 @@ variable appended to the car string.
 
 \section{Using Objects and Classes}\label{using-objects-and-classes}
 
-An instance of a class is created by the class' constructor. An object
-constructor is implicitly inherited by all classes, from the language's
-object definition and implementation. It is often explicitly overridden
-by a customized contructor.
+An instance of a class is created by the class constructor
+\index{constructor}. An object constructor is implicitly inherited by
+all classes, from the language's object definition and implementation.
+It is often explicitly overridden by a customized contructor.
 
 \subsection{R Scripting}\label{r-scripting-4}
 
@@ -2048,18 +2098,25 @@ R}\label{part-data-science-topics-in-python-compared-to-r}
 
 \chapter{Clean and Tidy Data}\label{clean-and-tidy-data}
 
-In an ideal world all data would come organized and in an immediatelyt
-usable form. Of course, such is unlikely. Datasets are missing values,
-in the wrong datatype for use, have misleading correlations, such as
-with time data, and so on. Both R and prython have library and builting
-functions to clean and tidy or data in a documented reproducible way
-before proceeding with our studies on it.
+\index{cleaning data} \index{tidy data} In an ideal world all data would
+come organized and in an immediatelyt usable form. Of course, such is
+unlikely. Datasets are missing values, in the wrong datatype for use,
+have misleading correlations, such as with time data, and so on. Both R
+and prython have library and builting functions to clean and tidy or
+data in a documented reproducible way before proceeding with our studies
+on it.
 
 \section{Reproducibility}\label{reproducibility}
 
+\index{reproducible}
+
 \section{R Data Munging}\label{r-data-munging}
 
+\index{munging}
+
 \section{Python Data Munging}\label{python-data-munging}
+
+\index{munging}
 
 \chapter{Using Probability Distributions with R and
 Python}\label{using-probability-distributions-with-r-and-python}
@@ -2067,8 +2124,11 @@ Python}\label{using-probability-distributions-with-r-and-python}
 At this point we are ready to discuss the functional programming
 paradigm in R and Python. The other important paradigm, Object-Oriented,
 will be discussed in the following Chapter.
+\index{probability distribution}
 
 \section{Basic Probability Issues}\label{basic-probability-issues}
+
+\index{probability}
 
 \subsection{R Scripting}\label{r-scripting-5}
 
@@ -2076,14 +2136,15 @@ will be discussed in the following Chapter.
 
 \section{Using the Distrbutions}\label{using-the-distrbutions}
 
-\subsection{R Scripting}\label{r-scripting-6}
+\index{probability distribution
+} \#\#\# R Scripting
 
 \subsection{Python Scripting}\label{python-scripting-6}
 
 \section{Other Libraries with Probability and Statistical
 Packages}\label{other-libraries-with-probability-and-statistical-packages}
 
-\subsection{R Scripting}\label{r-scripting-7}
+\subsection{R Scripting}\label{r-scripting-6}
 
 \subsection{Python Scripting}\label{python-scripting-7}
 
@@ -2094,23 +2155,27 @@ At this point we are ready to discuss the functional programming
 paradigm in R and Python. The other important paradigm, Object-Oriented,
 will be discussed in the following Chapter.
 
+\index{descripting statistics} \index{data exploration}
+
 \section{Defining Functions}\label{defining-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-8}
+\subsection{R Scripting}\label{r-scripting-7}
 
 \subsection{Python Scripting}\label{python-scripting-8}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-1}
 
-\subsection{R Scripting}\label{r-scripting-9}
+\subsection{R Scripting}\label{r-scripting-8}
 
 \subsection{Python Scripting}\label{python-scripting-9}
 
 \section{The Core or Standard
 Libraries}\label{the-core-or-standard-libraries}
 
-\subsection{R Scripting}\label{r-scripting-10}
+\index{statistics libraries}
+
+\subsection{R Scripting}\label{r-scripting-9}
 
 \subsection{Python Scripting}\label{python-scripting-10}
 
@@ -2121,47 +2186,52 @@ At this point we are ready to discuss the functional programming
 paradigm in R and Python. The other important paradigm, Object-Oriented,
 will be discussed in the following Chapter.
 
+\index{statistical analysis} \index{stochastic models}
+
 \section{Defining the Available
 Functions}\label{defining-the-available-functions}
 
-\subsection{R Scripting}\label{r-scripting-11}
+\subsection{R Scripting}\label{r-scripting-10}
 
 \subsection{Python Scripting}\label{python-scripting-11}
 
 \section{Calling and Using
 Functions}\label{calling-and-using-functions-2}
 
-\subsection{R Scripting}\label{r-scripting-12}
+\subsection{R Scripting}\label{r-scripting-11}
 
 \subsection{Python Scripting}\label{python-scripting-12}
 
 \chapter{Non-Stochastic Models}\label{non-stochastic-models}
 
-Many mathematical models are deterministic. This includes mathematical
-programming.
+\index{non-stochastic} Many mathematical models are deterministic. This
+includes mathematical programming.
 
 \chapter{Reproducible Research}\label{reproducible-research}
 
+\index{reproducibility} \index{reproducible reseach}
+\index{data ownership vs access}
+
 \chapter{References}\label{references}
+
+\index{reference sources} 1. Core R Team (Ed.),
+\href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
+Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
 \item
-  Core R Team (Ed.),
-  \href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
-  Reference Index}, R Foundation for Statistical Computing, Vienna,
-  2018.
-\item
-  Hellmann, Doug,
+  \index{Hellmann, Doug};
   \href{https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7}{The
   Python 3 Standard Library by example}, Addison-Wesley, Boston MA,
   2017.
 \item
-  Python Software Foundation (Ed.).,
+  \index{Python Software Foundation} (Ed.).,
   \href{https://docs.python.org/3.7/}{Python 3.7.1 documentation},
   Python Software Foundation, Wilmington Delaware, 2018
 \item
-  RStudio Consortium (Ed.),
+  \index{RStudio} Consortium (Ed.),
   \href{https://support.rstudio.com/hc/en-us/categories/200035113-Documentation}{RStudio
   Documentation}, Boston MA, 2018
 \item
@@ -2173,19 +2243,19 @@ programming.
   Python Software Foundation(Ed.), \href{https://pypi.org/}{Python
   Package Index}, Wilmington Delaware, 2018
 \item
-  Dalgaard, Peter; Introductory Statistics with R, Springer-Valng, New
-  York NY, 2002.
+  \index{Dalgaard, Peter}; Introductory Statistics with R,
+  Springer-Valng, New York NY, 2002.
 \item
-  Lutz, Mark; Learning Python 4\textsuperscript{th} Ed., O'Reilly Media,
-  Sebastopol CA, 2009.
+  \{Lutz, Mark\}; Learning Python 4\textsuperscript{th} Ed., O'Reilly
+  Media, Sebastopol CA, 2009.
 \item
-  Grus, Joel; Data Science from Scratch, First Principles with Python,
-  O'Reilly Media, Sebastopol CA, 2015
+  \index{Grus, Joel}; Data Science from Scratch, First Principles with
+  Python, O'Reilly Media, Sebastopol CA, 2015
 \item
   Boschetti, Alberto; Luca Massaron; Python Data Science Essentials,
   Packt Publishing, Birmingham UK, 2015
 \item
-  Perktold, Josef; Skipper Seabold; Jonathan Taylor;
+  \index{Perktold, Josef}; Skipper Seabold; Jonathan Taylor;
   \href{https://www.statsmodels.org/stable/index.html}{StatsModels}
   Washington DC Chicago IL, 2017
 \item
@@ -2193,12 +2263,12 @@ programming.
   Statistical Modeling with Python'', PROC. OF THE 9th PYTHON IN SCIENCE
   CONF. (SCIPY 2010)
 \item
-  Veneble W.; B. Ripley;
+  index\{Veneble W.\}; B. Ripley;
   \href{https://www.amazon.com/Modern-Applied-Statistics-Computing-ebook/dp/B000S1LWTE/ref=mt_kindle?_encoding=UTF8\&me=\&qid=1544630778}{Modern
   Applied Statistics with S}, 4\textsuperscript{th} ed, Springer, New
   York NY, 2002.
 \item
-  Härdle, Wolfgang K; Léopold Simar;
+  \index{Härdle, Wolfgang K}; Léopold Simar;
   \href{http://pascal.upf.edu/am/dades/h-s-mva-book/mvahtml.html}{Applied
   Multivariable Analysis},3\textsuperscript{rd} Ed., Springer, New York
   NY, 2012.
@@ -2218,14 +2288,15 @@ programming.
   \url{https://stackoverflow.com/questions/2996110/what-is-the-difference-between-a-module-and-a-script-in-python},
   accessed 12/11/2018 2:58PM.
 \item
-  Wickham, Hadley \href{https://adv-r.hadley.nz/index.html}{Advanced R}
-  Chapman \& Hall/CRC The R Series, Abingdon UK, 2014.
+  \index{Wickham, Hadley}
+  \href{https://adv-r.hadley.nz/index.html}{Advanced R} Chapman \&
+  Hall/CRC The R Series, Abingdon UK, 2014.
 \item
   Black, Kelly;
   \href{https://smile.amazon.com/R-Object-oriented-Programming-Kelly-Black-ebook/dp/B00OYTCJQG/ref=sr_1_1?ie=UTF8\&qid=1544629643\&sr=8-1\&keywords=Packt+R+Object-Oriented}{R
   Object-Oriented Programming}, Packt Publishing, Birmingham UK, 2014.
 \item
-  Chambers, John M;
+  \index{Chambers, John M};
   \href{https://smile.amazon.com/Extending-Chapman-Hall-John-Chambers-ebook/dp/B01GRHCLG0/ref=mt_kindle?_encoding=UTF8\&me=\&qid=1544629533}{Extending
   R}, Chapman \& Hall/CRC The R Series, Abington UK, 2016.
 \item
@@ -2233,7 +2304,7 @@ programming.
   \href{https://github.com/r-lib}{R Infrastructure Group}, accessed
   12/12/2018 11:27AM.
 \item
-  Leisch, Friedrich;
+  \index{Leisch, Friedrich};
   \href{https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf}{Creating
   R Packages: A Tutoria}, Compstat 2008-Proceedings in Computational
   Statistics. Physica Verlag, Heidelberg, Germany, 2008. accessed
@@ -2255,12 +2326,12 @@ Page Version ID: 871880549
 
 \part{Appendices}\label{part-appendices}
 
-\chapter{Appendix 1}\label{appendix-1}
+\chapter{Appendix 1 -Comparative Syntax for Programming Constructs of R
+and
+Python}\label{appendix-1--comparative-syntax-for-programming-constructs-of-r-and-python}
 
-\section{Comparative Syntax for Programming Constructs of R and
-Python}\label{comparative-syntax-for-programming-constructs-of-r-and-python}
-
-As introduced in the text, the syntax of both R and python for the basic
+\index{syntax} \index(syntax summary) \index{table of syntax} As
+introduced in the text, the syntax of both R and python for the basic
 programming constructs are reviewed there for reader convenience.
 
 \begin{longtable}[]{@{}lll@{}}
@@ -2393,10 +2464,11 @@ while, for\strut
 \bottomrule
 \end{longtable}
 
-\chapter{Appendix 2}\label{appendix-2}
+\chapter{Appendix 2 - Mixed R and
+Python}\label{appendix-2---mixed-r-and-python}
 
-\section{Mixed R and Python Examples with rMarkdown and Jupyter-SOS
-Notebooks}\label{mixed-r-and-python-examples-with-rmarkdown-and-jupyter-sos-notebooks}
+\section{Examples with rMarkdown and Jupyter-SOS
+Notebooks}\label{examples-with-rmarkdown-and-jupyter-sos-notebooks}
 
 \subsection{Using rmarkdown as a Mixed Language
 Environment}\label{using-rmarkdown-as-a-mixed-language-environment}
@@ -2404,8 +2476,8 @@ Environment}\label{using-rmarkdown-as-a-mixed-language-environment}
 \subsection{Using Jupyter with SOS as a Mixed Language
 Environment}\label{using-jupyter-with-sos-as-a-mixed-language-environment}
 
-\chapter{Appendix 3, R and Python
-Packages}\label{appendix-3-r-and-python-packages}
+\chapter{Appendix 3 - R and Python
+Packages}\label{appendix-3---r-and-python-packages}
 
 \section{R Core Package List}\label{r-core-package-list}
 
@@ -3705,8 +3777,8 @@ particularly thos maintained by
 \subsection{PyPI - Python Package
 Index}\label{pypi---python-package-index}
 
-\chapter{Appendix 4 Selected Tutorials and Learning
-Resources}\label{appendix-4-selected-tutorials-and-learning-resources}
+\chapter{Appendix 4 - Selected Tutorials and Learning
+Resources}\label{appendix-4---selected-tutorials-and-learning-resources}
 
 This book is available for download in \href{RPythonBookc.pdf}{pdf}
 format.
@@ -3756,6 +3828,8 @@ course, here,
   Advanced R by Hadley Wickham, \url{https://adv-r.hadley.nz/index.html}
   The best book for taking R beyond scripting.
 \end{enumerate}
+
+\printindex
 
 
 \end{document}

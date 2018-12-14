@@ -1,3 +1,5 @@
+# (PART) R and Python, Side by Side {-} 
+
 # A Comparative Look
 
 
@@ -11,19 +13,19 @@ Historically, Fortran and Basic code in common academic and educational use, bec
 
 So the perspective of R and Python as relying on script collections of functions calling each other is what we are stressing now. Purely Functional programs use functions and flow is linear through the collection which makes up the program. In a strict sense this would be done without regard to flow control, but functions are just in a sense subprograms with all the statements of procedural tasks and flow control within, common to the usual conception of programs. 
 
-I will deal, in a general way with the, statement types which make up the functions and include comparsions between how R and Python each express the tasks. As I've already stressed,this book not aimed at teaching beginning programming. Consult the bibliography for some suggested sources for beginning programmers^7, 8^.
+I will deal, in a general way with the, statement types which make up the functions and include comparsions between how R and Python each express the tasks. As I've already stressed,this book not aimed at teaching beginning programming. Consult the bibliography for some suggested sources for beginning programmers^7,^^ 8^. \index{beginner programming} \index{learning python}
 
 The later innovation of object oriented programming concepts evolving from this will be touched on in a comparative fashion in another chapter.
 
 ## Building Blocks of Functions as Procedures
 
-### Statements and Expressions
+### Statements and Expressions \index{statements} \index{expression}
 
 A program or script is of course considered as a series of instructions grouped together and run as a unit. These statements constitute expressions of mathemetical equations (see specifically [Chapter 5]()), choices, and other orders to be carried out by the machine. 
 
 With any program or script statements tasks and values stored are executed or accessed from memory locations. This was the innovation conceived of by John Von Neumann which moved programming from the moving wire jumpers to the input to the machine from various codes punched into tapes or cards to be held in memory while being used.
 
-### Assignment of Values to Memory and the Variable
+### Assignment of Values to Memory and the Variable \index{assignement statements}
 
 Variables are memory locations assigned values as the computing process goes on. The classification of specific locations determines a type of data held there.
 
@@ -34,15 +36,15 @@ Traditionally R has used the combined dash-less-than symbols ' -> ' for this pur
 Variables are named in both R and Python and neither may begin with a digit. There are other restrictions and conventions which are not gone into here. 
 
 
-### Decisions and Choices
+### Decisions and Choices \index{conditionals} \index{branching} \index{program flow} \index{choices and decisions}
 
 As currently implemented all choices by a computer resolve to yes or no results. Some semblance or the greys we think in are a result of a collection or range of yes-no questions. These choices are explicit or implicit 'if' queries.
 
-### Doing it Over Again (and again ...)
+### Doing it Over Again (and again ...) \index{loops}
 
 Loops are created within a program logic, usually involving a choice test to be executed which cause tasks to be repeated zero or more times. It is considered bad parctice to create a loop without some form of exit (short of having to power down the machine).
 
-### Functions 
+### Functions \index{functions}
 
 Functions in fortran were short program clips that did a task and immediately returned a value . Subroutines are more like what functions in R and Python are, though returning to the calling place with some value is a frequent option with these functions as well. Functions may provide a new programming element like a square root (python, math.sqrt(x)) extending the language, or functions may carry out a whole task like carring out a liner regression, storing objects of the answer in memory for retrieval, or return as an object explicitly. Often a function is called that builds a whole graphic plot for display or other output when called.
 
@@ -56,7 +58,7 @@ function.name <- function(arguments)
 }
 ```
 
-and in Python indents take the place of brackets to define code blocks. Self in the function spec is the calling code block, and if omitted, is created by python implicitly. In the functional paradigm, self is always present but implicitly. It becomes important in object-oriented programming in python where, your first argument implicitly or explicitly is the calling namespace. 'Self' in the indented code block would be the function itself.
+and in Python indents take the place of brackets to define code blocks. \index{Self} in the function spec is the calling code block, and if omitted, is created by python implicitly. In the functional paradigm, \index{self} is always present but implicitly. It becomes important in object-oriented programming in python where, your first argument implicitly or explicitly is the calling \index{namespace}. '\index{Self}' in the indented code block would be the function itself.
 
 ```
 
@@ -70,7 +72,7 @@ The notation of R is C (and Java) - like with bracketed blocks, and Python is Pa
 
 Functional programming with R and Python, will be expanded on in [Chapter 6](06-Functional_Programming.Rmd) later on.
 
-### Objects and Classes anticipating Object-Oriented Programming
+### Objects and Classes anticipating Object-Oriented Programming \index{object, class and instance}
 
 In general terms we will come to consider all program elements as objects. A Class will be considered as a pattern definition for an object in the same fashion as a function definition. All objects are used as instances of some previously defined class created by an assignment statement. 
 

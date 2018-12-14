@@ -2,7 +2,7 @@
 
 At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
 
-In using python in a functional paradigm, a script is built as a series of functions. Data is passed through one of more functions (ie. as series of functions) to carry out steps of a larger task set. When data is passed to a function to carry out some task or analysis on a dataset results may then printed out directly, stored in memory or on disk, or displayed in graphical form by passing the analysis to another set of functions such as those of matplotlib for plotting etc.
+In using python in a functional paradigm, a script is built as a series of functions. Data is passed through one of more functions (ie. as series of functions) to carry out steps of a larger task set. When data is passed to a function to carry out some task or analysis on a dataset results may then printed out directly, stored in memory or on disk, or displayed in graphical form by passing the analysis to another set of functions such as those of matplotlib \index{matplotlib} for plotting etc.
 
 A function is a set of stored programmatic statements stored in an accessible form for reuse. The function is called in R or Python by simply inserting it by name in a statement to be executed by one of the interpreters.
 
@@ -50,7 +50,7 @@ def calcArea(radius):
 print(calcArea(4))
 ```
 
-Let's discuss the differences in how the functions were called to be used. COnsider first that the book is set-up as written in rMarkdown which is running in an instance of R. The memory of the code chunk and the underling R which rmarkdown is running are the same. In python terms, the namespace is the same. This is not the case with the python code chunks. We have to explicitly pass to (and retrieve from) the R namespace for it to be accessible to the python chunk, running in it's on (python) namespace. As a result we had to redefine the function in the same namespace in which we were calling it. 
+Let's discuss the differences in how the functions were called to be used. COnsider first that the book is set-up as written in rMarkdown which is running in an instance of R. The memory of the code chunk and the underling R which rmarkdown is running are the same. In python terms, the namespace is the same. This is not the case with the python code chunks. We have to explicitly pass to (and retrieve from) the R namespace \index{namespace} for it to be accessible to the python chunk, running in it's on (python) namespace. As a result we had to redefine the function in the same namespace in which we were calling it. 
 
 With R code chunks the R memory space is open throughout but the python chunks name space is closed each time the python chunk closes. This is a feature of how I am using the R environment to write this book, not of python per se.
 
@@ -141,10 +141,10 @@ Gives an error:
 from math import pi
 print(pi)
 ```
-Once again you must know where to go to get some constants and functions with python which are built-in in R. Check out the math module in the standard python library^3^.
+Once again you must know where to go to get some constants and functions with python which are built-in in R. Check out the math module \index{math module} in the standard python library^3^. \index{standard python library}
 
 ## Using the Core R and Python Standard Libraries
-
+\index{syntax}
 Core R distributions currently install with a base set of function packages. The Table in the [Appendix 3](17-Appendix_3_Packages.Rmd) lists these. 
 
 The python standard libraries contain alot of modules which can be imported. They are grouped in modules by functionality. The functions contained in the modules can be looked up in the [Official Documentation](https://docs.python.org/3.7/) online or referring to the Hellmann^2^ book.
@@ -155,7 +155,7 @@ It's a good time to dive into the functions of the core libraries and try some m
 
 ### R Scripting
 
-The dataframe airquality is a built in dataset. Rather than display the whole tales head(n) displays the first n lines (default n=6). SImilarly tail(n) would display the last n lines. The named dataframe 'table' is created from airquality data. Then we tell R to write a file names airquality.csv. R automatically closes the file after writing is complete.
+The \index{dataframe} \index{airquality} is a built in dataset. Rather than display the whole tales head(n) \index{head(n)} displays the first n lines (default n=6). Similarly tail(n) \index{tail(n)} would display the last n lines. The named dataframe 'table' is created from airquality data. Then we tell R to write a file names airquality.csv with write.csv \index{write.csv}. R automatically closes the file after writing is complete.
 
 ```{r}
 # loading dataset from base R called 
@@ -188,7 +188,7 @@ file.close
 
 When we read a line again, we read the next line. Python readline maintains a pointer it moves as we continue to readlines. The Two lines we printer were the column names as we saved them and a line of comma separated values.
 
-Lets read the airquality.csv file back into R assigning a name "newtable" to the dataframe the read.csv command creates to store the data loaded. 
+Lets read the airquality.csv file back into R assigning a name "newtable" to the dataframe the read.csv \index{read.csv} command creates to store the data loaded. 
 
 ```{r}
 # Load csv data with R
@@ -204,7 +204,7 @@ We see something else too. R wrote the row numbers to the file (because we didn'
 
 
 Basic plotting functions are part of the r-base system we can easily plot a function,
-
+\index{syntax}
 ```{r}
 # Create a function to make a line plot or squares of x between 1 and 8
 linePlotMySquares <-function(type = "l", ...) {
@@ -218,7 +218,7 @@ linePlotMySquares()
 
 ```
 
-Python does not have a basic plotting function and the Standard Library has not provided one either. You casn write your own but there is a popular python library from the SciPy folks called Matplotlib which once installed from the shell with PIP,
+Python does not have a basic plotting function and the Standard Library has not provided one either. You casn write your own but there is a popular python library from the Scipy \index{Scipy} folks called Matplotlib which once installed from the shell with PIP \index{PIP},
 
 ```{}
 > pip install matplotlib
@@ -230,7 +230,7 @@ OR
 
 is available for import, and it contains a module called pyplot which has a simple plot function
 
-
+\index{syntax}
 ```{python}
 from matplotlib import pyplot as plt  # import pyplot library module from matplotlib
 x = list(range(1,11))                  # make a sequence of numbers from 1 through 8, called x
@@ -250,9 +250,9 @@ There are a few things to discuss here. First is the structure of the matplotlib
 
 >  Note that there's no internal distinction -- both are executable and importable, although library     code often won't do anything (or will just run its unit tests) when executed directly and importing   code designed to be a script will cause it to execute, hence the common if __name__ == "__main__"     test.^17^
 
-So what we are doing with `from matplotlib import pyplot as plt` is saying: "from the file matplotlib(.py) import the functions in the pyplot class and call the namespace containing them plt"" so that we can call them.
+So what we are doing with `from matplotlib import pyplot as plt` is saying: "from the file matploylib \index{matplotlib}(.py) \index{pyplot} import the functions in the pyplot class and call the namespace  containing them plt" \index{namespace}so that we can call them.
 
-**Note:** pip is a module, but runs independently from the command line because it contains script with a  `__main__` function accessed via pip3.exe to setup and start the process. 
+**Note:** PIP \index{PIP} is a module, but runs independently from the command line because it contains script with a  `__main__` function accessed via pip3.exe to setup and start the process. 
 
 It also runs from command line as a module executed by python with the -m switch, by
 
@@ -260,5 +260,5 @@ It also runs from command line as a module executed by python with the -m switch
 python -m pip install <some package>
 
 ```
-the -m switch tells python to run the module as a script. Most library modules are not executable as python scripts or if they are, run self-tests called by a main() function.
+the -m switch \index{-m switch} tells python to run the module as a script. Most library modules are not executable as python scripts or if they are, run self-tests called by a main() function.
 

@@ -1,7 +1,8 @@
-# Appendix 1
+# (PART) Appendices {-} 
 
-## Comparative Syntax for Programming Constructs of R and Python
+# Appendix 1 -Comparative Syntax for Programming Constructs of R and Python
 
+\index{syntax} \index(syntax summary) \index{table of syntax}
 As introduced in the text, the syntax of both R and python for the basic programming constructs are reviewed there for reader convenience.
 
 

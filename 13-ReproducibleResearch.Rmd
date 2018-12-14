@@ -1,2 +1,3 @@
 # Reproducible Research
 
+\index{reproducibility} \index{reproducible reseach} \index{data ownership vs access}

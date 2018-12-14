@@ -2,6 +2,8 @@
 
 At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
 
+\index{descripting statistics} \index{data exploration}
+
 ## Defining Functions
 
 ### R Scripting
@@ -20,6 +22,8 @@ At this point we are ready to discuss the functional programming paradigm in R a
 
 
 ## The Core or Standard Libraries
+
+\index{statistics libraries}
 
 ### R Scripting
 

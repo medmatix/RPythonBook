@@ -1,6 +1,6 @@
-# Appendix 2
+# Appendix 2 - Mixed R and Python
 
-## Mixed R and Python Examples with rMarkdown and Jupyter-SOS Notebooks
+## Examples with rMarkdown and Jupyter-SOS Notebooks
 
 ### Using rmarkdown as a Mixed Language Environment
 
