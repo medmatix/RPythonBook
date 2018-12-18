@@ -134,6 +134,7 @@
   \thm@postskip=\thm@preskip
 }
 \makeatother
+\setlength\parindent{24pt}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -211,6 +212,7 @@ constructive and civil please. Dogma will be burned with the banned
 books on Guy Fawkes day.
 
 David York 2018;
+
 email:\href{mailto:rpyfeedback@gmail.com}{\nolinkurl{rpyfeedback@gmail.com}}
 
 \section{Preface}\label{preface}
@@ -444,8 +446,8 @@ I will deal, in a general way with the, statement types which make up
 the functions and include comparsions between how R and Python each
 express the tasks. As I've already stressed,this book not aimed at
 teaching beginning programming. Consult the bibliography for some
-suggested sources for beginning programmers\^{}7, 8\^{}.
-\index{beginner programming} \index{learning python}
+suggested sources for beginning programmers\textsuperscript{7,}\^{}
+8\^{}. \index{beginner programming} \index{learning python}
 
 The later innovation of object oriented programming concepts evolving
 from this will be touched on in a comparative fashion in another
@@ -1321,17 +1323,33 @@ interpreters.
 
 \section{Defining Functions}\label{defining-functions}
 
-A function is defined in a specific format for each language.
+A function is defined in a specific format for each language. The
+definition of functions is straight forward with the previously
+introducted distinctions in code block syntax between R and Python. From
+the \href{Comparative_Overview.Rmd}{overview chapter} it can be recalled
+that R uses C-like syntax to set out code blocks with brackets \{ \}.
+Python uses pascalilike indentation to set out code blocks.
+
+R by default returns the last value produced in the function. This can
+be controlled explicitly using the \texttt{return()} function. If the
+python function is required to provide return data, a return statement
+is used. If absent, by default, nothing is returned. In python
+parentheses may be required if the return `value' is an expression or
+data stucture such as a list.
 
 \subsection{R Scripting}\label{r-scripting-1}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{doArea <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(radius)\{}
-\NormalTok{  area <-}\StringTok{ }\NormalTok{pi }\OperatorTok{*}\StringTok{ }\NormalTok{radius}\OperatorTok{^}\DecValTok{2}
+\NormalTok{  pi }\OperatorTok{*}\StringTok{ }\NormalTok{radius}\OperatorTok{^}\DecValTok{2}
 \NormalTok{\}}
 \end{Highlighting}
 \end{Shaded}
+
+With this R function the value of the result of the calculation is
+returned as result of the doArea function (see below). It can be
+assigned outside the function of used directly as a value.
 
 \subsection{Python Scripting}\label{python-scripting-1}
 
@@ -1344,7 +1362,14 @@ A function is defined in a specific format for each language.
 \end{Highlighting}
 \end{Shaded}
 
+In the python script we must explicitly tell the function what to return
+or nothing will be.
+
 \section{Calling and Using Functions}\label{calling-and-using-functions}
+
+SO here we show direct printing of doArea result and assignment of the
+result plus 100 to x which is printed (but could be used as a value in
+some other way.)
 
 \subsection{R Scripting}\label{r-scripting-2}
 
@@ -1370,6 +1395,10 @@ A function is defined in a specific format for each language.
 ## [1] 150.2655
 \end{verbatim}
 
+So the area is 50.255 (arbitary units) but x is 150.255 (units).
+
+Lets see how we would do the same thing with python.
+
 \subsection{Python Scripting}\label{python-scripting-2}
 
 \begin{Shaded}
@@ -1386,8 +1415,8 @@ A function is defined in a specific format for each language.
 ## 50.26548245743669
 \end{verbatim}
 
-Let's discuss the differences in how the functions were called to be
-used. COnsider first that the book is set-up as written in rMarkdown
+Now, consider again the differences in how the functions were called to
+be used. COnsider first that the book is set-up as written in rMarkdown
 which is running in an instance of R. The memory of the code chunk and
 the underling R which rmarkdown is running are the same. In python
 terms, the namespace is the same. This is not the case with the python
@@ -1992,7 +2021,7 @@ Let's try another, the ubiquitous Car example \index{Car example}.
 \end{Shaded}
 
 \begin{verbatim}
-## <__main__.Car object at 0x0000000064B48CF8>
+## <__main__.Car object at 0x00000000658F8DA0>
 \end{verbatim}
 
 OOoops I printed out the object info
@@ -2106,6 +2135,14 @@ and prython have library and builting functions to clean and tidy or
 data in a documented reproducible way before proceeding with our studies
 on it.
 
+In the Next few chapters we will look more closely at the Data Science
+topics and we get to use the various Python libraries to do do some real
+Data Analysis work. As we'll discuss the work begins with cleaning and
+exploration of raw data which we receive. Most of a data scientists time
+is spent deciding how the data needs to be structured and set-up from
+analysis along with the actual tasks of getting the data in the desired
+form. This is what is called data munging.
+
 \section{Reproducibility}\label{reproducibility}
 
 \index{reproducible}
@@ -2121,14 +2158,63 @@ on it.
 \chapter{Using Probability Distributions with R and
 Python}\label{using-probability-distributions-with-r-and-python}
 
-At this point we are ready to discuss the functional programming
-paradigm in R and Python. The other important paradigm, Object-Oriented,
-will be discussed in the following Chapter.
-\index{probability distribution}
+This chapter will not be an exhaustive handling of mathematical
+probability. Refer for more depth to any introductory text on
+probability\textsuperscript{30}. Context is provided here in the
+following description of the domain of probability.
+
+An outcome one of the possible results in an
+experiment\textsuperscript{29}. Any process of observation or
+measurement is called an experiment. An event is an outcome or defined
+collection of outcomes of a random experiment.
+
+A set of outcomes of an experiment forms a sample space. A population is
+the set of \textbf{all possible} events of some phenomenon.
+
+A random variable is one such that it's possible values are outcomes of
+a random process\textsuperscript{27p92}. More formally, a function that
+maps (connects) outcomes of unpredictable processes to numerical
+quantities defines a randon variable.
+
+\index{probability} Probability, P is ``a number that represents how
+likely it is that a particular thing will happen''\textsuperscript{29},
+usually expressed as the fractional occurance of a result divided by
+this result and all such other possible results of a phenomenon.
+Frequently a function may obtain which expresses the fractional
+occurance of a specific event obtaining from the population of all
+possible outcomes, as stated above.
+
+A probability space consists of three parts\textsuperscript{31}:
+
+\begin{quote}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  A sample space, Ω which is the set of all possible outcomes.
+\item
+  A set of events, F where each event is a set containing zero or more
+  outcomes.
+\item
+  The assignment of probabilities to the events; that is, a function P
+  from events to probabilities. \index{probability distribution} A
+  probability distribution is a function mapping to a set of possible
+  outcomes. The set may be arbitrarily defined or otherwise, like set of
+  fractional values, whole number values decimal values and so on.
+\end{enumerate}
+\end{quote}
+
+Each probability distribution has a defining characteristic which
+determine's it's application to a sample of data. It may represent a
+collection of descrete outcomes, such as the set of possitive integers,
+or it may represent a continuous line of possible outcomes, such as the
+set of real numbers.It may be a subset of the set Q of rational numbers
+and therfore representative of proportions of a whole. etc.
 
 \section{Basic Probability Issues}\label{basic-probability-issues}
 
-\index{probability}
+\subsection{Drawing from a Deck Cards as a Population of
+Outcomes}\label{drawing-from-a-deck-cards-as-a-population-of-outcomes}
 
 \subsection{R Scripting}\label{r-scripting-5}
 
@@ -2151,33 +2237,50 @@ Packages}\label{other-libraries-with-probability-and-statistical-packages}
 \chapter{Descriptive Statistics and Data
 Exploration}\label{descriptive-statistics-and-data-exploration}
 
-At this point we are ready to discuss the functional programming
-paradigm in R and Python. The other important paradigm, Object-Oriented,
-will be discussed in the following Chapter.
+To aid in the decisions about what analyses are necessary, and the
+munging to be done (the topic of the previous chapter) we need to
+explore fully what we've been given or collected. That is what we
+discuss in the current chapter. Then the analyses can be quickly run and
+ready to be formated for presentation as discussed in the following
+chapters.
 
-\index{descripting statistics} \index{data exploration}
+\index{data exploration} Rudimentary Statistical Description and
+Exploration of data (summarizing and visualizing) is appropriate now. We
+have documented and removed confounding, irrelevant and unusable data to
+obtain our final study dataset. To get a feel for what's left we of
+course look at the amount (number and range), centering (median, mode
+and mean), spread (quantiles and variance) and skewness (and
+concentrations) of the data.
 
-\section{Defining Functions}\label{defining-functions-1}
+Perhaps having selected a distribution to consider as context we can
+check that the choice is appropriate. On the other hand we can decide
+that a context without statistical parameters is more appropriate (a
+non-parametric approach) and do perliminary studies for that.
+
+All of this description, and exploration, and checking is to be done in
+both R and in Python to compare the mechanics and look of the tasks done
+by each. Strengths and weaknesses, by task, of one or the other language
+could become apparent.
+
+\index{descriptive statistics} \#\# The Summarizing the Data
 
 \subsection{R Scripting}\label{r-scripting-7}
 
 \subsection{Python Scripting}\label{python-scripting-8}
 
-\section{Calling and Using
-Functions}\label{calling-and-using-functions-1}
+\index{Data Visualization} \#\# Visualizing the Data and some
+Relationships
 
 \subsection{R Scripting}\label{r-scripting-8}
 
 \subsection{Python Scripting}\label{python-scripting-9}
 
-\section{The Core or Standard
-Libraries}\label{the-core-or-standard-libraries}
-
-\index{statistics libraries}
-
-\subsection{R Scripting}\label{r-scripting-9}
-
-\subsection{Python Scripting}\label{python-scripting-10}
+Ensuing chapters will look at the organization and analysis of the data
+we have explored and cleaned, for different kinds of computational
+intervention. Exploring the probability distributions and how to employ
+them is discussed in the probability Chapter. Further various models of
+the data are implemented, all in the context of how to use R as compared
+to python for these tasks.
 
 \chapter{Statistical Analysis and
 Modeling}\label{statistical-analysis-and-modeling}
@@ -2191,16 +2294,16 @@ will be discussed in the following Chapter.
 \section{Defining the Available
 Functions}\label{defining-the-available-functions}
 
+\subsection{R Scripting}\label{r-scripting-9}
+
+\subsection{Python Scripting}\label{python-scripting-10}
+
+\section{Calling and Using
+Functions}\label{calling-and-using-functions-1}
+
 \subsection{R Scripting}\label{r-scripting-10}
 
 \subsection{Python Scripting}\label{python-scripting-11}
-
-\section{Calling and Using
-Functions}\label{calling-and-using-functions-2}
-
-\subsection{R Scripting}\label{r-scripting-11}
-
-\subsection{Python Scripting}\label{python-scripting-12}
 
 \chapter{Non-Stochastic Models}\label{non-stochastic-models}
 
@@ -2214,7 +2317,7 @@ includes mathematical programming.
 
 \chapter{References}\label{references}
 
-\index{reference sources} 1. Core R Team (Ed.),
+\index{reference sources} 1. Core R Team (Ed.), \index{R Core Team}
 \href{https://cran.cnr.berkeley.edu/doc/manuals/r-release/fullrefman.pdf}{R
 Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
 
@@ -2222,16 +2325,16 @@ Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
 \def\labelenumi{\arabic{enumi}.}
 \setcounter{enumi}{1}
 \item
-  \index{Hellmann, Doug};
+  Hellmann, Doug \index{Hellmann, Doug};
   \href{https://www.amazon.com/Python-Standard-Library-Example-Developers-ebook/dp/B072QZZDV7}{The
   Python 3 Standard Library by example}, Addison-Wesley, Boston MA,
   2017.
 \item
-  \index{Python Software Foundation} (Ed.).,
+  Python Software Foundation \index{Python Software Foundation} (Ed.).,
   \href{https://docs.python.org/3.7/}{Python 3.7.1 documentation},
   Python Software Foundation, Wilmington Delaware, 2018
 \item
-  \index{RStudio} Consortium (Ed.),
+  RStudio\index{RStudio} Consortium (Ed.),
   \href{https://support.rstudio.com/hc/en-us/categories/200035113-Documentation}{RStudio
   Documentation}, Boston MA, 2018
 \item
@@ -2243,19 +2346,20 @@ Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
   Python Software Foundation(Ed.), \href{https://pypi.org/}{Python
   Package Index}, Wilmington Delaware, 2018
 \item
-  \index{Dalgaard, Peter}; Introductory Statistics with R,
-  Springer-Valng, New York NY, 2002.
+  Dalgaard, Peter \index{Dalgaard, Peter}; Introductory Statistics with
+  R, Springer-Valng, New York NY, 2002.
 \item
-  \{Lutz, Mark\}; Learning Python 4\textsuperscript{th} Ed., O'Reilly
-  Media, Sebastopol CA, 2009.
+  Lutz, Mark \{Lutz, Mark\}; Learning Python 4\textsuperscript{th} Ed.,
+  O'Reilly Media, Sebastopol CA, 2009.
 \item
-  \index{Grus, Joel}; Data Science from Scratch, First Principles with
-  Python, O'Reilly Media, Sebastopol CA, 2015
+  Grus, Joel \index{Grus, Joel}; Data Science from Scratch, First
+  Principles with Python, O'Reilly Media, Sebastopol CA, 2015
 \item
   Boschetti, Alberto; Luca Massaron; Python Data Science Essentials,
   Packt Publishing, Birmingham UK, 2015
 \item
-  \index{Perktold, Josef}; Skipper Seabold; Jonathan Taylor;
+  Perktold, Josef \index{Perktold, Josef}; Skipper Seabold; Jonathan
+  Taylor;
   \href{https://www.statsmodels.org/stable/index.html}{StatsModels}
   Washington DC Chicago IL, 2017
 \item
@@ -2263,12 +2367,12 @@ Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
   Statistical Modeling with Python'', PROC. OF THE 9th PYTHON IN SCIENCE
   CONF. (SCIPY 2010)
 \item
-  index\{Veneble W.\}; B. Ripley;
+  Veneble W. index\{Veneble W.\}; B. Ripley;
   \href{https://www.amazon.com/Modern-Applied-Statistics-Computing-ebook/dp/B000S1LWTE/ref=mt_kindle?_encoding=UTF8\&me=\&qid=1544630778}{Modern
   Applied Statistics with S}, 4\textsuperscript{th} ed, Springer, New
   York NY, 2002.
 \item
-  \index{Härdle, Wolfgang K}; Léopold Simar;
+  Härdle, Wolfgang K \index{Härdle, Wolfgang K}; Léopold Simar;
   \href{http://pascal.upf.edu/am/dades/h-s-mva-book/mvahtml.html}{Applied
   Multivariable Analysis},3\textsuperscript{rd} Ed., Springer, New York
   NY, 2012.
@@ -2288,7 +2392,7 @@ Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
   \url{https://stackoverflow.com/questions/2996110/what-is-the-difference-between-a-module-and-a-script-in-python},
   accessed 12/11/2018 2:58PM.
 \item
-  \index{Wickham, Hadley}
+  Wickham, Hadley \index{Wickham, Hadley}
   \href{https://adv-r.hadley.nz/index.html}{Advanced R} Chapman \&
   Hall/CRC The R Series, Abingdon UK, 2014.
 \item
@@ -2296,19 +2400,61 @@ Reference Index}, R Foundation for Statistical Computing, Vienna, 2018.
   \href{https://smile.amazon.com/R-Object-oriented-Programming-Kelly-Black-ebook/dp/B00OYTCJQG/ref=sr_1_1?ie=UTF8\&qid=1544629643\&sr=8-1\&keywords=Packt+R+Object-Oriented}{R
   Object-Oriented Programming}, Packt Publishing, Birmingham UK, 2014.
 \item
-  \index{Chambers, John M};
+  Chambers, John M \index{Chambers, John M};
   \href{https://smile.amazon.com/Extending-Chapman-Hall-John-Chambers-ebook/dp/B01GRHCLG0/ref=mt_kindle?_encoding=UTF8\&me=\&qid=1544629533}{Extending
   R}, Chapman \& Hall/CRC The R Series, Abington UK, 2016.
 \item
-  Chang, Winston \href{https://r6.r-lib.org/}{R6} with
-  \href{https://github.com/r-lib}{R Infrastructure Group}, accessed
+  Chang, Winston \index{Chang, Winston} \href{https://r6.r-lib.org/}{R6}
+  with \href{https://github.com/r-lib}{R Infrastructure Group}, accessed
   12/12/2018 11:27AM.
 \item
-  \index{Leisch, Friedrich};
+  Leisch, Friedrich\index{Leisch, Friedrich};
   \href{https://cran.r-project.org/doc/contrib/Leisch-CreatingPackages.pdf}{Creating
   R Packages: A Tutoria}, Compstat 2008-Proceedings in Computational
   Statistics. Physica Verlag, Heidelberg, Germany, 2008. accessed
   12/12/2018 3:58PM
+\item
+  Schmidt, Drew:\index{Schmidt, Drew}
+  \href{https://cran.r-project.org/web/packages/dequer/dequer.pdf}{Package
+  `Dequer'}, CRAN, 2017.accessed 2018/12/15 9:53AM \index{dequer}
+\item
+  Dowle, Matt; \index{Dowle, Matt}
+  \href{https://cran.r-project.org/web/packages/data.table/data.table.pdf}{Package
+  `data.table'}, CRAN, 2018 accessed 2018/12/15 10:00AM
+  \index{data.table}
+\item
+  McKinney, Wes et al.; \index{McKinney, William}
+  \href{http://pandas.pydata.org/pandas-docs/stable/pandas.pdf}{Pandas:
+  Powerful Python Data Analysis Toolkit} Pandas Project,2018. accessed:
+  2018/12/15 10:52AM
+\item
+  McKinney, William;\index{McKinney, William} {[}Python for Data
+  Analysis, 2nd Ed{]}, OReilly, Sebastopol CA, 2017.
+\item
+  Blitzstein, Joe;\index{Blitzsein, Joe et al.} Hwang, Jessica;
+  \href{https://www.amazon.com/Introduction-Probability-Chapman-Statistical-Science-ebook/dp/B00MMOJ19I}{Introduction
+  to Probability}, CRC Press, Abington UK 2014.
+\item
+  \href{https://www.statistics.com/glossary}{Glossary of statistical
+  terms} Institute for Statistics Education, Arlington, VA accessed:
+  2018/12/15 2:51PM
+\item
+  The Cambridge English Dictionary, Cambridge University Press,
+  Cambridge UK, 2018 \href{https://dictionary.cambridge.org/us/}{Online
+  Dicionary} accessed: 2018/12/15 3:335PM.
+\item
+  Grinstead, Charles M.; j. Laurie Snell;
+  \href{https://www.math.dartmouth.edu/~prob/prob/prob.pdf}{Introduction
+  to Probability} American Mathematical Society, Providence RI, 2003
+  accessed: 2018/12/15 3:25PM
+\item
+  Stroock, D.W; Probability theory: an analytic view. Cambridge
+  University Press. Cambridge UK, (1999)
+\item
+  Kerns, G Jay;
+  \href{https://cran.r-project.org/web/packages/IPSUR/vignettes/IPSUR.pdf}{Introduction
+  to Probability and Statistics with R}, CRAN @ R Foundation for
+  Statistical Computing, Vienna, 2018. accessed:2018/12/15 4:20PM
 \end{enumerate}
 
 \chapter{Bibliography}\label{bibliography}
@@ -2330,9 +2476,13 @@ Page Version ID: 871880549
 and
 Python}\label{appendix-1--comparative-syntax-for-programming-constructs-of-r-and-python}
 
-\index{syntax} \index(syntax summary) \index{table of syntax} As
-introduced in the text, the syntax of both R and python for the basic
+\index{syntax} \index{syntax summary} \index{syntax table}
+
+As introduced in the text, the syntax of both R and python for the basic
 programming constructs are reviewed there for reader convenience.
+
+\index{data-types} \index{operators} \index{control structures}
+\index{Data Structures, basic core}
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule
@@ -2355,7 +2505,7 @@ true scalars\strut
 \begin{minipage}[t]{0.19\columnwidth}\raggedright\strut
 \strut
 \end{minipage} & \begin{minipage}[t]{0.33\columnwidth}\raggedright\strut
-vectors, (numerical, character, logical, factor)\strut
+vectors, (numerical, character, logical, factor, date, time)\strut
 \end{minipage} & \begin{minipage}[t]{0.39\columnwidth}\raggedright\strut
 (string, integer, float, complex, boolean)\strut
 \end{minipage}\tabularnewline
@@ -2453,16 +2603,75 @@ while, for\strut
 \bottomrule
 \end{longtable}
 
+These are the synatx of the basic R and Python distributions.
+(Illustrative examples are included later below.)
+
 \section{Extended Structures}\label{extended-structures}
 
-\begin{longtable}[]{@{}llll@{}}
+\index{Data Structures, non-basic }
+
+\begin{longtable}[]{@{}lll@{}}
 \toprule
-& R & Python &\tabularnewline
+& R & Python\tabularnewline
 \midrule
 \endhead
-& & &\tabularnewline
+\emph{\textbf{from . . .}} & \emph{\textbf{Packages}} &
+\emph{\textbf{Libraries}}\tabularnewline
+& \textbf{Core Dist} &
+\textbf{Standard}\textsuperscript{2}\tabularnewline
+& \textbf{data.table}\textsuperscript{23} & \emph{deque}\tabularnewline
+& \emph{data.table} & \emph{array}\tabularnewline
+& \textbf{dequer}\textsuperscript{24} & \emph{datetime}\tabularnewline
+& \emph{queue} & \emph{calendar}\tabularnewline
+& \emph{deque} & \emph{counter}\tabularnewline
+& \emph{stack} & \emph{chainmap}\tabularnewline
+& & \emph{enum}\tabularnewline
+& & \emph{hashq}\tabularnewline
+& & \emph{namedtuple}\tabularnewline
+& & \emph{OrderedDict}\tabularnewline
+& & \textbf{Pandas}\textsuperscript{24}\tabularnewline
+& & \emph{DataFrame}\tabularnewline
+& & \emph{Series}\tabularnewline
+& & \emph{Panel}\textsuperscript{depreciated}\tabularnewline
+& & \textbf{Numpy}\tabularnewline
+& & \emph{ndarray}\tabularnewline
+& & \emph{matrix}\tabularnewline
 \bottomrule
 \end{longtable}
+
+\section{Functions and Classes
+Syntax}\label{functions-and-classes-syntax}
+
+\index{syntax}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule
+& R & Python\tabularnewline
+\midrule
+\endhead
+Functions & myfunc \textless{}- function(args)\{ & def myfunc(self.
+args):\tabularnewline
+& . . . y \textless{}- operate-on(args) & . . . return
+operate-on(args)\tabularnewline
+& \} & . . .\tabularnewline
+Objects and Classes & S3 & Class definition\tabularnewline
+& S4 & Class():\tabularnewline
+& & . . . {[}def \emph{init}():{]}\tabularnewline
+& RC &\tabularnewline
+& R6 & \emph{cf.}\tabularnewline
+& & Truck(Car):\tabularnewline
+& & . . . def \emph{init}():\tabularnewline
+& & . . . def amethod(self)\tabularnewline
+\bottomrule
+\end{longtable}
+
+\section{Programming Examples}\label{programming-examples}
+
+\subsection{Selected R programming Syntax
+Examples}\label{selected-r-programming-syntax-examples}
+
+\subsection{Selected Python 3.x programming Syntax
+Examples}\label{selected-python-3.x-programming-syntax-examples}
 
 \chapter{Appendix 2 - Mixed R and
 Python}\label{appendix-2---mixed-r-and-python}

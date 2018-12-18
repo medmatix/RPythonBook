@@ -8,17 +8,21 @@ A function is a set of stored programmatic statements stored in an accessible fo
 
 ## Defining Functions
 
-A function is defined in a specific format for each language.
+A function is defined in a specific format for each language. The definition of functions is straight forward with the previously introducted distinctions in code block syntax between R and Python. From the [overview chapter](Comparative_Overview.Rmd) it can be recalled that R uses C-like syntax to set out code blocks with brackets { }. Python uses pascalilike indentation to set out code blocks.
+
+R by default returns the last value produced in the function. This can be controlled explicitly using the `return()` function. If the python function is required to provide return data, a return statement is used. If absent, by default, nothing is returned. In python parentheses may be required if the return 'value' is an expression or data stucture such as a list.
 
 ### R Scripting
 
 ```{r}
 
 doArea <- function(radius){
-  area <- pi * radius^2
+  pi * radius^2
 }
 
 ```
+
+With this R function the value of the result of the calculation is returned as result of the doArea function (see below). It can be assigned outside the function of used directly as a value.
 
 ### Python Scripting
 
@@ -28,9 +32,16 @@ def calcArea(radius):
   area = math.pi * radius**2
   return area
 ```
+
+In the python script we must explicitly tell the function what to return or nothing will be.
+
+
 ## Calling and Using Functions
 
+ SO here we show direct printing of doArea result and assignment of the result plus 100 to x which is printed  (but could be used as a value in some other way.)
+
 ### R Scripting
+
 ```{r}
 
 radius = 4
@@ -41,7 +52,12 @@ print(x)
 
 ```
 
+So the area is 50.255 (arbitary units) but x is 150.255 (units).
+
+Lets see how we would do the same thing with python.
+
 ### Python Scripting
+
 ```{python}
 import math
 def calcArea(radius):
@@ -50,7 +66,7 @@ def calcArea(radius):
 print(calcArea(4))
 ```
 
-Let's discuss the differences in how the functions were called to be used. COnsider first that the book is set-up as written in rMarkdown which is running in an instance of R. The memory of the code chunk and the underling R which rmarkdown is running are the same. In python terms, the namespace is the same. This is not the case with the python code chunks. We have to explicitly pass to (and retrieve from) the R namespace \index{namespace} for it to be accessible to the python chunk, running in it's on (python) namespace. As a result we had to redefine the function in the same namespace in which we were calling it. 
+Now, consider again the differences in how the functions were called to be used. COnsider first that the book is set-up as written in rMarkdown which is running in an instance of R. The memory of the code chunk and the underling R which rmarkdown is running are the same. In python terms, the namespace is the same. This is not the case with the python code chunks. We have to explicitly pass to (and retrieve from) the R namespace \index{namespace} for it to be accessible to the python chunk, running in it's on (python) namespace. As a result we had to redefine the function in the same namespace in which we were calling it. 
 
 With R code chunks the R memory space is open throughout but the python chunks name space is closed each time the python chunk closes. This is a feature of how I am using the R environment to write this book, not of python per se.
 

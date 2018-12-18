@@ -2,14 +2,21 @@
 
 # Appendix 1 -Comparative Syntax for Programming Constructs of R and Python
 
-\index{syntax} \index(syntax summary) \index{table of syntax}
+\index{syntax} 
+\index{syntax summary}
+\index{syntax table}
+
 As introduced in the text, the syntax of both R and python for the basic programming constructs are reviewed there for reader convenience.
 
+\index{data-types}
+\index{operators}
+\index{control structures}
+\index{Data Structures, basic core}
 
 ||R|Python|
 |----------------|----------------------------|----------------------------------|
 |**Basic Data types and structures **|scalar == vector[0]|true scalars|
-||vectors, (numerical, character, logical, factor) |(string, integer, float, complex, boolean)|
+||vectors, (numerical, character, logical, factor, date, time) |(string, integer, float, complex, boolean)|
 ||arrays, == vectors (m x n)|arrays (m x n) of scalars|
 ||matrices, ||
 ||data frames, |dictionary,|
@@ -24,9 +31,58 @@ As introduced in the text, the syntax of both R and python for the basic program
 |- conditionals, decisions|if-else, ifelse(), switch|if, else, elif|
 |- Loops| while(), for()| while, for |
   
-  
+These are the synatx of the basic R and Python distributions. (Illustrative examples are included later below.)
+
+
 ## Extended Structures
- 
+
+\index{Data Structures, non-basic }
+
 || R | Python |
-|---|---|---|---|
-||||
+|---------|-------------------------|------------------------|
+|_**from . . .**_| _**Packages**_| _**Libraries**_|
+||**Core Dist**|**Standard**^2^ |
+||**data.table**^23^   |*deque*|
+||*data.table*|*array*|
+||**dequer**^24^|*datetime*|
+||*queue*|*calendar*|
+||*deque*|*counter*|
+||*stack*|*chainmap*|
+|||*enum*|
+|||*hashq*|
+|||*namedtuple*|
+|||*OrderedDict*|
+|||**Pandas**^24^|
+|||*DataFrame*|
+|||*Series*|
+|||*Panel*^depreciated^|
+|||**Numpy**|
+|||*ndarray*|
+|||*matrix*|
+
+## Functions and Classes Syntax
+
+\index{syntax}
+
+|| R | Python |
+|---------|-------------------------|------------------------|
+|Functions|myfunc <- function(args){|def myfunc(self. args):|
+||. . . y <- operate-on(args)|. . . return operate-on(args)|
+||}|. . . |
+|Objects and Classes|S3|Class definition|
+||S4|Class(<parent>):|
+|||. . . [def _init_():] |
+||RC|  |
+||R6|*cf.*|
+|||Truck(Car):|
+||  |. . . def _init_(): |
+||  |. . . def amethod(self)|
+
+
+## Programming Examples
+
+### Selected R programming Syntax Examples 
+
+
+### Selected Python 3.x  programming Syntax Examples
+

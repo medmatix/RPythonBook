@@ -1,9 +1,13 @@
-# (PART) Data Science Topics in Python Compared to R {-}
+# (PART)  Data Science Topics in Python Compared to R {-}
+
 
 # Clean and Tidy Data 
 
 \index{cleaning data} \index{tidy data}
 In an ideal world all data would come organized and in an immediatelyt usable form. Of course, such is unlikely. Datasets are missing values, in the wrong datatype for use, have misleading correlations, such as with time data, and so on. Both R and prython have library and builting functions to clean and tidy or data in a documented reproducible way before proceeding with our studies on it.
+
+In the Next few chapters we will look more closely at the Data Science topics and we get to use the various Python libraries to do do some real Data Analysis work. As we'll discuss the work begins with cleaning and exploration of  raw data which we receive. Most of a data scientists time is spent deciding how the data needs to be structured and set-up from analysis along with the actual tasks of getting the data in the desired form. This is what is called data munging. 
+
 
 ## Reproducibility
 

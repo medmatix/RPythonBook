@@ -2,12 +2,39 @@
 
 # Using Probability Distributions with R and Python
 
-At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
+This chapter will not be an exhaustive handling of mathematical probability. Refer for more depth to any introductory text on probability^30^. Context is provided, somewhat, here in the following overview of the domain of probability. I suspect all have had a course in probability and statistics if you have been usinf R and this few paragraphs can be skipped over. Those with no probability of statistics would be well served to atleast skim Kerns^32^ book along with the examples. The Chapter on probability in Grus^9p69^ is also recommended. See the Resources in [Appendix 4.]()
+
+
+An outcome one of the possible results in an experiment^29^. Any process of observation or measurement is called an experiment. An event is an outcome or defined collection of outcomes of a random experiment. 
+
+A set of outcomes of an experiment forms a sample space. A population is the set of **all possible** events of some phenomenon.
+
+A random variable is one such that it's possible values are outcomes of a random process^27p92^. More formally, a function that maps (connects) outcomes of unpredictable processes to numerical quantities defines a randon variable.
+
+\index{probability}
+Probability, P is "a number that represents how likely it is that a particular thing will happen"^29^, usually expressed as the fractional occurance of a result divided by this result and all such other  possible results of a phenomenon. Frequently a function may obtain which expresses the fractional occurance of a specific event obtaining from the population of all possible outcomes, as stated above.
+
+A probability space consists of three parts^31^:
+
+> 1.   A sample space, Ω  which is the set of all possible outcomes.
+ 2.    A set of events,  F  where each event is a set containing zero or more outcomes.
+ 3.    The assignment of probabilities to the events; that is, a function P from events to probabilities.
 \index{probability distribution}
+A probability distribution is a function mapping to a set of possible outcomes. The set may be arbitrarily defined or otherwise, like set of fractional values, whole number values decimal values and so on.
+
+Each probability distribution has a defining characteristic which determine's it's application to a sample of data. It may represent a collection of descrete outcomes, such as the set of possitive integers, or it may represent a continuous line of possible outcomes, such as the set of real numbers.It may be a subset of the set Q of rational numbers and therfore representative of proportions of a whole. etc.
+
+
+\Grus
+
 
 ## Basic Probability Issues
 
-\index{probability}
+With the above in the far back of our mind, we will basically consider matters of probability using R and Python. An approchable source for learning probability and statistics with R^32^ will provide some code examples to illustrate. As will Grus^9^ with python.
+
+### Drawing from a Deck Cards as a Population of Outcomes
+
+
 
 ### R Scripting
 
@@ -17,8 +44,8 @@ At this point we are ready to discuss the functional programming paradigm in R a
 
 ## Using the Distrbutions
 
-\index{probability distribution
-}
+\index{probability distribution}
+
 ### R Scripting
 
 

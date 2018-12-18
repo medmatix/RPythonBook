@@ -1,10 +1,26 @@
 # Descriptive Statistics and Data Exploration
 
-At this point we are ready to discuss the functional programming paradigm in R and Python. The other important paradigm, Object-Oriented, will be discussed in the following Chapter.
+To aid in the decisions about what analyses are necessary, and the munging to be done (the topic of the previous chapter) we need to explore fully what we've been given or collected. That is what we discuss in the current chapter. Then the analyses can be quickly run and ready to be formated for presentation as discussed in the following chapters.
 
-\index{descripting statistics} \index{data exploration}
+\index{data exploration}
+Rudimentary Statistical Description and Exploration of data (summarizing and visualizing) is appropriate now. We have documented and removed confounding, irrelevant and unusable data to obtain our final study dataset. To get a feel for what's left we of course look at the amount (number and range), centering (median, mode and mean), spread (quantiles and variance) and skewness (and concentrations) of the data. 
 
-## Defining Functions
+Perhaps having selected a distribution to consider as context we can check that the choice is appropriate. On the other hand we can decide that a context without statistical parameters is more appropriate (a non-parametric approach) and do perliminary studies for that.
+
+All of this description, and exploration, and checking is to be done in both R and in Python to compare the mechanics and look of the tasks done by each. Strengths and weaknesses, by task, of one or the other language could become apparent.
+
+\index{descriptive statistics} 
+## The Summarizing the Data
+
+
+### R Scripting
+
+
+### Python Scripting
+
+\index{Data Visualization}
+## Visualizing the Data and some Relationships
+
 
 ### R Scripting
 
@@ -12,20 +28,6 @@ At this point we are ready to discuss the functional programming paradigm in R a
 ### Python Scripting
 
 
-## Calling and Using Functions
-
-### R Scripting
 
 
-### Python Scripting
-
-
-
-## The Core or Standard Libraries
-
-\index{statistics libraries}
-
-### R Scripting
-
-
-### Python Scripting
+Ensuing chapters will look at the organization and analysis of the data we have explored and cleaned, for different kinds of computational intervention. Exploring the probability distributions and how to employ them is discussed in the probability Chapter. Further various models of the data are implemented, all in the context of how to use R as compared to python for these tasks.

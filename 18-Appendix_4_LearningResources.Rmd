@@ -19,4 +19,4 @@ This book is available for download in [pdf](RPythonBookc.pdf) format.
 8. Advanced R by Hadley Wickham, https://adv-r.hadley.nz/index.html The best book for taking R beyond scripting.
 
 
-
+9. **DataCamp Tutotials** [Poker Probability and Statistics with Python](https://www.datacamp.com/community/tutorials/statistics-python-tutorial-probability-1)
