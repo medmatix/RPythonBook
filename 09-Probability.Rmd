@@ -25,7 +25,7 @@ A probability distribution is a function mapping to a set of possible outcomes. 
 Each probability distribution has a defining characteristic which determine's it's application to a sample of data. It may represent a collection of descrete outcomes, such as the set of possitive integers, or it may represent a continuous line of possible outcomes, such as the set of real numbers.It may be a subset of the set Q of rational numbers and therfore representative of proportions of a whole. etc.
 
 
-\Grus
+\index{Grus}
 
 
 ## Basic Probability Issues
